@@ -1,7 +1,7 @@
 # Priyanshu Raj portfolio — agent instructions
 
 ## Scope and approvals
-Follow the eight phases in PHASES.md. The user subsequently supplied the target project tree; this authorizes Phase 1 foundation setup. Complete rendered reference analysis before visual feature implementation. At the end of each phase, update documentation, report changed files and checks, provide manual verification steps, and wait for explicit user approval before the next phase. Never treat elapsed time as approval.
+Follow the eight phases in PHASES.md. The user authorized Phase 1 through the project tree and explicitly authorized Phase 2. Desktop/mobile rendered design-system inspection is now available; see REFERENCE_ANALYSIS.md. Stop after Phase 2 until the user approves Phase 3. At the end of each phase, update documentation, report changed files and checks, provide manual verification steps, and wait for explicit user approval before the next phase. Never treat elapsed time as approval.
 
 ## Engineering
 Use Next.js App Router, React, strict TypeScript, Tailwind CSS, Motion for React, and Lucide React. Prefer Canvas API for the neural visualization; add Three.js only with demonstrated need. Keep server components by default and isolate client interactions. Use reusable semantic components and typed content in src/content, separate from rendering. Avoid secrets, unnecessary dependencies, and runtime GitHub API dependencies.

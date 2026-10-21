@@ -1,9 +1,9 @@
 # Reference analysis — https://www.advaysinha.in/
 
-Inspection date: 2026-10-21. Status: **partial source inspection; visual/interactive inspection unavailable**.
+Inspection date: 2026-10-21. Status: **Phase 2 design-system source and rendered desktop/mobile inspection complete; feature interactions remain partially unverified**.
 
 ## Evidence and limits
-The web reader could not access the reference. Direct HTTPS retrieval succeeded for homepage HTML and `/_next/static/chunks/0cw2oh1-vlpor.css`. No interactive browser tool is available in this session. Findings below are HTML/CSS/script observations, not measured rendered screenshots or tested interactions. JavaScript bundle internals, canvas implementation and dossier routes have not yet been inspected. Do not claim exact visual fidelity or observed animation behavior from this record.
+The web reader could not access the reference. Direct HTTPS retrieval succeeded for homepage HTML and `/_next/static/chunks/0cw2oh1-vlpor.css`. During planning, no dedicated browser tool was available. In Phase 2, temporary Playwright tooling with installed Google Chrome enabled rendered desktop/mobile inspection; see the Phase 2 addendum. Earlier findings below identify source observations separately. JavaScript bundle internals, canvas implementation and dossier routes have not yet been inspected. Do not claim exact visual fidelity or observed animation behavior from this record.
 
 ## Structure observed in HTML
 A boot interface contains Systems Nexus, initialization console, percentage, three stages (interface, neural link, workspace), pointer hint and Skip boot. Main navigation links About, Projects, Journey, Certs, Terminal and Contact to #core, #vault, #logs, #live, #terminal and #contact. Skip-to-content and a motion control are present. Sections use DEPTH.01–06.
@@ -41,11 +41,27 @@ Inline boot guard skips loading for reduced motion, saved motion pause, previous
 CSS defines hero entrance/settle, blinking, node pulse, ring rotation, aurora, scan and grid effects; presence does not prove that all are active. Reduced-motion rules and data-motion=off disable effects. Lenis-related selectors exist, but its runtime use has not been confirmed. Neural hints say Move to orbit and Scroll to unfold; pointer hint says excite the core. Rendering algorithm, topology, drag/hover/scroll mapping and frame rate remain unknown.
 
 ## Required visual evidence
-Before finalizing the analysis, obtain:
+The following broader feature evidence remains useful beyond the Phase 2 screenshots now captured:
 - Desktop full-page screenshots at 1440x900 (or actual viewport dimensions), and closeups of hero, selected project, timeline, archive, terminal and contact.
 - Mobile full-page screenshots at 390x844 (or actual viewport dimensions), including navigation and project behavior.
 - A fresh-session load recording showing boot, skip and settled hero.
 - A recording of pointer movement over the neural core, page scrolling, project selection, dossier opening and browser-back behavior.
 - A recording of archive scrolling/hover and terminal help/unknown-command/clear behavior; include motion pause and reduced-motion comparison if possible.
 
-Do not invent findings to fill these gaps. If browser tooling becomes available, inspect directly instead of requiring user captures. The subsequent user-provided project tree authorizes foundation scaffolding; rendered reference analysis remains required before visual feature implementation.
+Do not invent findings to fill these gaps. If browser tooling becomes available, inspect directly instead of requiring user captures. The subsequent project tree authorized foundation scaffolding and the explicit Phase 2 request authorized the design system. Rendered Phase 2 reference inspection has now been performed.
+
+## Phase 2 rendered inspection — 2026-10-21
+Temporary Playwright 1.64.1, installed only under /tmp, drove the existing Google Chrome executable. A fresh curl attempt failed DNS, but Chrome successfully loaded the live reference with network-idle waiting and reduced-motion emulation. Screenshots were captured at 1440×900 and 390×844, and visually inspected.
+
+Confirmed computed styles: header 82px on desktop; shell background rgb(8,8,13); Space Grotesk family. The desktop screenshot shows the fixed glass header, small mono navigation, about/depth label, large two-line name with muted lavender second line, restrained body text, underline/circle primary action, fine borders and grain. Mobile screenshot shows 72px header, hidden brand text and nav numbers, single-column hero, 24px content gutter and preserved mono navigation. Reference neural art was visible in this reduced-motion capture, but its runtime rendering/animation was not analyzed in Phase 2.
+
+Additional source evidence used: second name line #bbb0cf; name masks include padding/margins that preserve descenders; primary .nx-link uses a bottom hairline and 32px circular arrow; atmosphere noise is low-opacity fractal noise. Implemented equivalent CSS/SVG noise, without downloading reference artwork or identity assets. The brand icon uses Lucide Orbit rather than copying the reference owner's personal monogram.
+
+Local implementation screenshots were inspected at 1440px and 320px; a 390px full-page capture was also generated. Font/palette/header/layout fidelity has been checked within the Phase 2 scope. The current page deliberately contains section shells rather than reproducing future features, so full-page content and interactive equivalence is not claimed. Remaining feature analysis (boot, neural response, project selection/dossiers, archive and shell) belongs to later approved phases.
+
+Font sources (SIL Open Font License files are colocated with downloaded TTFs):
+- https://github.com/google/fonts/tree/main/ofl/spacegrotesk
+- https://github.com/google/fonts/tree/main/ofl/jetbrainsmono
+- https://github.com/google/fonts/tree/main/ofl/oxanium
+
+QA images and temporary browser scripts are under /tmp/priyanshu-phase2-* and /tmp/priyanshu-phase2-qa; these are local QA artifacts, not committed reference assets.

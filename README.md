@@ -3,7 +3,7 @@
 Personal portfolio planned with Next.js App Router, React, TypeScript, Tailwind CSS, Motion for React and Lucide React. Visual reference: https://www.advaysinha.in/. Hosting target: Vercel.
 
 ## Status
-Phase 1 foundation complete, 21 October 2026. Includes an App Router foundation page, strict TypeScript, Tailwind CSS, Motion for React, Lucide React, separate typed content and metadata. Lint, typecheck, production build and production HTTP smoke passed. Visual features and deployment are pending; reference browser inspection remains incomplete. The temporary page uses noindex until publication readiness.
+Phase 2 design system complete, 21 October 2026. The portfolio now has reference-based typography, colors, atmospheric background, responsive glass navigation, shared controls and six section shells. Fonts are self-hosted with their SIL Open Font Licenses. Desktop/mobile reference inspection and local Chrome QA were performed. Lint, typecheck, build and browser checks pass. Boot/neural features, verified project content and deployment remain for later phases. The page retains noindex until publication readiness.
 
 ## Documentation
 - [Agent standards](AGENTS.md)
@@ -39,4 +39,7 @@ In Phase 8, run lint/typecheck/build, finalize genuine content and links, push t
 Approved biography and skills, email, LinkedIn, location, resume PDF, education/experience/leadership records, certificates and genuine project screenshots. Never substitute the reference owner's information or fabricate achievements.
 
 ## Validation limits
-Production dependency audit: zero findings. Full audit: five high-severity development-tool findings in the ESLint dependency chain; ESLint 9 is upstream end-of-support. See PHASES.md for details. No automated browser or visual checks have been executed.
+Production dependency audit: zero findings. Full audit: five high-severity development-tool findings in the ESLint dependency chain; ESLint 9 is upstream end-of-support. See PHASES.md for details. Headless Chrome checks passed at six widths from 320px to 1440px, including keyboard navigation, anchors, font loading and reduced-motion CSS. Reference and local screenshots were visually inspected for Phase 2; later feature equivalence is not claimed.
+
+## Design system
+Global tokens and responsive rules live in `src/app/globals.css`; navigation data lives in `src/content/navigation.ts`. Shared layout/UI components live in `src/components`. Breakpoints match the observed reference at 1050px and 760px. Only the header is a client component; section content remains server-rendered. Font sources and inspection evidence are documented in REFERENCE_ANALYSIS.md. For manual verification and the complete Phase 2 file list, see PHASES.md.
