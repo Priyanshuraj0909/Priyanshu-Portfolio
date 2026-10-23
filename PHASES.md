@@ -30,18 +30,20 @@
 - [x] Verify keyboard/resize and inspect lifecycle cleanup; report and commit.
 - [x] Obtain Phase 4 approval (user: “continue phase 4”, 2026-10-23).
 
-## 4. Project Vault — complete; Phase 5 approval pending
+## 4. Project Vault — complete; Phase 5 approved
 - [x] Verify four pinned repository snapshots, dependencies/features, exact demo URLs and screenshot provenance.
 - [x] Reusable server-rendered cards, sticky visual/index, native anchor selection and static accessible dossier routes.
 - [x] Check deep links/back, keyboard, actual destinations, responsive layouts; report and commit.
-- [ ] Obtain Phase 5 approval.
+- [x] Obtain Phase 5 approval (user: “continue phase 5”, 2026-10-24).
 
-## 5. Journey and certificates — awaiting approval
-- [ ] Typed chronological records using confirmed personal information.
-- [ ] Accessible certificate archive with actual working PDF/verification URLs.
-- [ ] Honest missing-data states; report checks and commit; obtain Phase 6 approval.
+## 5. Journey and certificates — implementation complete; personal records pending; Phase 6 approval pending
+- [x] Typed chronological timeline and confirmation checks; content arrays intentionally empty pending personal information.
+- [x] Accessible archive with independent PDF/issuer actions and link-check stamps; no real certificate files or URLs supplied, so none published.
+- [x] Honest empty states, content intake guide, targeted checks, report and commit.
+- [ ] Populate confirmed journey/certificate records and verify actual destinations when supplied.
+- [ ] Obtain Phase 6 approval.
 
-## 6. Interactive terminal and contact — awaiting Phase 5 approval
+## 6. Interactive terminal and contact — awaiting approval
 - [ ] All twelve requested commands, unknown-command handling and clear.
 - [ ] Keyboard input, safe output and available actual contact/resume links.
 - [ ] Targeted command checks and link checks; report and commit; obtain Phase 7 approval.
@@ -157,3 +159,36 @@ Manual verification:
 5. Confirm only CartPilot and Mock Interview expose demo actions, all repository links point to Priyanshuraj0909, and screenshot captions identify demo/preview content. Try /systems/no-such-project for 404.
 
 Stop here pending approval for Phase 5 (Journey and certificates).
+
+
+## Phase 5 report — 2026-10-24
+
+Explicitly authorized by “continue phase 5”. Completed reusable server-rendered journey timeline and certificate archive components, typed confirmation/link-check fields, calendar-date formatting/validation, publication eligibility and chronological ordering. The timeline uses oldest-start-first ordering, semantic list/record headings, organization labels and explicit ongoing status; a missing end date never implies Present. The archive uses newest-issued-first ordering, a named focusable native scroll region, clear keyboard instructions and independent native PDF/issuer actions. Absent actions are omitted. Responsive rules stack timeline rows on mobile; print expands the archive. No new client component, animation or dependency was added.
+
+**Personal content remains pending:** no education, experience, leadership or certificate details, original PDFs or issuer URLs have been supplied. An asynchronous intake question was sent while independent implementation continued. Both content arrays remain empty. Production shows two designed empty states, no fabricated records and no certificate destinations. CONTENT_GUIDE.md documents required fields, source/confirmation evidence, real PDF and issuer verification, and how to add records. Tests do not establish genuine certificate availability.
+
+Changed files:
+- src/components/journey/journey-timeline.tsx; src/components/certificates/certificate-archive.tsx
+- src/lib/personal-records.ts; src/lib/types.ts; src/content/{journey,certificates}.ts
+- src/app/page.tsx; src/app/globals.css; package.json (two check/test scripts only)
+- scripts/check-personal-content.mjs; tests/personal-records.test.mjs
+- CONTENT_GUIDE.md; AGENTS.md; ORCHESTRATOR.md; PHASES.md; PLAN.md; README.md; REFERENCE_ANALYSIS.md
+
+Checks:
+- `npm run test:content`: five tests passed covering partial dates/leap years, chronology without mutating content, drafts/reversed ranges/ongoing status, certificate ordering/confirmation, and destination URL/path shapes.
+- `npm run check:content`: passed with zero journey and zero certificate records. Checks fields/dates/stamps, duplicate IDs and any supplied local PDF existence/signature. No actual PDF or external destination was available to verify; this command makes no network request.
+- `npm run lint`, `npm run typecheck`, `npm run build`: passed. Static home and four existing dossier routes still generate.
+- Production Chrome at 1440, 1050, 768, 760, 390 and 320px: honest empty states, zero timeline/archive records and certificate links, no horizontal overflow, keyboard section anchors, header offsets, active navigation and browser-back hashes passed.
+- Separately, real components were server-rendered with explicitly TEST ONLY synthetic fixtures and injected into an intercepted temporary browser URL. At all six widths: timeline order, explicit ongoing display, newest-first archive, no horizontal overflow, ArrowDown scrolling, Tab to native links, focus scrolling, tabbing out and native issuer-link activation passed. The issuer destination was intercepted too; no real certificate claim was tested. No fixture route/file was added to the app, public directory or content arrays.
+- No browser page errors. Local mobile empty-state and populated-fixture screenshots visually inspected; reference desktop timeline/mobile archive screenshots visually inspected. Temporary QA: /tmp/priyanshu-phase2-qa/{reference5,render5,phase5}.cjs and /tmp/priyanshu-phase5-*.
+- `git diff --check`: passed. Node emitted an informational MODULE_TYPELESS_PACKAGE_JSON warning while importing TypeScript in the two new commands; checks still passed. Runtime target remains Node 24; verification host was Node 26.10.0.
+
+Limits: populated layouts/keyboard were tested with synthetic data only, not approved personal history. No real certificate URL/PDF, document authenticity or issuer identity could be checked. No private information was inferred from repositories or the reference. General performance/accessibility/release audits remain in Phases 7–8. No remote, push or deployment.
+
+Manual verification:
+1. Run `npm run dev`; open http://localhost:3000/#logs and /#live. Confirm the two honest empty states and absence of invented entries, counts or certificate actions.
+2. Use Tab/Enter on Journey and Certs in the fixed header; confirm section labels remain visible and Back restores the previous hash.
+3. At 390px/320px confirm headings and empty-state descriptions wrap without horizontal overflow.
+4. Review CONTENT_GUIDE.md and supply actual records/links/PDFs. After adding confirmed records, run content checks, open actual destinations and test chronological display, ArrowDown/PageDown scrolling, Tab through each link and Tab out. Recheck before publication.
+
+Stop before Phase 6 (Interactive terminal and contact) until approved. Personal record intake remains open and must be completed before genuine entries can be published.

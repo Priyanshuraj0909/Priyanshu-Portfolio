@@ -40,6 +40,8 @@ export interface JourneyEntry {
   id: string;
   startDate: string;
   endDate: string | null;
+  ongoing: boolean;
+  confirmedOn: string | null;
   category: "education" | "experience" | "achievement" | "leadership";
   title: string;
   organization: string;
@@ -51,6 +53,9 @@ export interface Certificate {
   title: string;
   issuer: string;
   issuedOn: string;
+  confirmedOn: string | null;
+  linksCheckedOn: string | null;
+  tags: readonly string[];
   verificationUrl: string | null;
   pdf: string | null;
 }

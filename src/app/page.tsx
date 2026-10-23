@@ -1,3 +1,7 @@
+import { JourneyTimeline } from "@/components/journey/journey-timeline";
+import { CertificateArchive } from "@/components/certificates/certificate-archive";
+import { journey } from "@/content/journey";
+import { certificates } from "@/content/certificates";
 import { ProjectVault } from "@/components/projects/project-vault";
 import { NeuralCore } from "@/components/hero/neural-core";
 import { BootSequence } from "@/components/hero/boot-sequence";
@@ -40,11 +44,11 @@ export default function Home() {
         </section>
         <section id="logs" className="portfolio-section" aria-labelledby="journey-title">
           <SectionHeading number="03" label="Journey" title="Journey" headingId="journey-title" detail="Operations ledger" />
-          <p className="empty-state">Education, experience and leadership records are awaiting confirmed details.</p>
+          <JourneyTimeline entries={journey} />
         </section>
         <section id="live" className="portfolio-section" aria-labelledby="certificates-title">
           <SectionHeading number="04" label="Certs" title="Certificates" headingId="certificates-title" detail="Archive" />
-          <p className="empty-state">Certificates will appear with their original PDFs or verification links once supplied.</p>
+          <CertificateArchive entries={certificates} />
         </section>
         <section id="terminal" className="portfolio-section" aria-labelledby="terminal-title">
           <SectionHeading number="05" label="Terminal" title="Query the Operator" headingId="terminal-title" />
