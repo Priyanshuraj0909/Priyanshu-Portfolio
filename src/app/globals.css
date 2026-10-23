@@ -151,3 +151,49 @@ button, a, input { -webkit-tap-highlight-color: #af92fc25; }
 .boot-status { position: fixed; z-index: 35; bottom: 24px; left: 24px; right: 24px; max-width: 480px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; background: var(--panel); border: 1px solid var(--hair-strong); box-shadow: 0 12px 50px #0008; }
 @media (pointer: coarse), (prefers-reduced-motion: reduce) { .pointer-hint { display: none; } }
 @media print { .boot-status, .motion-control { display: none; } }
+
+.project-layout { display: grid; grid-template-columns: 1fr 1.08fr; align-items: start; gap: clamp(32px, 6vw, 96px); }
+.project-sticky { position: sticky; top: 120px; min-width: 0; }
+.project-stage { padding: 24px; border: 1px solid var(--hair-strong); background: radial-gradient(ellipse at center, #aa8fff10, transparent 70%); }
+.project-stage > .eyebrow { display: block; font-size: 8px; }
+.project-art { display: block; width: 100%; height: auto; color: var(--signal); }
+.project-index { display: flex; gap: 12px; margin-top: 20px; }
+.project-index a { display: grid; place-items: center; min-width: 44px; min-height: 44px; color: var(--muted); border-bottom: 1px solid var(--hair-strong); font: 10px var(--font-jetbrains-mono), monospace; text-decoration: none; }
+.project-index a[aria-current], .project-index a:hover { color: var(--text); border-color: var(--signal); background: #aa8fff0d; }
+.project-cards { min-width: 0; }
+.project-card { padding-block: 40px 64px; border-top: 1px solid var(--hair-strong); min-height: 560px; }
+.project-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 8px; }
+.project-meta span:first-child { color: var(--signal); }
+.project-card h3 { font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; font-weight: 400; letter-spacing: -.05em; margin: 28px 0 24px; overflow-wrap: anywhere; }
+.project-pipeline { display: flex; flex-wrap: wrap; gap: 10px; padding: 24px 0; margin: 24px 0; border-block: 1px solid var(--hair); list-style: none; font: 9px/1.8 var(--font-jetbrains-mono), monospace; color: var(--muted); }
+.project-pipeline li:not(:last-child)::after { content: " →"; color: var(--signal); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+.project-tags li { padding: 6px 10px; border: 1px solid var(--hair); color: var(--muted); font: 9px/1.7 var(--font-jetbrains-mono), monospace; }
+.dossier { padding-top: 36px; max-width: 1280px; }
+.dossier-header { padding-block: 64px; }
+.dossier-header h1 { margin: 24px 0; font-size: clamp(54px, 8vw, 110px); line-height: 1.05; font-weight: 400; letter-spacing: -.065em; overflow-wrap: anywhere; }
+.dossier-header .body-copy { max-width: 64ch; font-size: 18px; }
+.dossier-figure { margin: 0 0 64px; border: 1px solid var(--hair-strong); background: var(--panel); }
+.dossier-figure img { width: 100%; height: auto; display: block; }
+.dossier-figure > .project-art { max-height: 440px; }
+.dossier-figure figcaption { padding: 20px; color: var(--muted); font: 10px/1.8 var(--font-jetbrains-mono), monospace; }
+.dossier-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; }
+.dossier-grid h2, .dossier-section h2 { color: var(--signal); margin-block: 28px 20px; }
+.dossier-list { padding-left: 20px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.dossier-list li { margin-bottom: 12px; }
+.dossier-section { margin-top: 40px; padding-block: 24px; border-top: 1px solid var(--hair); }
+.source-list { padding-left: 20px; color: var(--muted); font: 11px/2 var(--font-jetbrains-mono), monospace; overflow-wrap: anywhere; }
+.source-list a { text-underline-offset: 4px; }
+.source-list a:hover { color: var(--signal); }
+.dossier-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; margin-top: 48px; padding-block: 32px; border-top: 1px solid var(--hair-strong); }
+@media (max-width: 760px) {
+  .project-layout, .dossier-grid { grid-template-columns: 1fr; gap: 32px; }
+  .project-sticky { position: static; }
+  .project-stage .project-art { max-height: 280px; }
+  .project-card { min-height: 0; padding-block: 28px 52px; }
+  .dossier-header { padding-block: 40px; }
+  .dossier-header .body-copy { font-size: 15px; }
+}
+@media print { .project-sticky { position: static; } .project-card { break-inside: avoid; } }
+
+@media (max-width: 760px) { .project-sticky { display: flex; flex-direction: column; } .project-index { order: -1; margin: 0 0 20px; } }

@@ -16,11 +16,21 @@ export interface Project {
   name: string;
   description: string;
   technologies: readonly string[];
+  category: string;
+  overview: string;
+  features: readonly string[];
+  constraints: readonly string[];
+  pipeline: readonly string[];
+  screenshotCaption: string | null;
+  screenshotWidth: number | null;
+  screenshotHeight: number | null;
   repository: string;
   demo: string | null;
   screenshot: string | null;
   evidence: {
     source: string;
+    commit: string;
+    paths: readonly string[];
     verifiedOn: string;
     level: "readme" | "source" | "runtime";
   };

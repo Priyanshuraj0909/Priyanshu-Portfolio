@@ -1,4 +1,53 @@
 import type { Project } from "@/lib/types";
 
-// Populate after source verification in Phase 4. README research is in PLAN.md.
-export const projects: readonly Project[] = [];
+// Claims were checked against pinned source on 2026-10-23; see PROJECT_EVIDENCE.md.
+export const projects: readonly Project[] = [
+  {
+    slug: "cinematch", name: "CineMatch AI", category: "Recommendation systems",
+    description: "Movie discovery combining content similarity, collaborative filtering and a validation-tuned hybrid ranker.",
+    overview: "A MovieLens recommendation pipeline with a FastAPI service, native browser interface and local Streamlit app. Title, genre and user-tag features support similar-movie discovery; saved profile ratings feed personalized ranking with a popularity fallback.",
+    technologies: ["Python", "FastAPI", "scikit-learn", "NumPy", "SQLAlchemy", "Streamlit"],
+    features: ["TF-IDF features and cosine similarity for related movies.", "Seeded matrix factorization with regularized user and item biases.", "Hybrid weight selection on validation data before held-out test evaluation.", "Browser-local watchlist and optional server-side TMDB / OMDb rating lookup."],
+    constraints: ["MovieLens tags are metadata, not plot summaries.", "Public provider ratings require server credentials; profile IDs are not authenticated accounts.", "The hosted URL redirected to Vercel sign-in during verification; public demo access and hosted rating writes are unverified."],
+    pipeline: ["MovieLens metadata", "TF-IDF + latent factors", "Hybrid ranking", "FastAPI + browser"],
+    repository: "https://github.com/Priyanshuraj0909/Movie-content-recommendation-system", demo: null,
+    screenshot: null, screenshotCaption: null, screenshotWidth: null, screenshotHeight: null,
+    evidence: { source: "https://github.com/Priyanshuraj0909/Movie-content-recommendation-system", commit: "50fdf027ed8fd924405d6939296ba9dc07832980", verifiedOn: "2026-10-23", level: "source", paths: ["src/recommender/models/content.py", "src/recommender/models/collaborative.py", "src/recommender/evaluation/ranking.py", "backend/app/main.py", "requirements.txt"] },
+  },
+  {
+    slug: "fakeddit", name: "Fakeddit", category: "Text classification · Research",
+    description: "A headline classifier with a separate source-research workflow and an experimental text-plus-image pipeline.",
+    overview: "The serving path uses an exported TF-IDF and logistic regression text model, including a portable inference implementation. It keeps dataset classification separate from credential-dependent source research. A distinct CLIP and XGBoost pipeline supports paired text-image experiments.",
+    technologies: ["Python", "FastAPI", "scikit-learn", "JavaScript", "CLIP", "XGBoost"],
+    features: ["Portable TF-IDF / logistic inference with low-coverage abstention and uncertain-output handling.", "Separate Groq-backed claim research when configured.", "Independent text-image pairing, local CLIP embeddings and XGBoost training code."],
+    constraints: ["Dataset labels and uncalibrated model scores do not establish factual truth.", "CLIP / XGBoost is a separate research path requiring local data and model artifacts.", "Media previews do not establish image or video authenticity.", "The hosted demo timed out during verification, so a public demo link is currently omitted."],
+    pipeline: ["Headline", "TF-IDF features", "Logistic classifier", "Separate source research"],
+    repository: "https://github.com/Priyanshuraj0909/Fakeddit-Multimodal-FakeNews", demo: null,
+    screenshot: "/projects/fakeddit.webp", screenshotCaption: "Repository browser capture of the Fakeddit workspace in its empty input state; no news verdict is shown.", screenshotWidth: 1440, screenshotHeight: 1200,
+    evidence: { source: "https://github.com/Priyanshuraj0909/Fakeddit-Multimodal-FakeNews", commit: "ef8137a196b1cb52bf8b233bc74b1ab2596d62d2", verifiedOn: "2026-10-23", level: "source", paths: ["backend/app/main.py", "ml/inference/portable_text.py", "ml/training/train_text.py", "ml/training/train_multimodal.py", "backend/app/services/verification.py"] },
+  },
+  {
+    slug: "cartpilot", name: "CartPilot", category: "Commerce · Decision support",
+    description: "A merchant workspace coordinating pricing, restock, promotion and listing recommendations with explicit approval.",
+    overview: "Four deterministic specialists share catalog and inventory signals. An orchestrator surfaces conflicts and priorities, while merchant review and execution remain separate workflow steps. The repository also includes buyer discovery and test-commerce workflows with optional model-assisted intent.",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "SQLAlchemy", "PostgreSQL"],
+    features: ["Rule-based specialist recommendations coordinated into an explainable plan.", "Merchant-scoped approval records, separate execution confirmation and audit history.", "Buyer catalog discovery with local intent fallback and optional structured AI intent.", "Optional read-only Shopify synchronization."],
+    constraints: ["Merchant specialists are deterministic; their recommendations do not establish trained forecasting or autonomous learning.", "Commerce payment paths are simulation or provider test mode; no real-commerce outcome is claimed.", "Hosted sign-in page loads, but authenticated merchant and checkout workflows were not exercised."],
+    pipeline: ["Catalog + inventory", "Four specialists", "Coordinated plan", "Merchant review"],
+    repository: "https://github.com/Priyanshuraj0909/CartPilot", demo: "https://cart-pilot-seven.vercel.app/",
+    screenshot: "/projects/cartpilot.webp", screenshotCaption: "Repository capture of the merchant dashboard using synthetic Four-product Demo data; figures are demo values.", screenshotWidth: 1440, screenshotHeight: 1000,
+    evidence: { source: "https://github.com/Priyanshuraj0909/CartPilot", commit: "980187ce7df6c1067cf9b3ed6125278744c755ab", verifiedOn: "2026-10-23", level: "source", paths: ["backend/app/services/orchestration/coordinator.py", "backend/app/services/actions/workflow.py", "backend/app/services/commerce/intent.py", "frontend/package.json", "backend/requirements.txt", "backend/app/integrations/shopify/client.py"] },
+  },
+  {
+    slug: "mock-interview", name: "Mock Interview AI", category: "Full-stack · AI integration",
+    description: "Configurable mock tests and role-based interview practice with written answers, browser voice tools and AI feedback.",
+    overview: "A React practice interface connects to FastAPI question-generation and assessment routes. A shared service uses Gemini when configured and falls back to Groq. MongoDB backs account features; browser state holds the active practice session.",
+    technologies: ["React", "Tailwind CSS", "FastAPI", "MongoDB", "Gemini", "Groq"],
+    features: ["Timed mock-test configuration and role-specific interview questions.", "Semantic written-answer feedback and validated grading reports.", "Bounded provider retries and ordered AI fallback.", "Optional browser speech recognition and speech synthesis."],
+    constraints: ["AI reviews code answers without executing them and can make grading errors.", "Voice support depends on the browser; generation requires provider credentials.", "Practice routes do not verify JWT; account storage does not establish protected practice access.", "The public landing page was checked; generation, accounts and grading were not exercised on the hosted service."],
+    pipeline: ["Practice configuration", "FastAPI", "Gemini / Groq", "Answer feedback"],
+    repository: "https://github.com/Priyanshuraj0909/Mock-Interview", demo: "https://mock-interview-king-09.vercel.app/",
+    screenshot: "/projects/mock-interview.webp", screenshotCaption: "Public landing page captured in Chrome on 23 October 2026; the interview panel is the application's preview.", screenshotWidth: 1440, screenshotHeight: 1000,
+    evidence: { source: "https://github.com/Priyanshuraj0909/Mock-Interview", commit: "1a69128089e3a7a7b3204645b8e8acc22d3e2e95", verifiedOn: "2026-10-23", level: "source", paths: ["Ai/routers/interview.py", "Ai/routers/tests.py", "Ai/grading.py", "Ai/ai_service.py", "newmyapp/src/components/DashboardInterview.js", "newmyapp/package.json"] },
+  },
+];

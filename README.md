@@ -3,13 +3,14 @@
 Personal portfolio planned with Next.js App Router, React, TypeScript, Tailwind CSS, Motion for React and Lucide React. Visual reference: https://www.advaysinha.in/. Hosting target: Vercel.
 
 ## Status
-Phase 3 hero and neural visualization complete, 23 October 2026. The portfolio now has reference-based typography, colors, atmospheric background, responsive glass navigation, shared controls and six section shells. Fonts are self-hosted with their SIL Open Font Licenses. Desktop/mobile reference inspection and local Chrome QA were performed. Lint, typecheck, build and browser checks pass. Skippable boot, interactive neural Canvas, motion pause and hero actions are implemented. Verified project content and deployment remain for later phases. The page retains noindex until publication readiness.
+Phase 4 Project Vault complete, 23 October 2026. The portfolio now has reference-based typography, colors, atmospheric background, responsive glass navigation, shared controls and six section shells. Fonts are self-hosted with their SIL Open Font Licenses. Desktop/mobile reference inspection and local Chrome QA were performed. Lint, typecheck, build and browser checks pass. Skippable boot, interactive neural Canvas, motion pause and hero actions are implemented. Four source-backed project cards and static dossier pages are implemented, with genuine screenshots, pinned source links and verified public demo entry points where available. Journey, certificates, terminal and deployment remain for later phases. The page retains noindex until publication readiness.
 
 ## Documentation
 - [Agent standards](AGENTS.md)
 - [Workflow and approval checkpoints](ORCHESTRATOR.md)
 - [Architecture and content evidence](PLAN.md)
 - [Reference findings and inspection limits](REFERENCE_ANALYSIS.md)
+- [Project source, demo and media evidence](PROJECT_EVIDENCE.md)
 - [Eight-phase checklist](PHASES.md)
 
 ## Planned experience
@@ -44,4 +45,6 @@ Production dependency audit: zero findings. Full audit: five high-severity devel
 ## Design system
 Global tokens and responsive rules live in `src/app/globals.css`; navigation data lives in `src/content/navigation.ts`. Shared layout/UI components live in `src/components`. Breakpoints match the observed reference at 1050px and 760px. Header, boot status and neural canvas are client components; section content remains server-rendered. Font sources and inspection evidence are documented in REFERENCE_ANALYSIS.md. For manual verification and the complete Phase 2 file list, see PHASES.md.
 
-Phase 3 checks: lint, typecheck, production build and Chrome boot/keyboard/persistence/reduced-motion/responsive checks passed. See PHASES.md for manual steps and limits. Phase 4 requires approval.
+Phase 3 checks: lint, typecheck, production build and Chrome boot/keyboard/persistence/reduced-motion/responsive checks passed. See PHASES.md for manual steps and limits. Phase 4 is complete; Phase 5 requires approval.
+
+Phase 4 checks: lint, typecheck, production build, source-path/media validation and production Chrome route/keyboard/history/image checks passed. Home and all four dossiers fit six widths from 320–1440px. Direct routes: `/systems/cinematch`, `/systems/fakeddit`, `/systems/cartpilot`, `/systems/mock-interview`. Only CartPilot and Mock Interview currently expose demo entry points. See PROJECT_EVIDENCE.md for project verification limits and PHASES.md for changed files/manual steps. No hosting or remote publication performed.

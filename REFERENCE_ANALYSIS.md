@@ -68,3 +68,10 @@ QA images and temporary browser scripts are under /tmp/priyanshu-phase2-* and /t
 
 ## Phase 3 implementation boundary — 2026-10-23
 The neural sphere is original Canvas geometry informed by the documented connected-node visual and orbit/scroll hints. Reference topology, animation timing and boot behavior have not been newly inspected; exact fidelity is unverified. Local production Chrome checked the implemented boot, saved pause, keyboard, reduced-motion static pixels and four viewport widths. The optional non-blocking boot status is an intentional implementation choice, not a measured reference match.
+
+## Phase 4 rendered vault/dossier inspection — 2026-10-23
+Chrome loaded the live reference at 1440×900 and 390×844 with reduced motion. The vault has a bordered visual-study panel, a numbered native anchor index, and stacked text cards with workflow labels and dossier links. Desktop uses a sticky visual column beside the cards; mobile places the numbered index above the visual, then the stacked cards. The screenshot showed the fixed header and vault title clearing it. Reference card markup exposes native #project-* anchors and /systems/* dossier links.
+
+Opening the first reference dossier navigated to a separate /systems/nims page with a return-to-vault link, h1, overview, architecture, constraints, tradeoffs and source/infrastructure content. Browser Back returned to /#vault. Those reference project claims and personal content were not copied. Temporary reference captures: /tmp/priyanshu-phase4-reference.png and /tmp/priyanshu-phase4-reference-mobile.png; inspection script /tmp/priyanshu-phase2-qa/reference4.cjs.
+
+Local adaptation uses four genuine Priyanshu Raj records, original SVG studies, matching native numbered anchors and static dossiers. Mobile index ordering follows the observed arrangement. Local desktop vault and mobile full dossier captures were visually inspected. Exact art geometry, animation and transition timing are not claimed; later reference interactions remain for their respective phases.

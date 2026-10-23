@@ -1,11 +1,11 @@
 # Workflow — Priyanshu Raj
 
 ## Current checkpoint
-2026-10-23: Phase 3 approved by “continue working” and completed. Hero interests/actions, skippable non-blocking boot and Canvas neural field implemented. Lint/typecheck/build and production Chrome interaction/responsive checks pass; details and limits in PHASES.md. Stop before Phase 4 pending user approval.
+2026-10-23: Phase 4 explicitly approved and complete. Four source-backed project cards, native numbered selection with sticky study, and four statically generated dossiers are implemented. Three genuine screenshots have documented provenance; two publicly checked demo entry points are included and two inaccessible/unverified demo URLs omitted. Source evidence, browser checks, validation and manual steps are in PROJECT_EVIDENCE.md and PHASES.md. No remote or deployment. Stop before Phase 5 pending approval.
 
 ## Execution order
 1. Maintain evidence in REFERENCE_ANALYSIS.md. Phase 2 desktop/mobile visual inspection is complete; inspect boot/neural and other interactions in their respective phases.
-2. Phases 2 and 3 are authorized and complete. Resolve remaining feature-specific reference gaps when the corresponding phase is approved.
+2. Phases 1–4 are authorized and complete. Resolve remaining feature-specific reference gaps when the corresponding phase is approved.
 3. Implement one phase at a time using PLAN.md and PHASES.md.
 4. Run appropriate checks and document failures honestly.
 5. Update phase status; commit completed phase; report files, results, limitations, and manual checks.

@@ -24,18 +24,19 @@
 - [x] Prepare completed Phase 2 commit with updated documentation.
 - [x] Obtain approval for Phase 3 (user: “continue working”, 2026-10-23).
 
-## 3. Hero and neural visualization — complete; Phase 4 approval pending
+## 3. Hero and neural visualization — complete; Phase 4 approved
 - [x] Approved identity/interests, boot/skip and CTAs; unprovided biography/skills stay unset.
 - [x] Canvas interaction, motion pause, reduced-motion fallback and capped mobile rendering.
 - [x] Verify keyboard/resize and inspect lifecycle cleanup; report and commit.
-- [ ] Obtain Phase 4 approval.
+- [x] Obtain Phase 4 approval (user: “continue phase 4”, 2026-10-23).
 
-## 4. Project Vault — awaiting Phase 3 approval
-- [ ] Verify repository source/dependencies/features, exact demo links and screenshots.
-- [ ] Reusable cards, matching selection behavior, accessible dossier routes.
-- [ ] Check deep links/back behavior and actual destinations; report and commit; obtain Phase 5 approval.
+## 4. Project Vault — complete; Phase 5 approval pending
+- [x] Verify four pinned repository snapshots, dependencies/features, exact demo URLs and screenshot provenance.
+- [x] Reusable server-rendered cards, sticky visual/index, native anchor selection and static accessible dossier routes.
+- [x] Check deep links/back, keyboard, actual destinations, responsive layouts; report and commit.
+- [ ] Obtain Phase 5 approval.
 
-## 5. Journey and certificates — awaiting Phase 4 approval
+## 5. Journey and certificates — awaiting approval
 - [ ] Typed chronological records using confirmed personal information.
 - [ ] Accessible certificate archive with actual working PDF/verification URLs.
 - [ ] Honest missing-data states; report checks and commit; obtain Phase 6 approval.
@@ -119,3 +120,40 @@ Reference limitation: uses existing documented boot/neural hints and palette; ex
 Manual verification: run npm run dev, open localhost:3000 in a new session, use Skip boot and ensure it stays dismissed; move the pointer over the core, scroll, then Tab to Pause motion and press Enter. Reload to check persistence. Enable reduced motion and confirm static art/no boot. Resize to 320px and check both hero actions and interests remain readable. Visit /#vault to confirm direct anchors bypass boot.
 
 Stop here pending approval for Phase 4 (Project Vault).
+
+
+## Phase 4 report — 2026-10-23
+
+Explicitly authorized by “continue phase 4”. Implemented four source-backed projects: CineMatch AI, Fakeddit, CartPilot and Mock Interview AI. `PROJECT_EVIDENCE.md` records pinned commits, source URLs, verification date, screenshots and demo boundaries. Typed content holds descriptions, technologies, features, constraints, workflow, media dimensions and evidence. No README-only metrics are promoted into portfolio claims; source checks are not labeled runtime verification.
+
+Project Vault now uses server-rendered reusable cards and a sticky SVG study with numbered native anchors. A small client component synchronizes the active index/visual on scroll, hash changes and resize, coalescing geometry reads to one animation frame; listeners/frame requests are cleaned up. On mobile the index appears above the visual and cards stack. Abstract art is decorative. No animation or tab-widget keyboard model is added; links retain native browser operation.
+
+`/systems/cinematch`, `/systems/fakeddit`, `/systems/cartpilot` and `/systems/mock-interview` are statically generated dossiers with a single h1, metadata, repository/demo actions, real screenshots where available, overview, features, workflow, limits and commit-pinned source links. Each provides a native return link to the corresponding home-page card. Unknown slugs return 404. Global noindex remains inherited; no GitHub/project API request is needed at runtime.
+
+Live checks: CineMatch redirected to Vercel login; Fakeddit timed out in two browser attempts. Their demo actions are omitted. CartPilot sign-in and Mock Interview landing returned HTTP 200 and expected rendered content; their demo actions are included. No authenticated flow, AI call, rating write, checkout or project backend test was performed. CartPilot/Fakeddit screenshots are genuine repository captures with provenance; Mock Interview is a new public landing capture. CineMatch has no verified screenshot and uses a clearly labeled abstract system illustration. Three WebP files total approximately 157 KiB. No dependencies added or changed.
+
+Changed files:
+- src/content/projects.ts; src/lib/types.ts; src/app/page.tsx; src/app/globals.css
+- src/components/projects/{project-art,project-stage,project-card,project-vault}.tsx
+- src/app/systems/[slug]/page.tsx
+- public/projects/{fakeddit,cartpilot,mock-interview}.webp
+- PROJECT_EVIDENCE.md; AGENTS.md; PHASES.md; PLAN.md; ORCHESTRATOR.md; README.md; REFERENCE_ANALYSIS.md
+
+Checks:
+- `npm run lint`, `npm run typecheck`, `npm run build`: passed; four dossier paths statically generated.
+- Pinned source-path and media check against the four cloned commits: passed.
+- Production headless Chrome: four keyboard index selections, active visual/index state, 120px anchor offsets, dossier navigation and browser-back hash restoration; direct dossier HTTP 200; per-project titles and noindex; fixed-commit source URLs; images loaded; no horizontal overflow on home and all four dossiers at 1440, 1050, 768, 760, 390 and 320px; keyboard return link; unknown-slug 404; no page errors.
+- Desktop vault and full mobile dossier screenshots visually inspected. Temporary scripts/captures remain under /tmp/priyanshu-phase2-qa and /tmp/priyanshu-phase4-*.
+- Browser testing found an observer-based active-index mismatch; replaced it with measured card-position tracking and verified all four selections. A subsequent keyboard navigation assertion ran before navigation completed; the test now waits for the destination URL.
+- `git diff --check`: passed.
+
+Limits: source audit covers the described features and does not certify all project behavior. Hosted demos require rechecking before publication. Reference desktop/mobile vault and dossier/back behavior were inspected; exact transition timing and artwork equivalence are not claimed. Performance benchmarking, broader accessibility audit and release checks remain for Phases 7–8. Validation host remains Node 26.10.0; project target is Node 24. No remote, push or deployment.
+
+Manual verification:
+1. Run `npm run dev`; open http://localhost:3000/#vault.
+2. Scroll through four cards; use Tab/Enter on 01–04 and confirm selected underline/art follow the card, with headings clear of the header.
+3. Open each dossier, refresh its direct URL, use browser Back, then try its Return to vault link. Confirm each returns to the correct project anchor.
+4. At 390px/320px, check the index, stacked cards, screenshot captions, source paths and actions remain readable without horizontal overflow.
+5. Confirm only CartPilot and Mock Interview expose demo actions, all repository links point to Priyanshuraj0909, and screenshot captions identify demo/preview content. Try /systems/no-such-project for 404.
+
+Stop here pending approval for Phase 5 (Journey and certificates).

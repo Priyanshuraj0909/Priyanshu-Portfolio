@@ -1,3 +1,4 @@
+import { ProjectVault } from "@/components/projects/project-vault";
 import { NeuralCore } from "@/components/hero/neural-core";
 import { BootSequence } from "@/components/hero/boot-sequence";
 import { profile } from "@/content/profile";
@@ -35,7 +36,7 @@ export default function Home() {
 
         <section id="vault" className="portfolio-section" aria-labelledby="projects-title">
           <SectionHeading number="02" label="Projects" title="Project Vault" headingId="projects-title" detail="Selected work" />
-          <div className="surface-panel"><p className="eyebrow">Project records</p><p className="body-copy">Verified project details and dossiers will be added here.</p><LinkButton href={profile.github} variant="text">Browse repositories</LinkButton></div>
+          <ProjectVault />
         </section>
         <section id="logs" className="portfolio-section" aria-labelledby="journey-title">
           <SectionHeading number="03" label="Journey" title="Journey" headingId="journey-title" detail="Operations ledger" />
