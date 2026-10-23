@@ -65,3 +65,6 @@ Font sources (SIL Open Font License files are colocated with downloaded TTFs):
 - https://github.com/google/fonts/tree/main/ofl/oxanium
 
 QA images and temporary browser scripts are under /tmp/priyanshu-phase2-* and /tmp/priyanshu-phase2-qa; these are local QA artifacts, not committed reference assets.
+
+## Phase 3 implementation boundary — 2026-10-23
+The neural sphere is original Canvas geometry informed by the documented connected-node visual and orbit/scroll hints. Reference topology, animation timing and boot behavior have not been newly inspected; exact fidelity is unverified. Local production Chrome checked the implemented boot, saved pause, keyboard, reduced-motion static pixels and four viewport widths. The optional non-blocking boot status is an intentional implementation choice, not a measured reference match.

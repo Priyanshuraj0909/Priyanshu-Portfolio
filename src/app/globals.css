@@ -138,3 +138,16 @@ button, a, input { -webkit-tap-highlight-color: #af92fc25; }
   .intro-grid { min-height: 0; }
   .surface-panel { background: transparent; }
 }
+
+.neural-core { margin: 0; min-width: 0; }
+.neural-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.neural-core canvas { display: block; width: 100%; height: clamp(280px, 37vw, 530px); }
+.neural-core figcaption { max-width: 44ch; font-size: 9px; line-height: 1.8; }
+.pointer-hint { color: var(--dim); font-size: 8px; }
+.motion-control { cursor: pointer; min-height: 44px; padding: 8px 12px; background: var(--panel); color: var(--text); border: 1px solid var(--hair-strong); font: 9px var(--font-jetbrains-mono), monospace; }
+.motion-control:hover { border-color: var(--signal); }
+.hero-interests { padding-block: 24px 36px; }
+.hero-interests ul { display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 0; list-style: none; color: var(--muted); font-size: 13px; }
+.boot-status { position: fixed; z-index: 35; bottom: 24px; left: 24px; right: 24px; max-width: 480px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; background: var(--panel); border: 1px solid var(--hair-strong); box-shadow: 0 12px 50px #0008; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .pointer-hint { display: none; } }
+@media print { .boot-status, .motion-control { display: none; } }

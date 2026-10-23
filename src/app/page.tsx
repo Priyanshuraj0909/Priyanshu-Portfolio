@@ -1,3 +1,5 @@
+import { NeuralCore } from "@/components/hero/neural-core";
+import { BootSequence } from "@/components/hero/boot-sequence";
 import { profile } from "@/content/profile";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -9,6 +11,7 @@ export default function Home() {
     <>
       <div className="site-atmosphere" aria-hidden="true" />
       <Header />
+      <BootSequence />
       <main id="main" className="page-container" tabIndex={-1}>
         <section id="core" className="intro-section" aria-labelledby="intro-title">
           <SectionHeading number="01" label="About" detail="Portfolio / In development" />
@@ -18,21 +21,15 @@ export default function Home() {
               <h1 id="intro-title" className="display-name" aria-label={profile.name}>
                 {profile.name.split(" ").map((part, index) => <span className="name-line" key={`${part}-${index}`} aria-hidden="true"><span>{part}</span></span>)}
               </h1>
-              <p className="body-copy">This portfolio is under development. Projects and personal records will be added after verification.</p>
+              <p className="body-copy">Exploring artificial intelligence, machine learning, and the software that brings ideas to life.</p>
               <div className="intro-actions">
-                <LinkButton href={profile.github}>Explore GitHub</LinkButton>
-                <LinkButton href="#vault" variant="text">Projects</LinkButton>
+                <LinkButton href="#vault">Explore projects</LinkButton>
+                <LinkButton href="#contact" variant="text">Get in touch</LinkButton>
               </div>
             </div>
-            <aside className="interest-panel" aria-labelledby="interests-title">
-              <p id="interests-title" className="eyebrow">Areas of interest</p>
-              <ol className="interest-list">
-                {profile.interests.map((interest, index) => (
-                  <li key={interest}><span className="item-index" aria-hidden="true">0{index + 1}</span><span>{interest}</span></li>
-                ))}
-              </ol>
-            </aside>
+            <NeuralCore />
           </div>
+          <aside className="hero-interests" aria-label="Areas of interest"><p className="eyebrow">Areas of interest</p><ul>{profile.interests.map(interest => <li key={interest}>{interest}</li>)}</ul></aside>
           <div className="section-rail"><span>Artificial intelligence · Machine learning · Development</span><span>01 / 06</span></div>
         </section>
 
