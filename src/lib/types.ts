@@ -51,6 +51,7 @@ export interface JourneyEntry {
 }
 
 export interface Certificate {
+  preview?: string;
   completedOn?: string;
   credentialId?: string;
   courseHours?: number;

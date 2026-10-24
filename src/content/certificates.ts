@@ -1,7 +1,7 @@
 import type { Certificate } from "@/lib/types";
 
-// Owner-supplied PDF, reviewed 2026-10-24. See CERTIFICATE_EVIDENCE.md.
-// Issuer URLs are transcribed evidence until their live destinations are checked.
+// Canonical 24 originals; previews derived from PDFs. Six live issuer records checked 2026-10-24.
+// See CERTIFICATE_EVIDENCE.md for provenance and destination limits.
 export const certificates: readonly Certificate[] = [
   {
     "id": "natural-language-processing-using-python",
@@ -15,7 +15,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/13_natural-language-processing-using-python.pdf",
-    "sourcePage": 1
+    "sourcePage": 1,
+    "preview": "/certificates/previews/13_natural-language-processing-using-python.webp"
   },
   {
     "id": "ethics-for-engineers-patents-copyrights-ipr",
@@ -31,7 +32,8 @@ export const certificates: readonly Certificate[] = [
     "pdf": "/certificates/23_ethics-for-engineers-patents-copyrights-ipr.pdf",
     "sourcePage": 2,
     "credentialId": "34LJ67TTVRIQ",
-    "documentVerificationUrl": "https://coursera.org/verify/34LJ67TTVRIQ"
+    "documentVerificationUrl": "https://coursera.org/verify/34LJ67TTVRIQ",
+    "preview": "/certificates/previews/23_ethics-for-engineers-patents-copyrights-ipr.webp"
   },
   {
     "id": "automata-and-computability",
@@ -43,11 +45,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Computer Science"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/I48FLIPPLP7Z",
     "pdf": "/certificates/24_automata-and-computability.pdf",
     "sourcePage": 3,
     "credentialId": "I48FLIPPLP7Z",
-    "documentVerificationUrl": "https://coursera.org/verify/I48FLIPPLP7Z"
+    "documentVerificationUrl": "https://coursera.org/verify/I48FLIPPLP7Z",
+    "preview": "/certificates/previews/24_automata-and-computability.webp"
   },
   {
     "id": "the-bits-and-bytes-of-computer-networking",
@@ -59,11 +62,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Computer Science"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/1YVW6M3ZYVOP",
     "pdf": "/certificates/21_the-bits-and-bytes-of-computer-networking.pdf",
     "sourcePage": 4,
     "credentialId": "1YVW6M3ZYVOP",
-    "documentVerificationUrl": "https://coursera.org/verify/1YVW6M3ZYVOP"
+    "documentVerificationUrl": "https://coursera.org/verify/1YVW6M3ZYVOP",
+    "preview": "/certificates/previews/21_the-bits-and-bytes-of-computer-networking.webp"
   },
   {
     "id": "introduction-to-microprocessors",
@@ -75,11 +79,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Computer Science"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/BBC3ANFOTRD7",
     "pdf": "/certificates/25_introduction-to-microprocessors.pdf",
     "sourcePage": 5,
     "credentialId": "BBC3ANFOTRD7",
-    "documentVerificationUrl": "https://coursera.org/verify/BBC3ANFOTRD7"
+    "documentVerificationUrl": "https://coursera.org/verify/BBC3ANFOTRD7",
+    "preview": "/certificates/previews/25_introduction-to-microprocessors.webp"
   },
   {
     "id": "operating-systems-and-you-becoming-a-power-user",
@@ -91,11 +96,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Computer Science"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/8WJDEILRQLNA",
     "pdf": "/certificates/22_operating-systems-and-you-becoming-a-power-user.pdf",
     "sourcePage": 6,
     "credentialId": "8WJDEILRQLNA",
-    "documentVerificationUrl": "https://coursera.org/verify/8WJDEILRQLNA"
+    "documentVerificationUrl": "https://coursera.org/verify/8WJDEILRQLNA",
+    "preview": "/certificates/previews/22_operating-systems-and-you-becoming-a-power-user.webp"
   },
   {
     "id": "kanban-in-practice",
@@ -109,7 +115,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/14_kanban-in-practice.pdf",
-    "sourcePage": 7
+    "sourcePage": 7,
+    "preview": "/certificates/previews/14_kanban-in-practice.webp"
   },
   {
     "id": "ma121-introduction-to-statistics",
@@ -127,7 +134,8 @@ export const certificates: readonly Certificate[] = [
     "credentialId": "0848984943PR",
     "courseHours": 35,
     "continuingEducationUnits": 3.5,
-    "grade": "92.31"
+    "grade": "92.31",
+    "preview": "/certificates/previews/04_ma121-introduction-to-statistics.webp"
   },
   {
     "id": "cs403-introduction-to-modern-database-systems",
@@ -145,7 +153,8 @@ export const certificates: readonly Certificate[] = [
     "credentialId": "0292513391PR",
     "courseHours": 42,
     "continuingEducationUnits": 4.2,
-    "grade": "82.00"
+    "grade": "82.00",
+    "preview": "/certificates/previews/05_cs403-introduction-to-modern-database-systems.webp"
   },
   {
     "id": "data-structures-and-algorithms",
@@ -160,7 +169,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/18_data-structures-and-algorithms.pdf",
     "sourcePage": 10,
-    "completedOn": "2025-11-04"
+    "completedOn": "2025-11-04",
+    "preview": "/certificates/previews/18_data-structures-and-algorithms.webp"
   },
   {
     "id": "explore-machine-learning-using-python",
@@ -175,7 +185,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/15_explore-machine-learning-using-python.pdf",
     "sourcePage": 11,
-    "completedOn": "2025-11-04"
+    "completedOn": "2025-11-04",
+    "preview": "/certificates/previews/15_explore-machine-learning-using-python.webp"
   },
   {
     "id": "electronic-circuits-and-number-system",
@@ -190,7 +201,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/16_electronic-circuits-and-number-system.pdf",
     "sourcePage": 12,
-    "completedOn": "2025-02-12"
+    "completedOn": "2025-02-12",
+    "preview": "/certificates/previews/16_electronic-circuits-and-number-system.webp"
   },
   {
     "id": "core-java-programming-revisited",
@@ -205,7 +217,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/19_core-java-programming-revisited.pdf",
     "sourcePage": 13,
-    "completedOn": "2025-02-12"
+    "completedOn": "2025-02-12",
+    "preview": "/certificates/previews/19_core-java-programming-revisited.webp"
   },
   {
     "id": "scaling-climate-finance",
@@ -219,7 +232,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/03_scaling-climate-finance.pdf",
-    "sourcePage": 14
+    "sourcePage": 14,
+    "preview": "/certificates/previews/03_scaling-climate-finance.webp"
   },
   {
     "id": "digital-electronics-online-digital-electronics-courses",
@@ -234,7 +248,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/17_digital-electronics-online-digital-electronics-courses.pdf",
     "sourcePage": 15,
-    "completedOn": "2025-02-13"
+    "completedOn": "2025-02-13",
+    "preview": "/certificates/previews/17_digital-electronics-online-digital-electronics-courses.webp"
   },
   {
     "id": "solving-ordinary-differential-equations-with-matlab",
@@ -248,7 +263,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/06_solving-ordinary-differential-equations-with-matlab.pdf",
-    "sourcePage": 16
+    "sourcePage": 16,
+    "preview": "/certificates/previews/06_solving-ordinary-differential-equations-with-matlab.webp"
   },
   {
     "id": "matlab-programming-techniques",
@@ -262,7 +278,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/07_matlab-programming-techniques.pdf",
-    "sourcePage": 17
+    "sourcePage": 17,
+    "preview": "/certificates/previews/07_matlab-programming-techniques.webp"
   },
   {
     "id": "introduction-to-linear-algebra-with-matlab",
@@ -276,7 +293,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/11_introduction-to-linear-algebra-with-matlab.pdf",
-    "sourcePage": 18
+    "sourcePage": 18,
+    "preview": "/certificates/previews/11_introduction-to-linear-algebra-with-matlab.webp"
   },
   {
     "id": "entrepreneurship-i-laying-the-foundation",
@@ -288,11 +306,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Business"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/PKS5S07QVI2Q",
     "pdf": "/certificates/02_entrepreneurship-i-laying-the-foundation.pdf",
     "sourcePage": 19,
     "credentialId": "PKS5S07QVI2Q",
-    "documentVerificationUrl": "https://coursera.org/verify/PKS5S07QVI2Q"
+    "documentVerificationUrl": "https://coursera.org/verify/PKS5S07QVI2Q",
+    "preview": "/certificates/previews/02_entrepreneurship-i-laying-the-foundation.webp"
   },
   {
     "id": "entrepreneurship-strategy-from-ideation-to-exit",
@@ -304,11 +323,12 @@ export const certificates: readonly Certificate[] = [
     "tags": [
       "Business"
     ],
-    "verificationUrl": null,
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/NO8P3JE3013C",
     "pdf": "/certificates/20_entrepreneurship-strategy-from-ideation-to-exit.pdf",
     "sourcePage": 20,
     "credentialId": "NO8P3JE3013C",
-    "documentVerificationUrl": "https://coursera.org/verify/NO8P3JE3013C"
+    "documentVerificationUrl": "https://coursera.org/verify/NO8P3JE3013C",
+    "preview": "/certificates/previews/20_entrepreneurship-strategy-from-ideation-to-exit.webp"
   },
   {
     "id": "python-fundamentals",
@@ -323,7 +343,8 @@ export const certificates: readonly Certificate[] = [
     "verificationUrl": null,
     "pdf": "/certificates/12_python-fundamentals.pdf",
     "sourcePage": 21,
-    "completedOn": "2024-11-06"
+    "completedOn": "2024-11-06",
+    "preview": "/certificates/previews/12_python-fundamentals.webp"
   },
   {
     "id": "matlab-onramp",
@@ -337,7 +358,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/08_matlab-onramp.pdf",
-    "sourcePage": 22
+    "sourcePage": 22,
+    "preview": "/certificates/previews/08_matlab-onramp.webp"
   },
   {
     "id": "matlab-fundamentals",
@@ -351,7 +373,8 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/09_matlab-fundamentals.pdf",
-    "sourcePage": 23
+    "sourcePage": 23,
+    "preview": "/certificates/previews/09_matlab-fundamentals.webp"
   },
   {
     "id": "introduction-to-symbolic-math-with-matlab",
@@ -365,6 +388,7 @@ export const certificates: readonly Certificate[] = [
     ],
     "verificationUrl": null,
     "pdf": "/certificates/10_introduction-to-symbolic-math-with-matlab.pdf",
-    "sourcePage": 24
+    "sourcePage": 24,
+    "preview": "/certificates/previews/10_introduction-to-symbolic-math-with-matlab.webp"
   }
 ];

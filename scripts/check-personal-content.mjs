@@ -16,6 +16,13 @@ for (const [name, entries, validate] of [["journey", journey, journeyIssues], ["
         if (bytes.subarray(0, 5).toString() !== "%PDF-") issues.push("local PDF has no PDF signature");
       } catch { issues.push("local PDF does not exist or cannot be read"); }
     }
+    if (entry.preview) {
+      try {
+        if (!/^\/certificates\/previews\/[a-zA-Z0-9][a-zA-Z0-9_-]*\.webp$/.test(entry.preview)) throw new Error("invalid path");
+        const bytes = await readFile(new URL(`../public${entry.preview}`, import.meta.url));
+        if (bytes.subarray(0, 4).toString() !== "RIFF" || bytes.subarray(8, 12).toString() !== "WEBP") issues.push("preview must be a real WebP image");
+      } catch { issues.push("preview is missing or invalid"); }
+    }
     if (issues.length) { failures++; console.error(`${name}/${entry.id || "(missing id)"}: ${issues.join("; ")}`); }
   }
   console.log(`${name}: ${entries.length} supplied records checked`);

@@ -32,3 +32,8 @@ Issuer credential URLs below are transcribed documentary evidence, also retained
 | 22 | MATLAB Onramp | 2024-10-24 | — | /certificates/08_matlab-onramp.pdf | — |
 | 23 | MATLAB Fundamentals | 2024-10-23 | — | /certificates/09_matlab-fundamentals.pdf | — |
 | 24 | Introduction to Symbolic Math with MATLAB | 2024-10-13 | — | /certificates/10_introduction-to-symbolic-math-with-matlab.pdf | — |
+
+## Preview and live issuer verification — 2026-10-24
+All 24 previews were generated from page 1 of their actual original PDFs using local PDFKit and converted to static WebP with Sharp; no generated/fabricated certificate imagery. They are lazy-loaded and link to originals. Added search, category filtering, newest-first ordering, result count, reset and no-results feedback. Content checker now verifies each preview exists and has a WebP signature in addition to PDF checks.
+
+Fresh Chrome checked all seven exact printed Coursera URLs. Six redirected to real public course-certificate pages showing “Completed by Priyanshu Raj”, matching course title, issuer and date: Automata and Computability; The Bits and Bytes of Computer Networking; Introduction to Microprocessors; Operating Systems and You; Entrepreneurship I; Entrepreneurship Strategy. Enabled those six canonical returned destination URLs. The Ethics record returned an empty Course Record without recipient/course identity, so its issuer action stays omitted. Other records retain original PDFs/QR codes; no generic homepage is substituted for a personal credential URL. Course-page promotional statistics/skills were not imported as personal achievements or proficiency.
