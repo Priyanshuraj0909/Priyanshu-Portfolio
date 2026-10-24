@@ -90,3 +90,6 @@ Built original short boot with progress/stages, keyboard Skip Boot, reduced-moti
 
 ## Implementation run — Phase 4
 Integrated owner-approved hero wording and original lazy Three/R3F/Drei graph with deterministic bilateral nodes, decorative connections/orbits, pointer/scroll response and static original SVG fallback. Added global persistent motion pause, reduced-motion handling, offscreen/hidden frame suspension and DPR cap 1.5; mobile uses 100 nodes versus 180 desktop. Scene errors fall back to original SVG. `npm run lint` and production typecheck/build passed. The separate 933.78 kB neural chunk is heavy (248.29 kB gzip), deliberately excluded from the initial entry; build reports its size warning. Full runtime/lifecycle/browser checks remain in final audit.
+
+## Implementation run — Phase 5
+Added six numbered technical modules with attributed project evidence links and only source-supported technologies; no proficiency ratings or achievements. Responsive one/two/three-column layouts and reduced-motion-aware reveals are in place. `npm run lint` and production typecheck/build passed. Capability source paths were checked against inspected snapshots.
