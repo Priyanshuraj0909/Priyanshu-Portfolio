@@ -37,6 +37,7 @@ export interface Project {
 }
 
 export interface JourneyEntry {
+  supportingDocument?: string | null;
   id: string;
   startDate: string;
   endDate: string | null;

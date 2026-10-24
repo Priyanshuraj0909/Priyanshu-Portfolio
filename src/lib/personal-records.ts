@@ -40,6 +40,7 @@ export function isCertificatePdf(value: string): boolean {
 
 export function journeyIssues(entry: JourneyEntry): string[] {
   const issues: string[] = [];
+  if (entry.supportingDocument && !isCertificatePdf(entry.supportingDocument)) issues.push("supportingDocument must be a checked PDF destination");
   if (!entry.id.trim() || !entry.title.trim() || !entry.organization.trim()) issues.push("id, title and organization are required");
   if (!isContentDate(entry.startDate)) issues.push("startDate must be a calendar date at the supplied precision");
   if (entry.endDate !== null && !isContentDate(entry.endDate)) issues.push("endDate must be a calendar date or null");

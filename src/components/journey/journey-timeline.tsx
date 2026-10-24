@@ -14,6 +14,6 @@ export function JourneyTimeline({ entries }: { entries: readonly JourneyEntry[] 
   </div>;
   return <ol className="journey-timeline" aria-label="Journey, earliest first">{records.map((entry, index) => <li key={entry.id} className="journey-row">
     <div className="journey-date"><p><time dateTime={entry.startDate}>{formatContentDate(entry.startDate)}</time>{entry.ongoing ? " – Present" : entry.endDate ? <> – <time dateTime={entry.endDate}>{formatContentDate(entry.endDate)}</time></> : null}</p>{entry.expectedEndDate && <p>Expected completion: <time dateTime={entry.expectedEndDate}>{formatContentDate(entry.expectedEndDate)}</time></p>}<span className="eyebrow">{categoryLabels[entry.category]}</span></div>
-    <article className="journey-record"><span className="record-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><h3>{entry.title}</h3><p className="journey-organization">{entry.organization}</p>{entry.description && <p className="body-copy">{entry.description}</p>}</article>
+    <article className="journey-record"><span className="record-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><h3>{entry.title}</h3><p className="journey-organization">{entry.organization}</p>{entry.description && <p className="body-copy">{entry.description}</p>}{entry.supportingDocument && <a className="link-button link-button--text" href={entry.supportingDocument}>Supporting document ↗</a>}</article>
   </li>)}</ol>;
 }
