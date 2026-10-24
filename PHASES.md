@@ -87,3 +87,6 @@ Completed the shared Vite shell, React Router, original licensed font registrati
 
 ## Implementation run — Phase 3
 Built original short boot with progress/stages, keyboard Skip Boot, reduced-motion/direct-hash/session bypass and preserved responsive navigation. Boot code lint and production build passed before hero work. Integration is recorded with the next hero commit; no reference art or personal content imported. Full production keyboard/browser checks follow integration.
+
+## Implementation run — Phase 4
+Integrated owner-approved hero wording and original lazy Three/R3F/Drei graph with deterministic bilateral nodes, decorative connections/orbits, pointer/scroll response and static original SVG fallback. Added global persistent motion pause, reduced-motion handling, offscreen/hidden frame suspension and DPR cap 1.5; mobile uses 100 nodes versus 180 desktop. Scene errors fall back to original SVG. `npm run lint` and production typecheck/build passed. The separate 933.78 kB neural chunk is heavy (248.29 kB gzip), deliberately excluded from the initial entry; build reports its size warning. Full runtime/lifecycle/browser checks remain in final audit.
