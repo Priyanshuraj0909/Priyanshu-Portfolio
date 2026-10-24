@@ -84,3 +84,6 @@ The owner subsequently instructed “cdo everything by your self”. This approv
 
 ## Implementation run — Phase 2
 Completed the shared Vite shell, React Router, original licensed font registration, requested palette and responsive primitives while retaining legacy source. Drei/Router dependencies installed; strict Vite scope now includes features/shared components. `npm run lint` and `npm run build` passed. Browser regression verification will run against the integrated production app. No remote/deployment.
+
+## Implementation run — Phase 3
+Built original short boot with progress/stages, keyboard Skip Boot, reduced-motion/direct-hash/session bypass and preserved responsive navigation. Boot code lint and production build passed before hero work. Integration is recorded with the next hero commit; no reference art or personal content imported. Full production keyboard/browser checks follow integration.
