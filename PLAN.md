@@ -1,32 +1,37 @@
-# Architecture plan — Vite rebuild
+# Implementation roadmap and architecture
 
-## Decision and migration boundary
-The latest owner request explicitly chooses Vite and Three.js/R3F, replacing the earlier Next.js/Canvas-first preference. Preserve the working Next.js app and evidence; create an independently runnable Vite foundation in the same repository. Phase 1 does not port the finished sections. Default npm scripts run Vite; `dev:legacy`, `build:legacy`, `typecheck:legacy` preserve the prior app. Retained Next dependencies and ESLint configuration are a temporary migration cost. Remove them only after all framework-dependent source is ported and checked in a later approved phase.
+## Audit boundary
+The existing Vite foundation and preserved Next.js app are compatible starting points. No reset, UI redesign, dependency changes or source migration is needed in Phase 1. Only documentation/evidence changes are made. The audit replaces the prior eight-phase roadmap with the owner's ten phases; snapshots preserve its history.
 
-## Active source layout
-- index.html: language, viewport, title, description, noindex, mount point, no-JS notice.
-- src/main.tsx: React StrictMode entry and CSS import.
-- src/foundation/App.tsx: minimal identity/education/GitHub smoke screen, not the final design.
-- src/foundation/styles.css: isolated foundation styling and Tailwind import.
-- src/content: typed profile, projects, journey, certificates, navigation and terminal metadata.
-- src/lib: types and pure content/terminal behavior, retained for later reuse.
-- src/components: retained reusable components to audit/port in their assigned phases.
-- src/app: retained Next.js routes, fonts and global styles, not imported by Vite.
-- public: original verified project assets/certificates, preserved without reinterpretation.
-- vite.config.mts / tsconfig.vite.json: explicit React/Tailwind plugins, @ alias, strict separate compile scope; inherited legacy root tsconfig remains untouched.
-- docs/history/nextjs: original planning snapshots.
+## Existing structure
+| Area | Current role | Later treatment |
+| --- | --- | --- |
+| index.html, src/main.tsx, src/foundation | Active Vite identity smoke page, isolated CSS | Extend after Phase 2 approval |
+| vite.config.mts, tsconfig.vite.json | React/Tailwind plugins, @ alias, strict Vite scope | Preserve; expand scope as features migrate |
+| src/app | Next.js homepage, four dossier routes, fonts/styles | Keep working until migrated |
+| src/components | Legacy navigation/boot/Canvas/vault/journey/certificates/terminal/contact | Audit and reuse original framework-neutral code by phase |
+| src/content, src/lib | Approved typed records, validation, terminal dispatch | Extend schemas separately from rendering |
+| public/projects | Three source-backed screenshot assets | Add only genuine new screenshots |
+| public/certificates | 24 original single-page PDFs | Preview/search/filter layer in Phase 8 |
+| tests, scripts | Ten behavior tests and content validator | Extend for meaningful feature behavior |
+| docs/history | Earlier approved plans | Historical, not current authorization |
 
-## Final experience (later phases)
-Preserve reference order: About, Projects, Journey, Certificates, Terminal, Contact. Use a dark futuristic design with original code/assets, responsive navigation, neural interaction, project dossiers, chronological journey, certificate PDFs, safe terminal and available contact actions. Inspect rendered reference states before implementing each feature; record discrepancies and practical tradeoffs. Never import reference personal claims or assets.
+## Dependencies
+Installed: React/DOM 19.3.1, Vite 8.3.5, TypeScript 5.9.3, Tailwind 4.3.3, Three 0.186.1, R3F 9.8.2, Motion 12.43.0, Lucide 0.468.0; Vite React/Tailwind plugins and Three types. Next 16.4.2 and its lint tooling remain for legacy compatibility. Drei and React Router are not installed. Add Router in Phase 2 for the planned dossiers; add minimal Drei helpers in Phase 4 only when needed. Avoid extra scene/postprocessing libraries unless measured need emerges. Keep installed major compatibility and Node 24 target; audit host is Node 26.10.0.
 
-## Rendering and interaction
-Vite builds a static client React app into dist. Keep pure content separate from rendering. Native hashes preserve section navigation; plan client routing plus Vercel SPA rewrites for dossier deep links in Phase 4, before enabling their URLs. Lazy-load the neural scene and use R3F only within its feature boundary. Do not ship GPU code on the Phase 1 page. Supply WebGL/reduced-motion fallback, motion pause and observer-based lifecycle controls. Motion is reserved for later approved animation work. Avoid new dependencies without demonstrated need.
+## Recommended architecture after approval
+Use a React application shell with reusable semantic sections, layout controls and typed content. Keep the reference's six top-level destinations: About (#core), Projects (#vault), Journey (#logs), Certificates (#live), Terminal (#terminal), Contact (#contact). Boot is a transient interface; the six capability modules live below the hero inside About, avoiding an unrequested new top-level navigation item.
 
-## Content and publication
-The latest owner list requests StudySync AI, CINEMATCH AI, CartPilot, Mock Interview and Fakeddit. Existing repository evidence covers four; StudySync AI remains pending a repository URL. No new technical descriptions are published in Phase 1. Keep unavailable personal fields null; no fabricated experience/metrics. Preserve certificate issue/completion precision and original PDFs. Final hosting target is Vercel, separately authorized in Phase 8; noindex remains enabled until ready.
+Create src/features for boot, neural scene, capabilities, project vault/dossiers, journey, certificates and terminal. Keep existing src/components usable for shared primitives. Expand Vite typecheck scope as modules are migrated; do not prematurely import Next-only modules. Use React Router for /systems/:slug and define Vercel SPA rewrites before relying on deep links. Maintain native hash/back behavior, titles and focus restoration.
 
-## Phase gates
-Each phase has explicit acceptance/test criteria in PHASES.md. Run npm run lint, npm run typecheck, npm run build and meaningful behavior tests. Check desktop/mobile/browser behavior when relevant, and report only executed checks. Commit each completed phase locally; wait for approval before advancing.
+Lazy-load the Three/R3F scene with static original fallback, low mobile particle/connection count, capped DPR, reduced motion, manual pause, offscreen/hidden suspension and disposal. Animation must not gate content. Use Motion for approved reveals with reduced-motion equivalents. Three and Motion remain unloaded on the current foundation page.
 
+Certificates: retain original PDFs and typed record precision; derive original preview images locally from PDFs, not AI. Accessible search + category filter + newest-first ordering, result count/empty state and independent PDF/verified-issuer actions. Public originals total about 11 MiB; do not preload all PDFs. Keep printed issuer URLs distinct from live-verified destinations.
 
-Tooling references checked on 2026-10-24: [Vite guide](https://vite.dev/guide/) and [R3F installation](https://r3f.docs.pmnd.rs/getting-started/installation). R3F documents the React 19/Fiber 9 pairing; installed versions follow that pairing.
+Terminal: adapt the retained pure parser to the ten requested names including certificates, prompt priyanshu@nexus:~$, safe text/native links, history/draft restoration and bounded output. No shell execution, backend or runtime GitHub requests.
+
+## Content milestones
+Latest approved biography/subtitle are in CONTENT_AUDIT.md for later migration. Four original dossiers have pinned source evidence; newly inspected Medical Cost App must receive its own typed entry, genuine screenshot and verified demo before Phase 6 publication. StudySync remains pending. Six capability modules list code-supported technologies with project attribution, not proficiency ratings. Do not publish CGPA, work history, achievements, location or contact values without evidence/confirmation.
+
+## Sequence and release
+Follow the ten phases in PHASES.md. Final SEO/Open Graph, route refresh, optimized WebGL/assets, accessibility/performance and authorized Vercel deployment belong to Phase 10. Maintain noindex until release readiness. Phase approval precedes its Git commit; approval for the next phase must be explicit. No deployment or remote push is authorized by this audit.

@@ -62,3 +62,18 @@ Screenshot: new read-only Chrome capture of that landing page on 23 October 2026
 ## Asset and verification boundaries
 
 Only the user's own project screenshots are included; reference site art, project records and personal details were not downloaded into product assets. Screenshot files total approximately 157 KiB. Portfolio runtime never calls GitHub or project APIs; evidence is static typed content. Recheck public availability and any changed source before final publication. All repository path links exposed in dossiers use these fixed commits.
+
+## Master prompt Phase 1 audit — 2026-10-24
+
+All five public repositories were freshly cloned read-only into /tmp/portfolio-master-audit. CineMatch, Fakeddit, CartPilot and Mock Interview HEADs match the pinned commits above; key implementation paths were reinspected. This is not a fresh live-demo or backend/model validation.
+
+Medical Cost App: https://github.com/Priyanshuraj0909/Medical-cost-app at `33ddbab3ec45980923228589f16766411525eed6` (repository branding: CareEstimate).
+
+- [app.py](https://github.com/Priyanshuraj0909/Medical-cost-app/blob/33ddbab3ec45980923228589f16766411525eed6/app.py): FastAPI lifespan loads model, checks feature-name/order contract, validates finite/nonnegative output and exposes /predict and /health. The model artifact was not loaded/executed in this audit.
+- [schema/user_input.py](https://github.com/Priyanshuraj0909/Medical-cost-app/blob/33ddbab3ec45980923228589f16766411525eed6/schema/user_input.py): Pydantic bounds/category normalization and derived BMI, insurance fraction and city encoding.
+- [requirements.txt](https://github.com/Priyanshuraj0909/Medical-cost-app/blob/33ddbab3ec45980923228589f16766411525eed6/requirements.txt): FastAPI, Pydantic, NumPy, LightGBM and related pinned numerical dependencies. Presence alone does not establish use of every dependency.
+- [static/app.js](https://github.com/Priyanshuraj0909/Medical-cost-app/blob/33ddbab3ec45980923228589f16766411525eed6/static/app.js) and [interface](https://github.com/Priyanshuraj0909/Medical-cost-app/blob/33ddbab3ec45980923228589f16766411525eed6/static/index.html): actual vanilla JS form submits /predict and handles estimates, monthly equivalent, loading and errors. It is not a React interface.
+
+Candidate README demo: https://medical-cost-app-jade.vercel.app — not opened/verified in this phase. No genuine Medical screenshot captured yet. Do not add a live-demo action or fabricated image until verified in Phase 6. Do not invent a currency, accuracy, clinical validity, user count or project status. Source verification is a portfolio code audit, not medical guidance or evaluation of the model.
+
+The API list returned five public repositories; StudySync AI still lacks a source URL/access. CONTENT_AUDIT.md contains the current inventory and feature gaps. No new project card or technical description was published during the audit.

@@ -1,68 +1,83 @@
-# Vite rebuild phases
+# Master prompt — ten-phase implementation plan
 
-The owner restarted the workflow on 2026-10-24 with a new stack and Phase 1 only. Previous Next.js reports are preserved in docs/history/nextjs/PHASES.md. Every phase ends with documentation, a local commit, a result report and explicit approval before the next phase.
+Latest owner instruction, 2026-10-24: **implement Phase 1 only; do not redesign or overwrite the existing portfolio until the audit is complete.** This sequence supersedes the earlier eight-phase Vite plan preserved in docs/history/vite-foundation. The prior Next.js reports remain in docs/history/nextjs.
 
-## 1. Foundation, architecture and dependencies — complete; Phase 2 approval pending
-Acceptance:
-- Preserve existing Next.js app, Git history, approved content and assets.
-- Default dev/build/preview run Vite with React, strict TypeScript and Tailwind.
-- Install Three.js, React Three Fiber, Motion and Lucide; defer scene/animation features.
-- Minimal semantic identity/education/focus/GitHub page; no unverified technical claims.
-- MASTER_ORCHESTRATOR.md, PLAN.md, PHASES.md and AGENTS.md define architecture and phase gates.
-Tests: lint, Vite typecheck, production build, retained content/terminal tests, local HTTP/browser smoke and mobile width/keyboard checks. Verify Three/R3F dependency pairing and absence from initial JS bundle. No final reference design or deployment required.
+Every phase: explain goal/files, implement approved scope, run tests and production build, record actual results/manual checks/incomplete work, obtain approval, then create its local Git commit. Obtain approval before starting the next phase. Never interpret elapsed time as approval. No remote push/deployment before explicit authorization.
 
-## 2. Reference analysis and design system — awaiting approval
-Acceptance: inspect reference desktop/mobile navigation, palette, typography, spacing and section order; document observed behavior; create original reusable layout, controls, focus states and responsive navigation.
-Tests: rendered comparison at desktop/390/320px; keyboard/skip/anchor behavior, contrast measurements, no horizontal overflow, lint/typecheck/build. Record differences without claiming exact fidelity.
+## 1. Repository audit and reference analysis — complete, awaiting approval/commit
+Goal: understand both existing apps, reference appearance/behavior, real repositories and missing content without modifying UI.
+Files: six requested root documents, README/ORCHESTRATOR, reference/project evidence addenda and historical plan snapshots.
+Acceptance: inspect source/dependencies, reference desktop/mobile, five featured repositories at pinned commits, canonical 24 PDFs; distinguish observed facts, proposed designs and gaps. Preserve existing application source/assets/config/dependencies.
+Tests: lint, strict Vite typecheck/build, retained parser/content tests and PDF existence checks. Read-only browser reference inspection. Existing local UI has no changed code requiring new interaction tests.
+Browser review: run npm run dev and confirm the unchanged identity foundation; use npm run dev:legacy to review the preserved full portfolio. Review audit gaps/documents before approving changes.
 
-## 3. Hero and neural scene — awaiting approval
-Acceptance: owner-approved identity/focus, optional boot/skip, original Three/R3F scene, lazy loading, pointer/scroll behavior, pause/reduced-motion/WebGL fallback and hidden/offscreen suspension.
-Tests: pause persistence, reduced motion, resize, visibility lifecycle and cleanup, keyboard access, mobile DPR/complexity caps, production bundle split and browser errors; lint/typecheck/build.
+## 2. Project architecture and design system — awaiting approval
+Goal: reusable layout/tokens and a clean Vite feature structure.
+Files: src/foundation or application shell, src/components/ui, src/styles, src/content/navigation.ts, Vite/TypeScript routing configuration, package files if Router is needed; DESIGN_SYSTEM.md.
+Acceptance: apply owner's explicit palette, licensed fonts, fluid type/spacing and accessible shared controls; establish dossier router/deep-link strategy; keep content separate. Boot/navigation behavior remains Phase 3.
+Tests: lint/typecheck/build; contrast measurements and desktop/tablet/390/320px component checks, text zoom/focus and overflow. Browser review: typography, surfaces, actions and responsive shell.
 
-## 4. Verified project vault and dossier migration — awaiting approval
-Acceptance: inspect code for all five named repositories before descriptions; store URLs/commits/dates; StudySync waits for its real repository. Port reusable project cards and original visuals, selection and direct dossier routes; establish Vercel rewrite architecture.
-Tests: verify every published feature/technology against code; genuine screenshots/links; dossier refresh/back and anchors; keyboard/touch/responsive checks; lint/typecheck/build. Omit unavailable links and unverifiable projects.
+## 3. Boot sequence and navigation — awaiting approval
+Goal: original branded initialization and responsive native section navigation.
+Files: src/features/boot, src/components/layout, src/content/navigation.ts, motion preference utilities.
+Acceptance: progress/status/percentage, keyboard Skip Boot, short nonblocking transition, reduced-motion bypass, original Priyanshu branding; visible active navigation/focus, anchors and direct-hash support. Do not copy reference logo/source.
+Tests: skip persists for session, deep links bypass boot, no focus trap, keyboard/mobile navigation, browser back/reduced motion; lint/typecheck/build. Browser review: fresh session, Skip, direct hashes and mobile navigation.
 
-## 5. Journey and certificates migration — awaiting approval
-Acceptance: migrate three confirmed journey records and 24 certificates without changing meaning; accessible timeline/archive, original PDFs and checked actions, independent issue/completion dates. Preserve documentary versus live-verified issuer distinction.
-Tests: content/date/eligibility tests, chronological ordering, local PDF HTTP checks, keyboard archive and responsive layouts; lint/typecheck/build.
+## 4. Hero and interactive neural core — awaiting approval
+Goal: owner-supplied hero/biography, original Three/R3F scene and accessible actions.
+Files: src/features/hero, src/features/neural, src/content/profile.ts, minimal Drei dependency/helpers when justified.
+Acceptance: exact approved name/subtitle/biography; pointer-responsive graph, scroll movement, fallback, lazy loading, pause, hidden/offscreen suspension, reduced motion, mobile complexity/DPR limits and disposal. Availability/location stay absent unless confirmed.
+Tests: WebGL failure/reduced-motion/pause, pointer/scroll, visibility lifecycle, keyboard, resize and measured mobile rendering; lint/typecheck/build. Browser review: motion controls, static fallback and primary links.
 
-## 6. Terminal and contact migration — awaiting approval
-Acceptance: port twelve typed safe commands, unknown input/clear/history, readable announcements and native links. Render only owner-approved available contact/resume destinations; no automatic shell execution or HTML injection.
-Tests: command dispatch/missing data/hostile-input tests, Enter/Run, history/draft restore, focus and links, back/deep navigation, desktop/mobile; lint/typecheck/build.
+## 5. Technical capabilities — awaiting approval
+Goal: six numbered evidence-backed modules below hero inside About.
+Files: src/features/capabilities, typed capability content and PROJECT_EVIDENCE.md path mapping.
+Acceptance: AI/ML, backend, frontend, languages, databases/data engineering, tools/deployment; each technology supported by inspected implementation/config. No proficiency scores or inferred expertise.
+Tests: content evidence coverage, keyboard/touch states, contrast, responsive layout/reduced-motion; lint/typecheck/build. Browser review: module readability, accurate project attribution and subtle interactions.
 
-## 7. Animation, accessibility and performance audit — awaiting approval
-Acceptance: original Motion scroll/reveal transitions, reduced-motion/pause support, keyboard/focus/landmark/contrast remediation, mobile/touch behavior and practical neural performance budget.
-Tests: production browser matrix desktop/tablet/390/320px; measured contrast, reduced motion and hidden/offscreen suspension, console/network errors, focus/back/scroll, performance profiling, lint/typecheck/build and regression tests. Record remaining limits.
+## 6. Project Vault and dossiers — awaiting approval
+Goal: five source-backed projects with original selector and detailed routes.
+Files: src/features/projects, src/content/projects.ts, router, public/projects genuine images, evidence and Vercel routing specification.
+Acceptance: CineMatch, Fakeddit, CartPilot, Mock Interview, Medical Cost App; number/code, verified stack/features/architecture/challenges, GitHub and checked optional demo; screenshots are real. Status/metrics only when confirmed. StudySync waits for source. Dossiers support refresh/direct URL/back and accessible selection/focus restoration.
+Tests: verify source claims against pinned files, links/screenshots, selector keyboard/touch, route refresh/back/404, desktop/mobile; lint/typecheck/build. Browser review: each project, dossier, native repository/demo destination and captions.
 
-## 8. Release, GitHub and Vercel — awaiting approval
-Acceptance: final approved content/link audit, reproducible install, production routing/metadata/assets, clean meaningful commits; obtain required account/remote/deployment authorization. Never infer biography, proficiency, metrics or contact details.
-Tests: npm ci, complete checks/build, production preview and deep-link refresh; authorized Vercel deploy and live URL/asset/keyboard smoke. Report exact deployed URL and any remaining limitations. Remove noindex only when release-ready and authorized.
+## 7. Journey timeline — awaiting approval
+Goal: original animated timeline with genuine records and editable missing fields.
+Files: src/features/journey, src/content/journey.ts, src/lib/types.ts/validation and optional supporting document fields.
+Acceptance: preserve three confirmed learning records and ongoing B.Tech/expected completion distinction; date/category/title/organization/description/document supported; unknown school/work/internships/achievements remain empty drafts.
+Tests: date/category/confirmation validation, chronological order, optional document destinations, keyboard/reduced motion/responsive; lint/typecheck/build. Browser review: real education dates, no fabricated entries, readable mobile timeline.
 
-## Phase 1 result — 2026-10-24
-Completed the requested Vite foundation while retaining the prior Next.js source, assets, content and Git history. Default scripts use Vite; legacy scripts remain available. No reference-design sections or neural scene were implemented in the new app.
+## 8. Certificates archive — awaiting approval
+Goal: all 24 original PDFs with real previews/search/category filter/newest-first order.
+Files: src/features/certificates, src/content/certificates.ts, preview assets derived from PDFs, content tests/evidence.
+Acceptance: title, issuer, issue date, category, preview, PDF and available verified issuer action; independent completion metadata retained. Accessible search/filter result counts, empty state and keyboard flow. Never reimport the extra workshop as a 25th certificate.
+Tests: 24-record uniqueness/file availability, PDF preview provenance, search/filter/order/empty state/reset, URL checks, keyboard and mobile; lint/typecheck/build. Browser review: every PDF, filter/search and issuer destination validity. Do not preload all PDFs.
 
-Installed/resolved: React 19.3.1, Vite 8.3.5, TypeScript 5.9.3, Tailwind 4.3.3, Three 0.186.1, React Three Fiber 9.8.2, Motion 12.43.0 and Lucide 0.468.0. React/Fiber majors are compatible; npm ls reports no invalid peer dependencies. React/Tailwind Vite plugins and Three types are configured. Three/R3F/Motion have no imports in the foundation runtime; their implementation is deferred. Retained Next dependencies and Next ESLint configuration support the existing source until migration completes.
+## 9. Interactive terminal and contact — awaiting approval
+Goal: owner-requested simulated shell and genuine channels.
+Files: src/features/terminal, src/features/contact, src/lib/terminal.ts, content commands/profile and tests.
+Acceptance: prompt priyanshu@nexus:~$; help/about/skills/projects/certificates/education/github/resume/contact/clear; pure safe parser, history/draft restore, clear, mobile input, native links/section navigation. Contact only available owner values; no fabricated email/location/resume or automatic shell/HTML execution.
+Tests: all commands, whitespace/case, malicious text, missing fields, history/clear/announcements/focus/link/back; lint/typecheck/build. Browser review: Enter/Run, history, certificates command, Tab escape and actual contact actions.
 
-Changed files: index.html, vite.config.mts, tsconfig.vite.json, src/main.tsx, src/foundation/{App.tsx,styles.css}, package.json/package-lock.json, .gitignore and eslint.config.mjs; created MASTER_ORCHESTRATOR.md; refreshed AGENTS.md, PLAN.md, PHASES.md, ORCHESTRATOR.md and README.md; archived five original planning files under docs/history/nextjs. Existing root tsconfig.json and portfolio content/assets were preserved.
+## 10. Responsive design, performance, accessibility, SEO and deployment — awaiting approval
+Goal: production-ready original portfolio and separately authorized Vercel release.
+Files: observed audit fixes, SEO/Open Graph and original share asset, routing/hosting config, documentation.
+Acceptance: measured contrast/keyboard/landmarks, 320px–desktop/touch/text zoom, reduced-motion/pause/WebGL fallback/lifecycle, lazy heavy components and optimized genuine images; route refresh, titles/metadata/Open Graph; no missing PDFs or unsupported metrics. Keep noindex until release-ready. Obtain remote/account/deployment authorization; do not guess URLs or push prematurely.
+Tests: clean install, all lint/typecheck/build/content/terminal/regression checks, production browser matrix and performance profiling, deep links/back/404, external destination audit and authorized live deployment smoke. Browser review: final checklist, all public routes/assets, exact returned deployment URL. Report any limits honestly.
 
-Checks executed:
-- npm run lint: passed, zero warnings.
-- npm run build: passed, including strict Vite TypeScript check. Output: dist/index.html, 9.07 kB CSS and 221.99 kB JS (69.72 kB gzipped).
-- npm run test:terminal: four tests passed; npm run test:content: six passed.
-- npm run check:content: three journey and 24 certificate records passed.
-- npm run build:legacy: passed; existing Next homepage and four dossier pages still build.
-- npm ls --depth=0 and lockfile specification consistency: passed. Dependency installation reported zero audit vulnerabilities.
-- Production Vite preview: HTTP 200; Chrome passed at 1440/390/320px for title, identity, education, actual GitHub href, noindex, no canvas, keyboard skip/main/GitHub focus, no horizontal overflow and no page errors. Initial education assertion was case-sensitive against CSS-uppercase innerText; corrected QA assertion and reran all widths successfully. Screenshots remain temporary at /tmp/vite-foundation-*.png.
-- git diff --check: passed. Existing Node informational MODULE_TYPELESS_PACKAGE_JSON notices remain in the retained TypeScript test commands; no failed check results.
+## Phase 1 execution report — 2026-10-24
+Completed source/dependency audit and read-only browser/reference/repository inspection. Five fresh public clones show four original repository commits unchanged plus newly identified Medical Cost App. Read app.py, request schemas and real JS interface for Medical; no backend/model/pickle execution or accuracy claims. CONTENT_AUDIT.md contains code-supported scope and gaps. All 24 original local PDF assets pass the existing checker. Biography/subtitle now supplied in master prompt; retained source is intentionally unchanged during audit.
 
-Limits: this is a foundation smoke screen, not the reference design or full portfolio migration. Reference URL was inaccessible to the web reader on this turn; existing rendered evidence remains in REFERENCE_ANALYSIS.md and fresh feature inspection is planned for Phase 2. Three/WebGL behavior is not yet implemented or tested. The existing content checker does not reverify external issuer destinations. No GitHub push, hosting registration or deployment occurred. Checked on Node 26.10.0; .nvmrc retains the intended Node 24 target.
+Reference: fresh Chrome at 1440×900 and 390×900 inspected six navigation destinations, hero, Project Vault, journey, certificates, terminal and contact. Hero/project/contact and mobile archive captures were visually reviewed. Help/unknown/clear were exercised; no document overflow observed at these widths. Detailed motion/performance/dossier behavior is not fully measured; see REFERENCE_ANALYSIS.md. Captures remain temporary under /tmp/master-audit-*.png. Web reader access failed, while direct Chrome succeeded.
 
-Manual verification:
-1. Use Node 24, run npm ci, then npm run dev; open http://127.0.0.1:5173.
-2. Confirm Priyanshu Raj, B.Tech CSE/Bennett University, the supplied focus and GitHub link.
-3. Use Tab, Enter and Tab to check the skip link, main focus and GitHub action; resize to 320px.
-4. Run npm run build and npm run preview to check the production artifact.
-5. Use npm run dev:legacy to open the preserved prior portfolio separately.
+Changed only documentation: AGENTS.md, MASTER_ORCHESTRATOR.md, PLAN.md, PHASES.md, new DESIGN_SYSTEM.md and CONTENT_AUDIT.md, README.md, ORCHESTRATOR.md, PROJECT_EVIDENCE.md/REFERENCE_ANALYSIS.md addenda and docs/history/vite-foundation snapshots. No app source, assets, configuration, dependency or lockfile change. No commit yet: the latest master prompt explicitly requires approval first. No GitHub remote is configured; no push or publication occurred.
 
-Phase 1 is complete and locally committed. Stop here pending explicit Phase 2 approval.
+Verification results are recorded below after the check run. Phase 2 remains unapproved.
+
+Verification — all passed on Node 26.10.0: npm run lint; npm run build (includes strict Vite typecheck); npm run test:terminal (4); npm run test:content (6); npm run check:content (3 journey + 24 certificates). Vite artifact remains 221.99 kB JS / 69.72 kB gzip and 9.07 kB CSS. npm ls --depth=0 reports expected installed packages; Drei/Router absent as documented. Existing informational MODULE_TYPELESS_PACKAGE_JSON notices in Node tests remain; no code change was needed. Browser normal-motion inspection observed reference boot status/percentage/stages and keyboard-activated Skip Boot, with hero visible afterward; one canvas was present. This did not measure full boot duration or GPU performance.
+
+Manual review: open CONTENT_AUDIT.md and DESIGN_SYSTEM.md, verify missing information is correct, then run npm run dev and view http://127.0.0.1:5173 to confirm the existing foundation is unchanged. Run npm run dev:legacy separately for the preserved Next.js portfolio. In the next approved phase compare design tokens/layout to the reference. Pending: owner review/approval, local audit commit after approval and explicit Phase 2 authorization. No new local browser regression run was needed for documentation-only changes; prior foundation browser results are historical, while this phase's fresh browser checks concern the reference.
+
+
+## Autonomy approval — 2026-10-24
+The owner subsequently instructed “cdo everything by your self”. This approves the completed audit commit and all remaining implementation phases without intermediate approval stops. Continue through verification and local phase commits autonomously. Preserve unknown personal fields and do not fabricate claims. Publishing may proceed only with available authorized hosting access; never infer missing credentials or a GitHub remote. This update supersedes earlier phase-stop/commit-approval gates.

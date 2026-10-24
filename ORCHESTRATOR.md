@@ -1,3 +1,3 @@
 # Orchestrator pointer
 
-The active workflow is MASTER_ORCHESTRATOR.md for the owner-requested Vite rebuild. Only Phase 1 is authorized. Earlier Next.js orchestration and phase reports are archived in docs/history/nextjs. Preserve the prior implementation and approved content while porting features in separately approved phases.
+Read MASTER_ORCHESTRATOR.md for the active ten-phase workflow from the latest attached master prompt. Only Phase 1 (audit/reference analysis/documentation) is authorized. Preserve both current Vite foundation and legacy Next.js portfolio. Await approval before the audit commit and before Phase 2. Earlier plans remain under docs/history.

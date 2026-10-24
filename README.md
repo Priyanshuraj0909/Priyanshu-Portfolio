@@ -1,25 +1,27 @@
 # Priyanshu Raj portfolio
 
-Completed: **Phase 1 of the Vite rebuild**, requested 24 October 2026. The prior Next.js portfolio is preserved and runnable separately. Only the minimal foundation page is served by Vite; the reference design and features await approval of later phases.
+Current work: Phase 1 of the latest ten-phase master prompt — repository/reference audit and documentation. Both the active Vite foundation and preserved Next.js portfolio are unchanged. Phase 2 requires approval; the audit commit also awaits approval as requested.
 
-## Run
+## Run and verify
 
-Use Node 24 (`nvm use`) and `npm ci`.
+Use Node 24 (`nvm use`), then `npm ci`.
 
-- `npm run dev`: Vite development server.
-- `npm run build`: strict Vite TypeScript check and production output in dist.
-- `npm run preview`: preview the built Vite app.
-- `npm run lint`: repository ESLint checks, including retained legacy code.
-- `npm run test:content`, `npm run test:terminal`, `npm run check:content`: retained content/behavior checks.
-- `npm run dev:legacy`: previous Next.js portfolio.
-- `npm run build:legacy`, `npm run typecheck:legacy`: previous framework checks.
+- `npm run dev`: Vite foundation (default http://127.0.0.1:5173).
+- `npm run build`: Vite strict typecheck and production build into dist.
+- `npm run preview`: serve the built Vite page.
+- `npm run lint`: repository checks.
+- `npm run test:terminal`, `npm run test:content`, `npm run check:content`: retained parser/content tests.
+- `npm run dev:legacy`, `npm run build:legacy`, `npm run typecheck:legacy`: preserved Next.js app.
 
-Stack: React, TypeScript, Vite, Tailwind CSS, Three.js, React Three Fiber, Motion and Lucide. Three/R3F and Motion are installed for later phases and do not run on the foundation page. Next.js dependencies remain temporarily for legacy source compatibility.
+Installed: React, TypeScript, Vite, Tailwind, Three, R3F, Motion and Lucide. Drei and React Router are recommended for later approved phases. No dependencies changed in this audit. Next dependencies remain for preserved source compatibility.
 
-## Documentation
+## Audit documents
 
-Read MASTER_ORCHESTRATOR.md for workflow, PLAN.md for architecture, PHASES.md for acceptance criteria/results and AGENTS.md for implementation rules. Earlier documents are under docs/history/nextjs. Existing project/certificate/content evidence remains in PROJECT_EVIDENCE.md, CERTIFICATE_EVIDENCE.md and CONTENT_GUIDE.md.
+- MASTER_ORCHESTRATOR.md: operating rules and approval gates.
+- PLAN.md: architecture, roadmap and recommended changes.
+- PHASES.md: ten phases, files, acceptance/tests, result and manual checks.
+- AGENTS.md: agent instructions.
+- DESIGN_SYSTEM.md: proposed tokens and observed reference design.
+- CONTENT_AUDIT.md: verified identity/projects/certificates and content gaps.
 
-Phase 1 displays only supplied identity, education, focus and GitHub. StudySync AI requires its repository URL before technical descriptions. Email, LinkedIn, biography, location, resume and proficiency claims remain unset. No deployment, push or external messages are authorized. Vercel is the intended final hosting target.
-
-Verification: lint, strict Vite typecheck/build, ten retained tests, content checks and legacy Next build passed. Production Chrome smoke passed at 1440/390/320px with keyboard access and no overflow/page errors. Phase 2 awaits approval. Detailed results/manual steps are in PHASES.md.
+PROJECT_EVIDENCE.md, CERTIFICATE_EVIDENCE.md and REFERENCE_ANALYSIS.md retain provenance. Previous Next/Vite plans are in docs/history. Five public project repositories were inspected; StudySync source is still needed. All 24 local PDFs exist. Biography/subtitle are supplied in the latest prompt; contact/availability/location and unknown achievements remain unfilled. No UI redesign, source migration, deployment, GitHub push or audit commit has been performed.

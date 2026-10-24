@@ -1,23 +1,25 @@
-# Master orchestrator — Vite portfolio rebuild
+# Master orchestrator — ten-phase portfolio plan
 
-## Current authorization
-2026-10-24: owner requested React/TypeScript/Vite/Tailwind/Three/R3F/Motion/Lucide and **Phase 1 only**. Earlier Next.js Phases 1–6 exist and remain preserved; their approvals do not carry into this new sequence. Phase 1 is complete and verified; Phase 2 needs explicit approval.
+## Status and workflow
+2026-10-24: latest attached master prompt authorizes **Phase 1 audit only**. Its ten-phase sequence replaces the earlier eight-phase Vite plan; archived at docs/history/vite-foundation. The prior Next.js workflow remains archived at docs/history/nextjs. Previous approvals do not authorize this new Phase 2.
 
-## Operating loop
-1. Read AGENTS.md, PLAN.md and the active phase criteria in PHASES.md.
-2. Inspect existing source and evidence before changing behavior. Preserve unrelated work.
-3. Implement only the approved phase, with reusable semantic components and typed content.
-4. Run applicable checks, investigate failures and document verification boundaries.
-5. Update status, changed files and manual checks; create a meaningful local Git commit.
-6. Report the result and wait for approval for the next named phase. Do not publish or push prematurely.
+1. Establish approved phase and read AGENTS.md plus PHASES.md acceptance criteria.
+2. Inspect current source/evidence and reference behavior before implementation.
+3. Explain goal and planned files; implement only within scope with original code/assets.
+4. Run applicable unit/content checks, lint, typecheck, production build and browser checks.
+5. Update evidence, actual results, manual verification and incomplete work.
+6. Present reviewable changes; create the phase Git commit **after owner approval**.
+7. Obtain approval before the next named phase. No automatic deployment/push.
 
-## Sources of truth
-- Owner identity/contact and approved interests: src/content/profile.ts.
-- Owner-confirmed journey: src/content/journey.ts and CONTENT_GUIDE.md.
-- Certificates: src/content/certificates.ts, public/certificates and CERTIFICATE_EVIDENCE.md.
-- Repository code evidence: PROJECT_EVIDENCE.md; recheck before migrating descriptions.
-- Reference inspection: REFERENCE_ANALYSIS.md; reference behavior/design only, never personal content.
-- Prior implementation planning: docs/history/nextjs; historical records, not active phase authorization.
+## Architecture and source of truth
+Vite entry and isolated foundation styles are active. Existing Next routes/components remain preserved for later audited reuse. Typed portfolio content lives in src/content; behavior/types in src/lib; assets in public. DESIGN_SYSTEM.md records requested tokens versus reference observations. CONTENT_AUDIT.md records confirmed information, repository evidence and missing inputs. PROJECT_EVIDENCE.md and CERTIFICATE_EVIDENCE.md retain detailed provenance. REFERENCE_ANALYSIS.md records actual browser evidence and its limits.
 
-## Missing inputs
-StudySync AI repository URL, approved biography, email, LinkedIn, location, resume and any confirmed proficiency list. These do not block foundation work. Do not infer employment, achievements or metrics. The four existing verified project dossiers remain in the legacy app until the project migration phase.
+## Current conclusions
+Five public repositories were inspected at pinned commits. Medical Cost App is newly identified; its source supports FastAPI/Pydantic/LightGBM and a vanilla JS interface. No app inference was executed. StudySync AI is absent from the five public repositories returned by the API; owner source URL is still needed. All 24 local PDFs exist. The active app remains a foundation page; mature legacy features are not yet wired into Vite.
+
+## Pending owner information
+Email, LinkedIn, resume, confirmed residence/availability, optional school/internship/work/leadership/achievement records and StudySync source. The latest prompt supplies biography/subtitle wording, superseding the previous biography gap. Technical module technologies must be linked to source evidence rather than treated as personal proficiency. No missing field blocks this audit.
+
+
+## Autonomy approval — 2026-10-24
+The owner subsequently instructed “cdo everything by your self”. This approves the completed audit commit and all remaining implementation phases without intermediate approval stops. Continue through verification and local phase commits autonomously. Preserve unknown personal fields and do not fabricate claims. Publishing may proceed only with available authorized hosting access; never infer missing credentials or a GitHub remote. This update supersedes earlier phase-stop/commit-approval gates.
