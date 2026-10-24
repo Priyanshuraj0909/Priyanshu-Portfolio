@@ -54,3 +54,15 @@ Corrected explicit filter labels, visible-text/accessibility-name consistency, i
 7. Connect the Vercel integration, select `king-09`, create or select the intended project and deploy this prepared checkout. Confirm the returned deployment URL, redirects/deep routes, PDFs and live metadata before marking Phase 10 fully complete.
 
 Temporary browser scripts, screenshots and detailed results are under /tmp/priyanshu-phase2-qa and /tmp/portfolio-*.json/png. They are verification artifacts, not product assets. No credentials/private messages or reference-owner assets were copied.
+
+## Studio redesign — 25 October 2026
+
+The active Vite homepage now uses the original editorial direction documented in
+REDESIGN.md. Lint, type checking, build, content checks, deployment checks and all
+13 existing tests passed. Playwright CLI with Chromium passed 23 checks covering
+navigation, five direct project routes, certificate filtering, terminal interaction,
+persistent pause, reduced motion, keyboard focus and responsive widths from 320 to
+1440px. No uncaught browser errors. A tablet overflow caused by the hero decoration
+was corrected. External visual-reference pages remained blocked by the network
+proxy after retry; no claim is made to have inspected them. No hosted deployment
+was performed as part of this redesign.

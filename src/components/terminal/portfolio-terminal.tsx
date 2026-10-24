@@ -36,14 +36,14 @@ export function PortfolioTerminal({ context }: { context: TerminalContext }) {
     setInput(index === history.length ? draft.current : history[index]);
   }
   return <div className="terminal-shell">
-    <div className="terminal-bar"><span>priyanshu@nexus — /workspace</span><span>Local session</span></div>
+    <div className="terminal-bar"><span>priyanshu@studio — /workspace</span><span>Local session</span></div>
     <p className="terminal-hint" id="terminal-hint">Explore the portfolio with help. Use ↑ / ↓ for command history. Tab reaches output links.</p>
     <div ref={output} className="terminal-output" role="region" aria-label="Terminal output" tabIndex={0}>
       {showWelcome && <p>Welcome. Type help to get started.</p>}
-      {entries.map(entry => <div key={entry.id} className="terminal-entry"><p className="terminal-echo"><span aria-hidden="true">priyanshu@nexus:~$ </span>{entry.command}</p><ul>{entry.lines.map((line, index) => <li key={index}>{line.href ? <a href={line.href}>{line.text}</a> : line.text}</li>)}</ul></div>)}
+      {entries.map(entry => <div key={entry.id} className="terminal-entry"><p className="terminal-echo"><span aria-hidden="true">priyanshu@studio:~$ </span>{entry.command}</p><ul>{entry.lines.map((line, index) => <li key={index}>{line.href ? <a href={line.href}>{line.text}</a> : line.text}</li>)}</ul></div>)}
     </div>
     <form onSubmit={submit} className="terminal-form">
-      <label htmlFor="terminal-command"><span className="terminal-prompt" aria-hidden="true">priyanshu@nexus:~$</span><span className="sr-only">Terminal command</span></label>
+      <label htmlFor="terminal-command"><span className="terminal-prompt" aria-hidden="true">priyanshu@studio:~$</span><span className="sr-only">Terminal command</span></label>
       <input id="terminal-command" value={input} onChange={e => { setInput(e.target.value); setCursor(null); }} onKeyDown={navigateHistory} maxLength={200} autoComplete="off" autoCapitalize="none" spellCheck={false} aria-describedby="terminal-hint" placeholder="Type a command…" />
       <button type="submit">Run<span className="sr-only"> command</span></button>
     </form>

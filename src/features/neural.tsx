@@ -1,10 +1,8 @@
-import { Component, Suspense, lazy, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { neuralGeometry } from "./neural-geometry";
+import { Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode } from "react";
 import { useMotionPreferences } from "./motion";
 const Scene = lazy(() => import("./neural-scene"));
 function Fallback() {
-  const graph = useMemo(() => neuralGeometry(true), []);
-  return <svg className="neural-fallback" viewBox="0 0 500 420" fill="none" aria-hidden="true"><g transform="translate(250 190) scale(145)"><ellipse rx="1.35" ry="1.13" stroke="currentColor" strokeWidth=".003" opacity=".4" /><g stroke="currentColor" strokeWidth=".004" opacity=".5">{graph.links.map(([a, b], i) => <line key={i} x1={graph.nodes[a][0]} y1={-graph.nodes[a][1]} x2={graph.nodes[b][0]} y2={-graph.nodes[b][1]} />)}</g><g fill="#99eaff">{graph.nodes.map(([x, y], i) => <circle key={i} cx={x} cy={-y} r=".008" />)}</g><circle cy=".3" r=".035" fill="#b7eeff" /></g></svg>;
+  return <div className="sculpture-fallback" aria-hidden="true"><span /><span /><span /></div>;
 }
 class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -29,8 +27,8 @@ export function Neural() {
   }, []);
   const active = !paused && !reduced && inView && !hidden;
   return <figure className="neural-figure" ref={ref} data-active={active}>
-    <div className="neural-viewport">{visible && !reduced ? <SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} /></Suspense></SceneBoundary> : <Fallback />}<span className="neural-glow" aria-hidden="true" /></div>
-    <div className="section-rail"><span>Neural core</span><span>01 / 06</span></div>
-    <figcaption className="eyebrow">A connected neural field. Move your pointer to explore. Use the motion control to pause.</figcaption>
+    <div className="neural-viewport">{visible && !reduced ? <SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} /></Suspense></SceneBoundary> : <Fallback />}</div>
+
+    <figcaption className="eyebrow">A copper knot, shaped in code. Move your pointer to explore; pause motion in the header.</figcaption>
   </figure>;
 }
