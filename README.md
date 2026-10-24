@@ -20,9 +20,13 @@ npm run lint
 npm run typecheck
 npm test
 npm run check:content
+npm run build
+npm run check:deployment
 ```
 
 All 13 content/parser/filter tests, lint, builds and production browser checks passed. See QA_REPORT.md for executed coverage and limits. `npm run dev:legacy`, `build:legacy` and `typecheck:legacy` retain the previous Next.js app. Runtime never calls GitHub or model APIs.
+
+GitHub Actions runs a clean install, lint, tests, content checks, production build and deployment artifact checks on Node 24 for pushes and pull requests to `main`. Vercel uses the same Node major and lockfile installation through `vercel.json`.
 
 ## Architecture and content
 

@@ -1,5 +1,11 @@
 # Production verification — 2026-10-24
 
+## Deployment readiness follow-up
+
+Pinned the deployment runtime to Node 24 in package.json to match .nvmrc, set Vercel's install command to `npm ci`, and added GitHub Actions validation for `main` pushes and pull requests. Added `npm run check:deployment` to inspect built static documents, dossier rewrites, linked assets, all 24 certificate originals/previews and indexing configuration. Preserved the pending personal monogram/favicon changes. Fixed the shared motion module's missing client directive so the legacy Next.js build compiles again.
+
+Fresh `npm ci --no-audit --no-fund` passed on local Node 26.10.0. Lint, all 13 tests, content validation, strict TypeScript, production build and deployment artifact checks subsequently passed on Node 24.22.1, the pinned deployment major. The legacy production build also passed on local Node 26.10.0. The existing lazy WebGL chunk-size and module-type notices remain non-blocking. Browser checks below are earlier coverage; this follow-up did not repeat that matrix. Hosted Vercel deployment and the new remote CI run have not been verified locally. No deployment origin was supplied, so noindex remains enabled.
+
 ## Result
 The complete Vite portfolio is implemented, locally verified and published to `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`; local `main` tracks `origin/main`. Public deployment remains pending authenticated Vercel access. The owner supplied `https://vercel.com/king-09` as the account target on 2026-10-24, but the available integration is not installed/connected and the CLI reports logged out. The dashboard URL is not a portfolio origin, so no live portfolio URL is claimed. Owner authorization covers deployment without further implementation checkpoints.
 

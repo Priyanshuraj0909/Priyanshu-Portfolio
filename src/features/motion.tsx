@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { MotionConfig, useReducedMotion, motion } from "motion/react";
 import { Pause, Play } from "lucide-react";

@@ -1,9 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Orbit } from "lucide-react";
 import { navigation } from "@/content/navigation";
 import { profile } from "@/content/profile";
+
+function PriyanshuMark() {
+  return <svg className="site-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <path d="M10 41V7h13.5C31.3 7 36 11.2 36 18.5S31.3 30 23.5 30H10" />
+    <path d="M23 30 38 41" />
+  </svg>;
+}
 
 export function Header() {
   const [active, setActive] = useState<string>("core");
@@ -24,7 +30,7 @@ export function Header() {
   return (
     <header className="site-header">
       <a className="site-brand" href="#core" aria-label={`${profile.name}, back to About`}>
-        <Orbit size={22} strokeWidth={1.25} aria-hidden="true" />
+        <PriyanshuMark />
         <span>{profile.name}</span>
       </a>
       <nav className="site-nav" aria-label="Section navigation">

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=24 <27"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,7 @@
     "test:terminal": "node --test tests/terminal.test.mjs",
     "test:content": "node --test tests/personal-records.test.mjs",
     "check:content": "node scripts/check-personal-content.mjs",
+    "check:deployment": "node scripts/check-deployment.mjs",
     "preview": "vite preview",
     "dev:legacy": "next dev",
     "build:legacy": "next build --webpack",
