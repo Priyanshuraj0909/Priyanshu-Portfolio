@@ -1,7 +1,7 @@
 # Production verification — 2026-10-24
 
 ## Result
-The complete Vite portfolio is implemented and locally verified. Public deployment remains pending connected Vercel access. The owner supplied `https://vercel.com/king-09` as the account target on 2026-10-24, but the available Vercel integration is still not installed/connected. The dashboard URL is not a portfolio origin. No authenticated CLI, configured project or GitHub remote is available, so no live portfolio URL is claimed. Owner authorization covers remaining implementation and local phase commits without further checkpoints.
+The complete Vite portfolio is implemented, locally verified and published to `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`; local `main` tracks `origin/main`. Public deployment remains pending authenticated Vercel access. The owner supplied `https://vercel.com/king-09` as the account target on 2026-10-24, but the available integration is not installed/connected and the CLI reports logged out. The dashboard URL is not a portfolio origin, so no live portfolio URL is claimed. Owner authorization covers deployment without further implementation checkpoints.
 
 ## Executed checks
 | Check | Actual result |

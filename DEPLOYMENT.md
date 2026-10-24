@@ -1,6 +1,6 @@
 # Vercel release handoff
 
-Local implementation and verification are ready. The owner supplied the Vercel dashboard target `https://vercel.com/king-09` on 2026-10-24, so deployments must use the `king-09` account/team after access is connected. This dashboard URL identifies the destination account; it is not the portfolio's public origin. Publishing is not complete because the integration is available but not installed/connected, and no authenticated CLI/project or GitHub remote is configured. Do not use another account or claim a live URL before a successful deployment.
+Local implementation and verification are ready. The complete `main` branch is published at `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`. The owner supplied the Vercel dashboard target `https://vercel.com/king-09` on 2026-10-24, so deployments must use the `king-09` account/team after access is connected. This dashboard URL identifies the destination account; it is not the portfolio's public origin. Publishing is not complete because the integration and CLI are not authenticated to Vercel. Do not use another account or claim a live URL before a successful deployment.
 
 Prepared configuration:
 
@@ -12,4 +12,4 @@ Prepared configuration:
 - No API tokens, runtime project APIs or server secrets are needed by this frontend.
 - Immutable hashed-asset caching and nosniff/referrer-policy headers are configured.
 
-After connecting, select `king-09`, create or select the owner's intended project, deploy this checkout and inspect the actual returned URL. Verify /, all five /systems/:slug URLs with reload/Back, unknown route, favicon/social image, all PDF/preview URLs and no console errors. Use the returned HTTPS origin to set PORTFOLIO_SITE_URL and redeploy for public canonical metadata, sitemap and indexing. Do not auto-create a GitHub remote with an invented repository name; local phase commits are already retained.
+After authenticating, select `king-09`, import the published `Priyanshu-Portfolio` repository or link this checkout, and inspect the actual returned URL. Verify /, all five /systems/:slug URLs with reload/Back, unknown route, favicon/social image, all PDF/preview URLs and no console errors. Use the returned HTTPS origin to set PORTFOLIO_SITE_URL and redeploy for public canonical metadata, sitemap and indexing. Local phase commits and the authorized GitHub remote are retained.

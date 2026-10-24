@@ -1,7 +1,7 @@
 # Master orchestrator — ten-phase portfolio plan
 
 ## Status and workflow
-The owner authorized all phases autonomously on 2026-10-24 after the audit. Local commits exist for each implemented phase. Phases 1–9 are complete; Phase 10 local release work and verification are complete, while Vercel deployment/live checks await connected access to the owner-supplied `king-09` account target. Earlier phase-stop gates are superseded.
+The owner authorized all phases autonomously on 2026-10-24 after the audit. Local commits exist for each implemented phase. Phases 1–9 and Phase 10 local release work/verification are complete. The repository is published at `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`; Vercel deployment/live checks await authenticated access to the owner-supplied `king-09` account target. Earlier phase-stop gates are superseded.
 
 Continue without routine approval requests. Preserve existing work and evidence; never invent personal content, metrics, repository URLs or deployment claims. Run meaningful checks after changes, document actual results and create local commits. Enable publishing through the available Vercel integration only when account/project access is confirmed. No live portfolio URL is currently available. See QA_REPORT.md and DEPLOYMENT.md.
 
