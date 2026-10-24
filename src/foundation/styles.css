@@ -1,20 +1,8 @@
-@import "tailwindcss";
-
-:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #0b0a10; color: #eeeaf7; font-synthesis: none; }
-* { box-sizing: border-box; }
-body { margin: 0; }
-a { color: inherit; }
-:focus-visible { outline: 2px solid #bca5ff; outline-offset: 6px; }
-.skip-link { position: fixed; top: 12px; left: 12px; padding: 12px 20px; background: #eeeaf7; color: #0b0a10; transform: translateY(-200%); z-index: 10; }
-.skip-link:focus { transform: translateY(0); }
-.foundation-header, .foundation-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 28px clamp(24px, 7vw, 112px); color: #b4afc1; font-size: 12px; letter-spacing: .06em; }
-.foundation-header { border-bottom: 1px solid #2b2738; }
-.foundation-main { max-width: 1100px; margin: auto; padding: clamp(64px, 12vw, 144px) 24px; }
-.eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #bca5ff; }
-h1 { font-size: clamp(48px, 10vw, 112px); line-height: 1.05; letter-spacing: -.065em; font-weight: 500; margin: 24px 0; }
-.focus-copy { max-width: 44ch; font-size: clamp(18px, 3vw, 26px); line-height: 1.6; color: #b4afc1; }
-.github-link { display: inline-flex; align-items: center; gap: 16px; min-height: 48px; margin-top: 24px; text-decoration: none; border-bottom: 1px solid #bca5ff; }
-.foundation-status { border-top: 1px solid #2b2738; margin-top: 64px; padding-top: 24px; max-width: 65ch; }
-.foundation-status h2 { font-size: 18px; font-weight: 500; }
-.foundation-status p { margin-top: 12px; color: #b4afc1; line-height: 1.8; }
-.foundation-footer { border-top: 1px solid #2b2738; }
+@import "../app/globals.css";
+@font-face { font-family: "Space Grotesk"; src: url("../app/fonts/SpaceGrotesk.ttf") format("truetype"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("../app/fonts/JetBrainsMono.ttf") format("truetype"); font-weight: 100 800; font-display: swap; }
+@font-face { font-family: "Oxanium"; src: url("../app/fonts/Oxanium.ttf") format("truetype"); font-weight: 200 800; font-display: swap; }
+:root { --void: #05070b; --panel: #0b1019; --text: #f3f6fc; --muted: #8994a8; --dim: #8994a8; --signal: #9b7cff; --glow: #58e1ff; --hair: #ffffff18; --hair-strong: #ffffff38; --font-space-grotesk: "Space Grotesk"; --font-jetbrains-mono: "JetBrains Mono"; --font-oxanium: "Oxanium"; }
+.site-atmosphere { background: radial-gradient(at 85% 15%, #65419b2a, transparent 45%), radial-gradient(at 5% 70%, #18576a18, transparent 45%); }
+.site-atmosphere::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(transparent, #000, transparent); }
+.site-nav a { min-width: 44px; justify-content: center; }

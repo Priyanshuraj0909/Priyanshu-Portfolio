@@ -1,21 +1,23 @@
-import { ArrowUpRight } from "lucide-react";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { navigation } from "@/content/navigation";
 import { profile } from "@/content/profile";
 
-/** Phase 1 smoke screen. Reference design and feature migration begin after approval. */
-export function App() {
-  return <>
-    <a className="skip-link" href="#main">Skip to content</a>
-    <header className="foundation-header"><span>PR / PORTFOLIO</span><span>Phase 01 · Foundation</span></header>
-    <main id="main" tabIndex={-1} className="foundation-main">
-      <p className="eyebrow">B.Tech CSE · Bennett University</p>
-      <h1>{profile.name}</h1>
-      <p className="focus-copy">AI/ML, full-stack development, and software engineering.</p>
-      <a className="github-link" href={profile.github}>Explore GitHub <ArrowUpRight size={18} aria-hidden="true" /></a>
-      <aside className="foundation-status" aria-label="Development status">
-        <h2>Foundation ready.</h2>
-        <p>React, TypeScript, Vite and Tailwind CSS are configured. The reference design, neural core and portfolio sections follow in separately approved phases.</p>
-      </aside>
-    </main>
-    <footer className="foundation-footer">Priyanshu Raj · Portfolio in development</footer>
-  </>;
+function RouteFocus() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      if (hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+      else { window.scrollTo(0, 0); document.getElementById("main")?.focus({ preventScroll: true }); }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, hash]);
+  return null;
 }
+function Home() { return <><Header /><main id="main" className="page-container" tabIndex={-1}>{navigation.map((n, i) => <section key={n.id} id={n.id} className={i ? "portfolio-section" : "intro-section"}><SectionHeading number={n.number} label={n.label} title={i ? n.label : profile.name} /></section>)}</main><Footer /></>; }
+function NotFound() { return <main id="main" className="page-container dossier" tabIndex={-1}><h1 className="section-title">Signal not found.</h1><Link to="/">Return to portfolio</Link></main>; }
+export function App() { return <BrowserRouter><div className="site-atmosphere" aria-hidden="true" /><a className="skip-link" href="#main">Skip to content</a><RouteFocus /><Routes><Route path="/" element={<Home />} /><Route path="*" element={<NotFound />} /></Routes></BrowserRouter>; }

@@ -6,6 +6,6 @@
     "incremental": false,
     "types": ["vite/client", "node"]
   },
-  "include": ["src/main.tsx", "src/foundation/**/*.ts", "src/foundation/**/*.tsx", "src/content/**/*.ts", "src/lib/**/*.ts", "vite.config.mts"],
+  "include": ["src/main.tsx", "src/foundation/**/*.ts", "src/foundation/**/*.tsx", "src/features/**/*.ts", "src/features/**/*.tsx", "src/components/**/*.tsx", "src/content/**/*.ts", "src/lib/**/*.ts", "vite.config.mts"],
   "exclude": ["node_modules", "dist", ".next"]
 }
