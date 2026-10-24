@@ -8,3 +8,5 @@ build/
 *.tsbuildinfo
 .DS_Store
 npm-debug.log*
+
+dist/

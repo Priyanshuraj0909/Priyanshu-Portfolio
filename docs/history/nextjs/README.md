@@ -1,0 +1,63 @@
+# Priyanshu Raj | AI/ML Engineer & Developer
+
+Personal portfolio planned with Next.js App Router, React, TypeScript, Tailwind CSS, Motion for React and Lucide React. Visual reference: https://www.advaysinha.in/. Hosting target: Vercel.
+
+## Status
+Phase 6 complete, 24 October 2026. The portfolio has an interactive neural hero, four source-backed projects and dossiers, three confirmed journey records, 24 certificate PDFs, twelve terminal commands with keyboard history, and available contact links. Email, LinkedIn and resume remain unset. Phase 7 requires approval. Lint, typecheck, build, content/terminal tests and production desktop/mobile browser checks passed. The page retains noindex until publication readiness.
+
+## Documentation
+- [Agent standards](AGENTS.md)
+- [Workflow and approval checkpoints](ORCHESTRATOR.md)
+- [Architecture and content evidence](PLAN.md)
+- [Reference findings and inspection limits](REFERENCE_ANALYSIS.md)
+- [Project source, demo and media evidence](PROJECT_EVIDENCE.md)
+- [Journey/certificate intake and verification](CONTENT_GUIDE.md)
+- [Eight-phase checklist](PHASES.md)
+
+## Planned experience
+A responsive six-section portfolio with skippable introduction, interactive neural canvas, verified Project Vault and dossiers, personal journey, certificates, terminal and contact. Reduced motion, keyboard access, semantic HTML and mobile performance are requirements.
+
+## Local setup
+Use Node 24 (`nvm use`), then:
+
+```sh
+npm ci
+npm run dev
+npm run lint
+npm run typecheck
+npm run test:content
+npm run check:content
+npm run build
+npm start
+```
+
+The runtime target is Node 24 (.nvmrc); checks passed on the host Node 26.10.0. The generated package-lock.json is tracked. The build uses Next.js webpack. No secrets are required for the portfolio; never put private credentials in NEXT_PUBLIC_ variables.
+
+## Architecture and content
+See PLAN.md for the proposed file tree. Server-render content and isolate canvas, boot, navigation state and terminal as client interactions. Store personal information and evidence-backed projects separately in src/content. Missing personal fields remain editable and absent from production claims. Project descriptions require source verification before publication.
+
+## Deployment plan
+In Phase 8, run lint/typecheck/build, finalize genuine content and links, push through an authorized GitHub remote, then import the Next.js project into Vercel. Configure its real domain before canonical/sitemap metadata. Verify production pages, dossier deep links, social destinations, certificates and resume. Local Git is initialized. No GitHub remote or Vercel project currently exists for this portfolio.
+
+## Personal content still needed
+Approved biography and skills, email, LinkedIn, location, resume PDF, education/experience/leadership records, certificates and genuine project screenshots. Never substitute the reference owner's information or fabricate achievements.
+
+## Validation limits
+Production dependency audit: zero findings. Full audit: five high-severity development-tool findings in the ESLint dependency chain; ESLint 9 is upstream end-of-support. See PHASES.md for details. Headless Chrome checks passed at six widths from 320px to 1440px, including keyboard navigation, anchors, font loading and reduced-motion CSS. Reference and local screenshots were visually inspected for Phase 2; later feature equivalence is not claimed.
+
+## Design system
+Global tokens and responsive rules live in `src/app/globals.css`; navigation data lives in `src/content/navigation.ts`. Shared layout/UI components live in `src/components`. Breakpoints match the observed reference at 1050px and 760px. Header, boot status and neural canvas are client components; section content remains server-rendered. Font sources and inspection evidence are documented in REFERENCE_ANALYSIS.md. For manual verification and the complete Phase 2 file list, see PHASES.md.
+
+Phase 3 checks: lint, typecheck, production build and Chrome boot/keyboard/persistence/reduced-motion/responsive checks passed. See PHASES.md for manual steps and limits. Phase 5 implementation is complete; Phase 6 requires approval.
+
+Phase 4 checks: lint, typecheck, production build, source-path/media validation and production Chrome route/keyboard/history/image checks passed. Home and all four dossiers fit six widths from 320–1440px. Direct routes: `/systems/cinematch`, `/systems/fakeddit`, `/systems/cartpilot`, `/systems/mock-interview`. Only CartPilot and Mock Interview currently expose demo entry points. See PROJECT_EVIDENCE.md for project verification limits and PHASES.md for changed files/manual steps. No hosting or remote publication performed.
+
+Initial Phase 5 checks before intake: five content tests, content validation (zero supplied records), lint, typecheck and production build passed. Chrome checked actual empty states at six widths; populated timeline/archive layouts and keyboard operation were tested separately with temporary synthetic fixtures. No genuine certificate link/PDF is verified or published yet. The content checker does not probe external URLs; follow CONTENT_GUIDE.md before adding records. The two Node content commands may emit an informational MODULE_TYPELESS_PACKAGE_JSON warning on this host.
+
+Journey intake follow-up: three records supplied directly by Priyanshu Raj on 24 October are in src/content/journey.ts; year precision, ongoing status and expected graduation are preserved. No certificates or additional profile skill claims were added. Source/confirmation evidence is in CONTENT_GUIDE.md. Phase 6 still requires approval.
+
+
+Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+
+
+Current status — 2026-10-24: Phase 6 is approved and complete. Twelve safe local terminal commands, command history and server-rendered contact links are implemented; email/LinkedIn/resume remain unset. See PHASES.md for checks and manual verification. Phase 7 requires explicit approval. No deployment.

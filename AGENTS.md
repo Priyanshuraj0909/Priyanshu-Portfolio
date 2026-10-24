@@ -1,29 +1,19 @@
-# Priyanshu Raj portfolio — agent instructions
+# Priyanshu Raj portfolio — active Vite rebuild instructions
 
-## Scope and approvals
-Follow the eight phases in PHASES.md. The user authorized Phase 1 through the project tree and explicitly authorized Phase 2. Desktop/mobile rendered design-system inspection is now available; see REFERENCE_ANALYSIS.md. The user approved Phase 3 with “continue working” on 2026-10-23. The user explicitly approved Phase 4 on 2026-10-23. The user explicitly approved Phase 5 on 2026-10-24. Phase 5 components are complete; three journey records were confirmed directly on 2026-10-24 and added. The 24 certificates from the owner-supplied deduplicated PDF are now populated; see CERTIFICATE_EVIDENCE.md. The user approved Phase 6 with “now do next step” on 2026-10-24. Phase 6 is complete; stop until the user approves Phase 7. At the end of each phase, update documentation, report changed files and checks, provide manual verification steps, and wait for explicit user approval before the next phase. Never treat elapsed time as approval.
+## Scope and approval
+The owner's latest request on 2026-10-24 supersedes the earlier Next.js stack and phase sequence. Only Phase 1 of the Vite rebuild is approved. Stop after foundation verification and obtain explicit approval before Phase 2. Never infer approval from elapsed time. Do not deploy, publish, push or send messages without authorization. Make a local commit for each completed phase.
 
-## Engineering
-Use Next.js App Router, React, strict TypeScript, Tailwind CSS, Motion for React, and Lucide React. Prefer Canvas API for the neural visualization; add Three.js only with demonstrated need. Keep server components by default and isolate client interactions. Use reusable semantic components and typed content in src/content, separate from rendering. Avoid secrets, unnecessary dependencies, and runtime GitHub API dependencies.
+## Preserve existing work
+The prior Next.js implementation through Phase 6 is retained in src/app and existing components. Its planning snapshots are in docs/history/nextjs. Keep its content, certificates, evidence logs and Git history. Default scripts now run the Vite foundation; legacy scripts run the previous app. Historical approvals do not authorize later phases of this rebuild. Do not migrate or delete legacy features during Phase 1.
+
+## Active stack and architecture
+React, strict TypeScript, Vite, Tailwind CSS, Three.js, React Three Fiber, Motion and Lucide. Entry: index.html → src/main.tsx → src/foundation/App.tsx. Use tsconfig.vite.json and vite.config.mts. Separate typed content in src/content and pure behavior in src/lib. Existing root tsconfig and Next dependencies remain for legacy compatibility until migration is complete. Reuse verified content and original components where appropriate in future phases; do not import Next APIs into the Vite runtime.
 
 ## Content integrity
-Use Priyanshu Raj consistently. Verify project features and technologies against repository code before publication; README evidence is preliminary. Record source URLs and verification dates. Do not import the reference owner's personal history, certificates, contact details, metrics, or resume. Missing information belongs in editable content fields; omit unavailable links and unverified claims from production. Interests do not establish proficiency.
+Use Priyanshu Raj, B.Tech CSE at Bennett University, GitHub Priyanshuraj0909, and owner-supplied focus areas. Inspect repository code before publishing technical project descriptions; README evidence alone is preliminary. Keep source URLs, commit IDs and verification dates. StudySync AI is requested but its repository is not yet identified. Ask for missing personal details; omit unavailable links and unverified claims. Preserve the 24 supplied certificate records and three confirmed journey records. Never copy reference-owner personal details, assets, achievements or experience. Interests do not prove proficiency.
 
 ## Accessibility and performance
-Support keyboard operation, visible focus, reduced motion, motion pause, readable contrast, and semantic landmarks. Canvas is decorative with an accessible text equivalent. Stop animation when hidden/offscreen, cap pixel ratio and mobile particle counts, and clean up listeners. Preserve native anchor navigation. Dossiers must support direct URLs and browser back.
+Semantic landmarks, labelled inputs, native anchor navigation, visible focus, keyboard access and no traps. Respect reduced motion and provide motion pause. In the neural phase, lazy-load Three/R3F, support WebGL failure, provide a text equivalent, cap DPR/mobile complexity, pause when hidden/offscreen and clean up GPU resources/listeners. Project dossiers must eventually support direct URLs and browser back. Keep third-party secrets and runtime GitHub requests out of the frontend.
 
-## Validation and Git
-Run lint, TypeScript checks, and production build when tooling exists. Test terminal parsing and keyboard interactions where meaningful. Do not claim browser QA without executing it. Initialize Git if absent; commit each completed phase with a meaningful message. Never force-push or overwrite existing work. Do not publish before the final phase and required user approvals. Respect the requested Vercel target.
-
-<!-- BEGIN:nextjs-agent-rules -->
-
-## This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
-
-
-Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+## Validation and reporting
+Run lint, Vite typecheck/build and relevant existing tests. Execute browser checks before claiming browser QA. Record changed files, actual checks, limitations and manual verification in PHASES.md. Build output is dist; preserve noindex until publication readiness. Vercel remains the intended final deployment target. Follow MASTER_ORCHESTRATOR.md, PLAN.md and PHASES.md.
