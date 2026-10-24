@@ -77,3 +77,8 @@ Medical Cost App: https://github.com/Priyanshuraj0909/Medical-cost-app at `33ddb
 Candidate README demo: https://medical-cost-app-jade.vercel.app — not opened/verified in this phase. No genuine Medical screenshot captured yet. Do not add a live-demo action or fabricated image until verified in Phase 6. Do not invent a currency, accuracy, clinical validity, user count or project status. Source verification is a portfolio code audit, not medical guidance or evaluation of the model.
 
 The API list returned five public repositories; StudySync AI still lacks a source URL/access. CONTENT_AUDIT.md contains the current inventory and feature gaps. No new project card or technical description was published during the audit.
+
+## Autonomous implementation demo/media checks — 2026-10-24
+Chrome read-only checks returned expected HTTP 200 public landing/workspace pages for Fakeddit, CartPilot, Mock Interview and Medical Cost App. Fakeddit's workspace now loads, superseding the previous timeout; enabled its actual demo URL. CineMatch still redirects to Vercel login, so no public demo button is exposed. No authentication, model prediction, generation, merchant action or private data was exercised.
+
+Medical: original Chrome 1440×1000 capture of the real public CareEstimate form at https://medical-cost-app-jade.vercel.app/; no estimate submitted. CineMatch: real local 1440×1000 capture of the pinned static frontend served read-only with Python HTTP server; backend absent, explicitly captioned as local UI rather than a hosted outcome. Both visually inspected, converted with Sharp to public/projects/{medical-cost,cinematch}.webp at quality 85 without content edits. Original screenshots for the other three remain with earlier provenance.

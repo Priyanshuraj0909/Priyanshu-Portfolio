@@ -93,3 +93,6 @@ Integrated owner-approved hero wording and original lazy Three/R3F/Drei graph wi
 
 ## Implementation run — Phase 5
 Added six numbered technical modules with attributed project evidence links and only source-supported technologies; no proficiency ratings or achievements. Responsive one/two/three-column layouts and reduced-motion-aware reveals are in place. `npm run lint` and production typecheck/build passed. Capability source paths were checked against inspected snapshots.
+
+## Implementation run — Phase 6
+Integrated five source-backed projects, genuine screenshot stage, source/caption/constraints and original routed dossier pages. Added Medical Cost App from inspected source and genuine public capture; CineMatch capture is real local UI and its protected hosted link remains omitted. Fresh read-only browser checks confirmed four public demo pages; Fakeddit now loads. Vercel configuration preserves static assets and routes /systems/* to the SPA. Lint and production typecheck/build passed. Shared Vite image components use preoptimized WebP rather than Next Image; disabled only that framework-specific lint rule. Direct/back/refresh browser checks follow in final audit.
