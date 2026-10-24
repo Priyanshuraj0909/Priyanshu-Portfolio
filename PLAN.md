@@ -1,7 +1,7 @@
 # Implementation roadmap and architecture
 
 ## Audit boundary
-The existing Vite foundation and preserved Next.js app are compatible starting points. No reset, UI redesign, dependency changes or source migration is needed in Phase 1. Only documentation/evidence changes are made. The audit replaces the prior eight-phase roadmap with the owner's ten phases; snapshots preserve its history.
+The existing Vite foundation and preserved Next.js app are compatible starting points. The Phase 1 audit made only documentation/evidence changes. The owner then authorized all remaining implementation, now completed locally as recorded in PHASES.md. The audit replaces the prior eight-phase roadmap with the owner's ten phases; snapshots preserve its history.
 
 ## Existing structure
 | Area | Current role | Later treatment |
@@ -17,7 +17,7 @@ The existing Vite foundation and preserved Next.js app are compatible starting p
 | docs/history | Earlier approved plans | Historical, not current authorization |
 
 ## Dependencies
-Installed: React/DOM 19.3.1, Vite 8.3.5, TypeScript 5.9.3, Tailwind 4.3.3, Three 0.186.1, R3F 9.8.2, Motion 12.43.0, Lucide 0.468.0; Vite React/Tailwind plugins and Three types. Next 16.4.2 and its lint tooling remain for legacy compatibility. Drei and React Router are not installed. Add Router in Phase 2 for the planned dossiers; add minimal Drei helpers in Phase 4 only when needed. Avoid extra scene/postprocessing libraries unless measured need emerges. Keep installed major compatibility and Node 24 target; audit host is Node 26.10.0.
+Installed: React/DOM 19.3.1, Vite 8.3.5, TypeScript 5.9.3, Tailwind 4.3.3, Three 0.186.1, R3F 9.8.2, Motion 12.43.0, Lucide 0.468.0; Vite React/Tailwind plugins and Three types. Next 16.4.2 and its lint tooling remain for legacy compatibility. Drei and React Router were installed for original neural line helpers and dossier routes during the authorized implementation. Avoid extra scene/postprocessing libraries unless measured need emerges. Keep installed major compatibility and Node 24 target; audit host is Node 26.10.0.
 
 ## Recommended architecture after approval
 Use a React application shell with reusable semantic sections, layout controls and typed content. Keep the reference's six top-level destinations: About (#core), Projects (#vault), Journey (#logs), Certificates (#live), Terminal (#terminal), Contact (#contact). Boot is a transient interface; the six capability modules live below the hero inside About, avoiding an unrequested new top-level navigation item.
@@ -35,3 +35,6 @@ Latest approved biography/subtitle are in CONTENT_AUDIT.md for later migration. 
 
 ## Sequence and release
 Follow the ten phases in PHASES.md. Final SEO/Open Graph, route refresh, optimized WebGL/assets, accessibility/performance and authorized Vercel deployment belong to Phase 10. Maintain noindex until release readiness. Phase approval precedes its Git commit; approval for the next phase must be explicit. No deployment or remote push is authorized by this audit.
+
+
+Implementation status — 2026-10-24: the owner approved autonomous completion, superseding the Phase 1 audit-only scope. Phases 2–9 are implemented and locally committed. The proposed architecture is now active, with src/features, routed five-project dossiers, shared graph fallback, certificate previews/search/filtering and terminal/contact. Phase 10 adds static content/metadata, original social assets, Vercel route configuration and completed local QA. Publishing/live verification remain pending Vercel integration access; see QA_REPORT.md and DEPLOYMENT.md.

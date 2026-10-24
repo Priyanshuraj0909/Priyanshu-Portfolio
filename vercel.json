@@ -2,9 +2,54 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [{ "source": "/systems/:path*", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/systems/cinematch",
+      "destination": "/systems/cinematch/index.html"
+    },
+    {
+      "source": "/systems/fakeddit",
+      "destination": "/systems/fakeddit/index.html"
+    },
+    {
+      "source": "/systems/cartpilot",
+      "destination": "/systems/cartpilot/index.html"
+    },
+    {
+      "source": "/systems/mock-interview",
+      "destination": "/systems/mock-interview/index.html"
+    },
+    {
+      "source": "/systems/medical-cost",
+      "destination": "/systems/medical-cost/index.html"
+    },
+    {
+      "source": "/systems/:path*",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }, { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
   ]
 }

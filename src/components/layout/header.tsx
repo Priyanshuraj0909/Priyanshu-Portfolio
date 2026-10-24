@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { MotionToggle } from "@/features/motion";
 import { Orbit } from "lucide-react";
 import { navigation } from "@/content/navigation";
 import { profile } from "@/content/profile";
@@ -35,6 +36,7 @@ export function Header() {
           </a>
         ))}
       </nav>
+      <MotionToggle />
     </header>
   );
 }

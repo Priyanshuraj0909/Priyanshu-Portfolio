@@ -8,6 +8,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     <p className="body-copy">{project.description}</p>
     <ol className="project-pipeline" aria-label={`${project.name} workflow`}>{project.pipeline.map(step => <li key={step}>{step}</li>)}</ol>
     <ul className="project-tags" aria-label="Technologies">{project.technologies.map(technology => <li key={technology}>{technology}</li>)}</ul>
-    <div className="intro-actions"><LinkButton href={`/systems/${project.slug}`} aria-label={`Open ${project.name} dossier`}>Open dossier</LinkButton>{project.demo && <LinkButton href={project.demo} variant="text" aria-label={`Visit ${project.name} demo`}>Live demo</LinkButton>}</div>
+    <div className="intro-actions"><LinkButton href={`/systems/${project.slug}`} aria-label={`Open dossier: ${project.name}`}>Open dossier</LinkButton>{project.demo && <LinkButton href={project.demo} variant="text" aria-label={`Live demo: ${project.name}`}>Live demo</LinkButton>}</div>
   </article>;
 }

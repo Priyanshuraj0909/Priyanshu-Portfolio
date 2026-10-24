@@ -1,7 +1,11 @@
-import { Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode } from "react";
+import { Component, Suspense, lazy, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { neuralGeometry } from "./neural-geometry";
 import { useMotionPreferences } from "./motion";
 const Scene = lazy(() => import("./neural-scene"));
-function Fallback() { return <svg className="neural-fallback" viewBox="0 0 500 420" fill="none" aria-hidden="true"><g stroke="currentColor" strokeWidth=".7">{Array.from({ length: 18 }, (_, i) => <g key={i}><ellipse cx="172" cy="210" rx={40 + i * 3} ry={35 + i * 6} transform={`rotate(${i * 6} 172 210)`} /><ellipse cx="328" cy="210" rx={40 + i * 3} ry={35 + i * 6} transform={`rotate(${-i * 6} 328 210)`} /></g>)}</g></svg>; }
+function Fallback() {
+  const graph = useMemo(() => neuralGeometry(true), []);
+  return <svg className="neural-fallback" viewBox="0 0 500 420" fill="none" aria-hidden="true"><g transform="translate(250 190) scale(145)"><ellipse rx="1.35" ry="1.13" stroke="currentColor" strokeWidth=".003" opacity=".4" /><g stroke="currentColor" strokeWidth=".004" opacity=".5">{graph.links.map(([a, b], i) => <line key={i} x1={graph.nodes[a][0]} y1={-graph.nodes[a][1]} x2={graph.nodes[b][0]} y2={-graph.nodes[b][1]} />)}</g><g fill="#99eaff">{graph.nodes.map(([x, y], i) => <circle key={i} cx={x} cy={-y} r=".008" />)}</g><circle cy=".3" r=".035" fill="#b7eeff" /></g></svg>;
+}
 class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

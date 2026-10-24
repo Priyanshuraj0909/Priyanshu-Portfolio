@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { MotionPreferences } from "@/features/motion";
 import { Home } from "@/features/home";
 import { Dossier } from "@/features/dossier";
@@ -8,7 +8,10 @@ import { profile } from "@/content/profile";
 
 function RouteFocus() {
   const { pathname, hash } = useLocation();
+  const previousPath = useRef(pathname);
   useEffect(() => {
+    const changed = previousPath.current !== pathname;
+    previousPath.current = pathname;
     const project = projects.find(p => pathname === `/systems/${p.slug}`);
     document.title = project ? `${project.name} | ${profile.name}` : pathname === "/" ? `${profile.name} | AI/ML & Full-Stack Developer` : `Page not found | ${profile.name}`;
     const description = document.querySelector('meta[name="description"]');
@@ -16,7 +19,7 @@ function RouteFocus() {
     const frame = requestAnimationFrame(() => {
       if (hash) {
         try { document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView(); } catch { /* Malformed hashes do not interrupt navigation. */ }
-      } else { window.scrollTo(0, 0); document.getElementById("main")?.focus({ preventScroll: true }); }
+      } else { window.scrollTo(0, 0); if (changed) document.getElementById("main")?.focus({ preventScroll: true }); }
     });
     return () => cancelAnimationFrame(frame);
   }, [pathname, hash]);

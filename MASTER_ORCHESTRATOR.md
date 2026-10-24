@@ -1,21 +1,15 @@
 # Master orchestrator — ten-phase portfolio plan
 
 ## Status and workflow
-2026-10-24: latest attached master prompt authorizes **Phase 1 audit only**. Its ten-phase sequence replaces the earlier eight-phase Vite plan; archived at docs/history/vite-foundation. The prior Next.js workflow remains archived at docs/history/nextjs. Previous approvals do not authorize this new Phase 2.
+The owner authorized all phases autonomously on 2026-10-24 after the audit. Local commits exist for each implemented phase. Phases 1–9 are complete; Phase 10 local release work and verification are complete, while Vercel deployment/live checks await connected access to the owner-supplied `king-09` account target. Earlier phase-stop gates are superseded.
 
-1. Establish approved phase and read AGENTS.md plus PHASES.md acceptance criteria.
-2. Inspect current source/evidence and reference behavior before implementation.
-3. Explain goal and planned files; implement only within scope with original code/assets.
-4. Run applicable unit/content checks, lint, typecheck, production build and browser checks.
-5. Update evidence, actual results, manual verification and incomplete work.
-6. Present reviewable changes; create the phase Git commit **after owner approval**.
-7. Obtain approval before the next named phase. No automatic deployment/push.
+Continue without routine approval requests. Preserve existing work and evidence; never invent personal content, metrics, repository URLs or deployment claims. Run meaningful checks after changes, document actual results and create local commits. Enable publishing through the available Vercel integration only when account/project access is confirmed. No live portfolio URL is currently available. See QA_REPORT.md and DEPLOYMENT.md.
 
 ## Architecture and source of truth
 Vite entry and isolated foundation styles are active. Existing Next routes/components remain preserved for later audited reuse. Typed portfolio content lives in src/content; behavior/types in src/lib; assets in public. DESIGN_SYSTEM.md records requested tokens versus reference observations. CONTENT_AUDIT.md records confirmed information, repository evidence and missing inputs. PROJECT_EVIDENCE.md and CERTIFICATE_EVIDENCE.md retain detailed provenance. REFERENCE_ANALYSIS.md records actual browser evidence and its limits.
 
 ## Current conclusions
-Five public repositories were inspected at pinned commits. Medical Cost App is newly identified; its source supports FastAPI/Pydantic/LightGBM and a vanilla JS interface. No app inference was executed. StudySync AI is absent from the five public repositories returned by the API; owner source URL is still needed. All 24 local PDFs exist. The active app remains a foundation page; mature legacy features are not yet wired into Vite.
+Five public repositories were inspected at pinned commits. Medical Cost App is newly identified; its source supports FastAPI/Pydantic/LightGBM and a vanilla JS interface. No app inference was executed. StudySync AI is absent from the five public repositories returned by the API; owner source URL is still needed. All 24 local PDFs exist. The complete Vite app is integrated; legacy source is preserved.
 
 ## Pending owner information
 Email, LinkedIn, resume, confirmed residence/availability, optional school/internship/work/leadership/achievement records and StudySync source. The latest prompt supplies biography/subtitle wording, superseding the previous biography gap. Technical module technologies must be linked to source evidence rather than treated as personal proficiency. No missing field blocks this audit.

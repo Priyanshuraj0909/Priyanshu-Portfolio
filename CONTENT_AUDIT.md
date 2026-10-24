@@ -1,5 +1,7 @@
 # Content and repository audit — 2026-10-24
 
+Current implementation: complete Vite portfolio with five genuine projects, three journey records, six source-attributed modules, 24 original PDFs/previews and six checked issuer destinations. The baseline findings below preserve source reasoning; implementation changes and current remaining gaps are noted at the end.
+
 ## Personal content
 | Field | Evidence/state | Action |
 | --- | --- | --- |
@@ -52,3 +54,6 @@ Records retain title, issuer, issue date, categories and available completion da
 
 ## Architecture/feature gaps
 Vite currently serves only the foundation screen. The mature legacy app includes a Canvas hero (not Three/R3F), four dossiers, journey, certificates, twelve-command terminal and GitHub contact. These are preserved but not active Vite features. Latest prompt needs a Three/R3F/Drei scene, six evidence-backed capabilities, Medical dossier, routed SPA deep links, certificate search/filter/previews, ten requested terminal commands including certificates (currently missing), prompt priyanshu@nexus:~$, and final SEO/Open Graph/performance/accessibility work. Drei/React Router are absent. Plan installation only in approved phases; audit adds no dependencies.
+
+
+Current update: the supplied biography/subtitle are now implemented in profile.ts. Medical has a source-backed dossier and genuine public screenshot; CineMatch uses a labelled real local frontend capture. Four public demos were checked; CineMatch remains login-protected. Search/categories/previews and the requested terminal prompt/commands are complete. Six Coursera records passed live identity checks; Ethics remains a blank record and its issuer action is omitted. Drei/Router are installed. StudySync source, contact/resume/location/availability and unprovided achievements remain unavailable. Deployment awaits Vercel access.

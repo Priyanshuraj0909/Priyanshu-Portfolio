@@ -1,7 +1,7 @@
-# Design system specification — audit, not implemented
+# Design system — implemented
 
 ## Sources and precedence
-Requested tokens below come directly from the latest master prompt. Browser inspection of https://www.advaysinha.in/ on 2026-10-24 established layout/typography/visual references at 1440×900 and 390×900. Observed body background was rgb(6,8,22), text rgb(243,244,246) and Space Grotesk; these differ from the requested values. Use the owner's explicit palette while matching practical layout/proportions. Do not claim these proposed tokens are already applied.
+Requested tokens below come directly from the latest master prompt. Browser inspection of https://www.advaysinha.in/ on 2026-10-24 established layout/typography/visual references at 1440×900 and 390×900. Observed body background was rgb(6,8,22), text rgb(243,244,246) and Space Grotesk; these differ from the requested values. Use the owner's explicit palette while matching practical layout/proportions. These requested tokens are now applied in src/foundation/styles.css.
 
 | Token | Requested value | Use |
 | --- | --- | --- |
@@ -26,3 +26,6 @@ Original CSS subtle grid, radial cyan/violet glows, translucent surfaces and thi
 
 ## Responsive and accessibility acceptance
 Proposed breakpoint approach: content-first mobile base, wider tablet layout where content fits, two-column desktop hero/project stage. Validate 320/390/768/1440px, 200% text zoom, keyboard focus, native scroll/back and touch. Contrast targets: 4.5:1 ordinary text, 3:1 large text and necessary UI boundaries. Measure actual composite colors before claiming compliance. WebGL is decorative with text equivalent and fallback, capped DPR and mobile complexity, no essential actions inside canvas. Phase 10 performs the full measured audit.
+
+
+Implementation update — 2026-10-24: licensed fonts, requested tokens, six top-level destinations, responsive hero/project/ledger/archive/terminal/contact components and original atmosphere are active. Reduced-motion SVG shares the original graph geometry with WebGL; mobile controls use 16px input text. Visible labels now remain part of accessible names. Automated checks and measured token contrasts are documented in QA_REPORT.md; no exact reference animation or universal accessibility conformance is claimed.
