@@ -15,7 +15,7 @@ export const profile = {
   email: null,
   location: null,
   github: "https://github.com/Priyanshuraj0909",
-  linkedin: null,
+  linkedin: "https://www.linkedin.com/in/priyanshu-raj-00aab5334/",
   resume: null,
   skills: [],
 } satisfies Profile;

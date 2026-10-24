@@ -18,6 +18,8 @@ test('all ten commands dispatch using approved content', () => {
   assert.equal(runCommand('education',context).lines.length,3);
   assert.match(runCommand('education',context).lines[0].text,/expected completion: 2028/);
   assert.equal(runCommand('github',context).lines[0].href,profile.github);
+  assert.equal(runCommand('contact',context).lines.at(-1).href,profile.linkedin);
+  assert.equal(runCommand('linkedin',context).lines[0].href,profile.linkedin);
 });
 test('normalizes case and whitespace; rejects arguments and shell-like input',()=>{
   assert.deepEqual(runCommand('  HeLP \t',context),runCommand('help',context));
@@ -30,7 +32,7 @@ test('normalizes case and whitespace; rejects arguments and shell-like input',()
   }
 });
 test('missing records never produce fabricated destinations or proficiency',()=>{
-  for(const command of ['linkedin','resume','experience']) {
+  for(const command of ['resume','experience']) {
     const result=runCommand(command,context);
     assert.ok(result.lines.every(l=>!l.href));
     assert.match(result.lines[0].text,/not been provided|No professional experience records/);
