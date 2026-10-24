@@ -1,9 +1,10 @@
-import type { Profile, Project, JourneyEntry } from "./types.ts";
+import type { Profile, Project, JourneyEntry, Certificate } from "./types.ts";
 
 export interface TerminalLine { text: string; href?: string }
 export interface TerminalResult { clear: boolean; lines: TerminalLine[] }
 export interface TerminalContext {
   profile: Profile;
+  certificates?: readonly Certificate[];
   projects: readonly Project[];
   journey: readonly JourneyEntry[];
   commands: readonly { name: string; description: string }[];
@@ -22,13 +23,14 @@ export function runCommand(input: string, context: TerminalContext): TerminalRes
     case "help": return result(...commands.map(c => text(`${c.name.padEnd(12)} ${c.description}`)));
     case "whoami": return result(text(`${profile.name} · ${profile.title}`));
     case "about": return result(text(profile.name), text(profile.biography ?? `Exploring ${profile.interests.join(", ")}.`));
-    case "skills": return result(text(profile.skills.length ? `Confirmed skills: ${profile.skills.join(", ")}` : "A confirmed skills list has not been provided yet."), text(`Areas of interest: ${profile.interests.join(", ")}`));
+    case "skills": return result(text(`Technologies used in inspected projects: ${[...new Set(projects.flatMap(p => [...p.technologies]))].join(", ")}`), text(`Areas of interest: ${profile.interests.join(", ")}`));
     case "projects": return result(...projects.map(p => ({ text: `${p.name} — ${p.description}`, href: `/systems/${p.slug}` })));
     case "experience":
     case "education": {
       const entries = journey.filter(e => e.confirmedOn && e.category === (command === "education" ? "education" : "experience"));
       return result(...(entries.length ? entries.map(e => text(`${e.startDate}–${e.ongoing ? "Present" : e.endDate ?? e.startDate}: ${e.title} · ${e.organization}${e.expectedEndDate ? ` (expected completion: ${e.expectedEndDate})` : ""}`)) : [text(command === "education" ? "No education records have been supplied yet." : "No professional experience records have been supplied yet.")]));
     }
+    case "certificates": return result({ text: `Browse ${context.certificates?.length ?? "the"} original certificates`, href: "#live" });
     case "github": return result(link("GitHub", profile.github));
     case "linkedin": return result(link("LinkedIn", profile.linkedin));
     case "resume": return result(link("Resume", profile.resume));

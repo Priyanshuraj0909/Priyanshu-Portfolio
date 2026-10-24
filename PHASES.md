@@ -102,3 +102,6 @@ Migrated three genuine chronological journey records with reduced-motion-aware r
 
 ## Implementation run — Phase 8
 All 24 original PDFs now have genuine generated-from-document previews, search by title/issuer/topic/ID, category filtering, newest-first ordering, reset, result count and no-results feedback. Six issuer URLs passed live owner/title/issuer/date checks; one blank issuer record remains omitted. No missing PDF/preview detected. Lint, strict build, three new search tests and content checks passed. TypeScript import-extension support was enabled under noEmit so the same pure module can run in Node tests and Vite. Content checker validates WebP signatures as well as PDFs. Final integrated browser checks follow.
+
+## Implementation run — Phase 9
+Migrated integrated terminal/contact with exact requested prompt and ten help commands including certificates; source-backed project technologies rather than inferred proficiency. Kept parser-only legacy aliases for compatibility. Contact exposes only GitHub; unknown owner fields remain null. Added route titles/descriptions and safe hash navigation. Lint, production typecheck/build, four terminal tests, six content tests, three archive tests and content validation all passed. Complete production browser checks follow in Phase 10.

@@ -47,3 +47,5 @@
 .certificate-preview:hover { border-color: var(--glow); transform: translateY(-3px); }
 .certificate-row { display: flow-root; }
 @media (max-width: 600px) { .certificate-preview { float: none; margin: 0 0 20px; width: 100%; } .archive-controls { display: grid; grid-template-columns: 1fr; } .archive-controls input, .archive-controls select { width: 100%; } }
+.terminal-prompt { font-size: 10px; white-space: nowrap; }
+@media (max-width: 600px) { .terminal-form { flex-wrap: wrap; } .terminal-form label { flex-basis: 100%; } }
