@@ -38,3 +38,10 @@ test("certificate destinations reject unsafe schemes and traversal while preserv
   for (const pdf of ["/certificates/../private.pdf", "/other/test.pdf", "//issuer.example/test.pdf", "javascript:alert(1)"]) assert.ok(certificateIssues({ ...certificate, pdf }).length);
   for (const pdf of ["/certificates/test-only.pdf", "/certificates/issuer/test-only.pdf", "https://issuer.example/test.pdf?download=1"]) assert.equal(certificateIssues({ ...certificate, pdf, verificationUrl: null }).length, 0);
 });
+
+test("expected completion preserves ongoing status without recording a completed end date", () => {
+  const entry = { ...journey, ongoing: true, expectedEndDate: "2028" };
+  assert.equal(journeyIssues(entry).length, 0);
+  assert.equal(publishedJourney([entry])[0].endDate, null);
+  for (const patch of [{ expectedEndDate: "2023" }, { expectedEndDate: "2028-02-30" }, { ongoing: false }]) assert.ok(journeyIssues({ ...entry, ...patch }).length);
+});

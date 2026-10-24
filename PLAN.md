@@ -42,7 +42,7 @@ public/
 ## Behavior
 Preserve six-section order: About (#core), Projects (#vault), Journey (#logs), Certificates (#live), Terminal (#terminal), Contact (#contact). Use depth labels 01–06. Hero has name, approved introduction, interests/verified skills, neural interaction, projects/contact links. Boot is skippable and respects reduced motion. Project Vault uses reusable records and genuine screenshots with dossier routes; exact selection/scroll behavior awaits observation. Journey and certificates show genuine entries or an honest empty state, with editable missing fields outside published claims.
 
-Terminal commands: help, about, skills, projects, experience, education, github, linkedin, resume, contact, clear. Normalize whitespace/case, handle unknown commands, preserve readable output and keyboard input, and render safe text/links rather than injected HTML. Missing data commands explain availability; do not open fabricated URLs. Use labelled input, controlled announcements and no keyboard trap.
+Terminal commands: help, whoami, about, skills, projects, experience, education, github, linkedin, resume, contact, clear. Normalize whitespace/case, handle unknown commands, preserve readable output and keyboard input, and render safe text/links rather than injected HTML. Missing data commands explain availability; do not open fabricated URLs. Use labelled input, controlled announcements and no keyboard trap.
 
 Contact uses actual email, social links, resume and location when supplied. Omit unavailable actions. Provide SEO title/description, correct Open Graph data and canonical URL only after host is known. Ensure keyboard navigation, native anchors, contrast, reduced motion, motion pause and mobile touch usability.
 
@@ -84,3 +84,12 @@ Four repository snapshots and media/demo evidence are recorded in PROJECT_EVIDEN
 
 ## Implemented Journey and certificates — Phase 5
 Server components consume the typed content arrays and share pure calendar/confirmation/link-shape helpers in src/lib/personal-records.ts. Journey sorts earliest start first and only displays Present for explicit ongoing records. Archive sorts newest first and exposes independent native PDF/issuer links in a named keyboard-scrollable region. It has no client JavaScript or custom keyboard handler. Confirmation and link-check dates are manual evidence stamps, not automatic remote verification. A content checker checks draft eligibility, duplicate IDs and any supplied local PDF files. CONTENT_GUIDE.md records intake and verification steps. Both arrays intentionally remain empty: no personal records, PDFs or credential URLs have been supplied. Production empty states and isolated populated fixtures have separate QA evidence in PHASES.md.
+
+### Confirmed journey intake — 2026-10-24
+Owner supplied three records after Phase 5 implementation: B.Tech CSE at Bennett University (2024–present, expected 2028), independent AI/ML/full-stack development (2025–present), and MLOps learning at Bennett University (2026–present). They now populate src/content/journey.ts as learning/education records. Optional expectedEndDate preserves anticipated completion separately from ongoing/completed status. Supplied project names/learning tools are not promoted into profile skills or additional verified dossiers. CONTENT_GUIDE.md logs confirmation source/date. Certificates remain pending, and Phase 6 remains unapproved.
+
+
+Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+
+
+Current status — 2026-10-24: Phase 6 is approved and complete. Twelve safe local terminal commands, command history and server-rendered contact links are implemented; email/LinkedIn/resume remain unset. See PHASES.md for checks and manual verification. Phase 7 requires explicit approval. No deployment.

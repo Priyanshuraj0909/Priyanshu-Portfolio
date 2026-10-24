@@ -1,3 +1,7 @@
+import { PortfolioTerminal } from "@/components/terminal/portfolio-terminal";
+import { ContactPanel } from "@/components/contact/contact-panel";
+import { terminalCommands } from "@/content/terminal";
+import { projects } from "@/content/projects";
 import { JourneyTimeline } from "@/components/journey/journey-timeline";
 import { CertificateArchive } from "@/components/certificates/certificate-archive";
 import { journey } from "@/content/journey";
@@ -52,12 +56,12 @@ export default function Home() {
         </section>
         <section id="terminal" className="portfolio-section" aria-labelledby="terminal-title">
           <SectionHeading number="05" label="Terminal" title="Query the Operator" headingId="terminal-title" />
-          <p className="empty-state">The interactive terminal will be available in a later development phase.</p>
+          <PortfolioTerminal context={{ profile, projects, journey, commands: terminalCommands }} />
         </section>
         <section id="contact" className="portfolio-section contact-section" aria-labelledby="contact-title">
           <SectionHeading number="06" label="Node: Contact" />
           <h2 id="contact-title" className="contact-name">{profile.name}</h2>
-          <div className="contact-row"><span className="eyebrow">Social</span><LinkButton href={profile.github} variant="text">GitHub</LinkButton></div>
+          <ContactPanel profile={profile} />
         </section>
       </main>
       <Footer />

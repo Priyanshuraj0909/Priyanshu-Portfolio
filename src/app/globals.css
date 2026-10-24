@@ -236,3 +236,24 @@ button, a, input { -webkit-tap-highlight-color: #af92fc25; }
   .certificate-row { padding-inline: 2px; }
 }
 @media print { .certificate-window { max-height: none; overflow: visible; } .journey-row, .certificate-row { break-inside: avoid; } }
+
+.certificate-details { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-block: 1rem; font-size: 0.8rem; }
+.certificate-details dt { color: var(--muted); }
+.certificate-details dd { margin: 0.25rem 0 0; overflow-wrap: anywhere; }
+
+.terminal-shell { border: 1px solid var(--hair-strong); border-radius: 20px; overflow: hidden; background: rgba(10, 10, 16, .7); font: 12px/1.8 var(--font-jetbrains-mono), monospace; }
+.terminal-bar { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--hair); color: var(--muted); }
+.terminal-hint { margin: 0; padding: 18px 24px 0; color: var(--muted); }
+.terminal-output { height: 320px; overflow: auto; padding: 18px 24px; overflow-wrap: anywhere; scrollbar-color: var(--muted) transparent; }
+.terminal-output p { margin: 0; }
+.terminal-entry { margin-top: 20px; }
+.terminal-echo { color: var(--signal); }
+.terminal-entry ul { margin: 8px 0 0; padding: 0; list-style: none; white-space: pre-wrap; }
+.terminal-entry a { text-underline-offset: 4px; }
+.terminal-form { display: flex; align-items: center; gap: 12px; padding: 16px 24px; border-top: 1px solid var(--hair); }
+.terminal-form label { color: var(--signal); }
+.terminal-form input { min-width: 0; flex: 1; background: transparent; border: 0; color: inherit; padding: 10px 4px; font: inherit; }
+.terminal-form input::placeholder { color: var(--muted); }
+.terminal-form button { cursor: pointer; border: 1px solid var(--hair-strong); border-radius: 6px; background: transparent; color: inherit; padding: 10px 14px; font: inherit; min-height: 44px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-top: 24px; }
+@media (max-width: 480px) { .terminal-form, .terminal-bar, .terminal-output { padding-inline: 16px; } .terminal-hint { padding-inline: 16px; } }

@@ -3,7 +3,7 @@
 Personal portfolio planned with Next.js App Router, React, TypeScript, Tailwind CSS, Motion for React and Lucide React. Visual reference: https://www.advaysinha.in/. Hosting target: Vercel.
 
 ## Status
-Phase 5 Journey and certificate components complete, 24 October 2026; personal records pending. The portfolio now has reference-based typography, colors, atmospheric background, responsive glass navigation, shared controls and six section shells. Fonts are self-hosted with their SIL Open Font Licenses. Desktop/mobile reference inspection and local Chrome QA were performed. Lint, typecheck, build and browser checks pass. Skippable boot, interactive neural Canvas, motion pause and hero actions are implemented. Four source-backed project cards and static dossier pages are implemented, with genuine screenshots, pinned source links and verified public demo entry points where available. Journey timeline and certificate archive components are ready, with honest empty states until personal records and actual certificate destinations are supplied. Terminal, contact completion and deployment remain for later phases. The page retains noindex until publication readiness.
+Phase 6 complete, 24 October 2026. The portfolio has an interactive neural hero, four source-backed projects and dossiers, three confirmed journey records, 24 certificate PDFs, twelve terminal commands with keyboard history, and available contact links. Email, LinkedIn and resume remain unset. Phase 7 requires approval. Lint, typecheck, build, content/terminal tests and production desktop/mobile browser checks passed. The page retains noindex until publication readiness.
 
 ## Documentation
 - [Agent standards](AGENTS.md)
@@ -52,4 +52,12 @@ Phase 3 checks: lint, typecheck, production build and Chrome boot/keyboard/persi
 
 Phase 4 checks: lint, typecheck, production build, source-path/media validation and production Chrome route/keyboard/history/image checks passed. Home and all four dossiers fit six widths from 320–1440px. Direct routes: `/systems/cinematch`, `/systems/fakeddit`, `/systems/cartpilot`, `/systems/mock-interview`. Only CartPilot and Mock Interview currently expose demo entry points. See PROJECT_EVIDENCE.md for project verification limits and PHASES.md for changed files/manual steps. No hosting or remote publication performed.
 
-Phase 5 checks: five content tests, content validation (zero supplied records), lint, typecheck and production build passed. Chrome checked actual empty states at six widths; populated timeline/archive layouts and keyboard operation were tested separately with temporary synthetic fixtures. No genuine certificate link/PDF is verified or published yet. The content checker does not probe external URLs; follow CONTENT_GUIDE.md before adding records. The two Node content commands may emit an informational MODULE_TYPELESS_PACKAGE_JSON warning on this host.
+Initial Phase 5 checks before intake: five content tests, content validation (zero supplied records), lint, typecheck and production build passed. Chrome checked actual empty states at six widths; populated timeline/archive layouts and keyboard operation were tested separately with temporary synthetic fixtures. No genuine certificate link/PDF is verified or published yet. The content checker does not probe external URLs; follow CONTENT_GUIDE.md before adding records. The two Node content commands may emit an informational MODULE_TYPELESS_PACKAGE_JSON warning on this host.
+
+Journey intake follow-up: three records supplied directly by Priyanshu Raj on 24 October are in src/content/journey.ts; year precision, ongoing status and expected graduation are preserved. No certificates or additional profile skill claims were added. Source/confirmation evidence is in CONTENT_GUIDE.md. Phase 6 still requires approval.
+
+
+Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+
+
+Current status — 2026-10-24: Phase 6 is approved and complete. Twelve safe local terminal commands, command history and server-rendered contact links are implemented; email/LinkedIn/resume remain unset. See PHASES.md for checks and manual verification. Phase 7 requires explicit approval. No deployment.

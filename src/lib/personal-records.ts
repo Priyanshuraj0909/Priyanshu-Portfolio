@@ -45,6 +45,11 @@ export function journeyIssues(entry: JourneyEntry): string[] {
   if (entry.endDate !== null && !isContentDate(entry.endDate)) issues.push("endDate must be a calendar date or null");
   if (entry.endDate !== null && dateKey(entry.endDate) < dateKey(entry.startDate)) issues.push("endDate cannot precede startDate");
   if (entry.ongoing && entry.endDate !== null) issues.push("ongoing records cannot have an endDate");
+  if (entry.expectedEndDate != null) {
+    if (!isContentDate(entry.expectedEndDate)) issues.push("expectedEndDate must be a calendar date");
+    if (dateKey(entry.expectedEndDate) < dateKey(entry.startDate)) issues.push("expectedEndDate cannot precede startDate");
+    if (!entry.ongoing) issues.push("expected completion applies only to ongoing records");
+  }
   if (!isConfirmationDate(entry.confirmedOn)) issues.push("confirmedOn must record owner confirmation as YYYY-MM-DD");
   return issues;
 }
@@ -53,6 +58,7 @@ export function certificateIssues(entry: Certificate): string[] {
   const issues: string[] = [];
   if (!entry.id.trim() || !entry.title.trim() || !entry.issuer.trim()) issues.push("id, title and issuer are required");
   if (!isContentDate(entry.issuedOn)) issues.push("issuedOn must be a calendar date at the supplied precision");
+  if (entry.completedOn && (!isContentDate(entry.completedOn) || dateKey(entry.completedOn) > dateKey(entry.issuedOn))) issues.push("completedOn must be a calendar date no later than issue date");
   if (!isConfirmationDate(entry.confirmedOn)) issues.push("confirmedOn must record owner confirmation as YYYY-MM-DD");
   if (!isConfirmationDate(entry.linksCheckedOn)) issues.push("linksCheckedOn must record destination checks as YYYY-MM-DD");
   if (!entry.pdf && !entry.verificationUrl) issues.push("at least one checked certificate destination is required");

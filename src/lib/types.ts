@@ -41,6 +41,7 @@ export interface JourneyEntry {
   startDate: string;
   endDate: string | null;
   ongoing: boolean;
+  expectedEndDate?: string | null;
   confirmedOn: string | null;
   category: "education" | "experience" | "achievement" | "leadership";
   title: string;
@@ -49,6 +50,13 @@ export interface JourneyEntry {
 }
 
 export interface Certificate {
+  completedOn?: string;
+  credentialId?: string;
+  courseHours?: number;
+  continuingEducationUnits?: number;
+  grade?: string;
+  sourcePage?: number;
+  documentVerificationUrl?: string;
   id: string;
   title: string;
   issuer: string;

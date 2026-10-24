@@ -36,19 +36,21 @@
 - [x] Check deep links/back, keyboard, actual destinations, responsive layouts; report and commit.
 - [x] Obtain Phase 5 approval (user: “continue phase 5”, 2026-10-24).
 
-## 5. Journey and certificates — implementation complete; personal records pending; Phase 6 approval pending
-- [x] Typed chronological timeline and confirmation checks; content arrays intentionally empty pending personal information.
+## 5. Journey and certificates — complete; three journey and 24 certificate records supplied
+- [x] Typed chronological timeline and confirmation checks; three owner-confirmed journey entries now supplied.
 - [x] Accessible archive with independent PDF/issuer actions and link-check stamps; no real certificate files or URLs supplied, so none published.
 - [x] Honest empty states, content intake guide, targeted checks, report and commit.
-- [ ] Populate confirmed journey/certificate records and verify actual destinations when supplied.
-- [ ] Obtain Phase 6 approval.
+- [x] Populate three owner-confirmed journey records, including ongoing B.Tech with expected completion.
+- [x] Populate 24 certificate records and check local PDF destinations; external issuer URLs remain documentary evidence pending live checks.
+- [x] Obtain Phase 6 approval (user: “now do next step”, 2026-10-24).
 
-## 6. Interactive terminal and contact — awaiting approval
-- [ ] All twelve requested commands, unknown-command handling and clear.
-- [ ] Keyboard input, safe output and available actual contact/resume links.
-- [ ] Targeted command checks and link checks; report and commit; obtain Phase 7 approval.
+## 6. Interactive terminal and contact — complete; Phase 7 approval pending
+- [x] Twelve commands, unknown-command handling and clear.
+- [x] Keyboard input/history, safe text/link output and available actual contact links.
+- [x] Targeted command/browser checks, documentation and phase commit.
+- [ ] Obtain Phase 7 approval.
 
-## 7. Animations, responsiveness, accessibility — awaiting Phase 6 approval
+## 7. Animations, responsiveness, accessibility — awaiting approval
 - [ ] Compare rendered desktop/mobile states with reference captures.
 - [ ] Motion, focus, contrast, touch, scroll and canvas performance audit.
 - [ ] Resolve observed defects; report checks and commit; obtain Phase 8 approval.
@@ -161,7 +163,7 @@ Manual verification:
 Stop here pending approval for Phase 5 (Journey and certificates).
 
 
-## Phase 5 report — 2026-10-24
+## Phase 5 original implementation report — 2026-10-24 (before journey intake)
 
 Explicitly authorized by “continue phase 5”. Completed reusable server-rendered journey timeline and certificate archive components, typed confirmation/link-check fields, calendar-date formatting/validation, publication eligibility and chronological ordering. The timeline uses oldest-start-first ordering, semantic list/record headings, organization labels and explicit ongoing status; a missing end date never implies Present. The archive uses newest-issued-first ordering, a named focusable native scroll region, clear keyboard instructions and independent native PDF/issuer actions. Absent actions are omitted. Responsive rules stack timeline rows on mobile; print expands the archive. No new client component, animation or dependency was added.
 
@@ -192,3 +194,34 @@ Manual verification:
 4. Review CONTENT_GUIDE.md and supply actual records/links/PDFs. After adding confirmed records, run content checks, open actual destinations and test chronological display, ArrowDown/PageDown scrolling, Tab through each link and Tab out. Recheck before publication.
 
 Stop before Phase 6 (Interactive terminal and contact) until approved. Personal record intake remains open and must be completed before genuine entries can be published.
+
+
+### Phase 5 journey intake follow-up — 2026-10-24
+
+Priyanshu Raj supplied three confirmed learning/education records in reply to the intake question: B.Tech CSE at Bennett University (2024–present, expected 2028), independent AI/ML/full-stack development (2025–present), and MLOps learning at Bennett University (2026–present). Added the supplied descriptions without promoting them into profile proficiency, employment claims, new project dossiers or certificates. Year-only dates are retained; the tentative 2025 start was not adjusted without evidence. Confirmation source/date are recorded in src/content/journey.ts and CONTENT_GUIDE.md; no public source URL was supplied.
+
+Added optional expectedEndDate support so an ongoing degree can display Present and Expected completion: 2028 separately from a completed end date. Validation rejects expected completion before start, invalid dates and expected completion on non-ongoing records. A sixth targeted test covers these rules. Certificates remain empty and Phase 6 is not approved.
+
+Changed: src/content/journey.ts; src/lib/{types,personal-records}.ts; src/components/journey/journey-timeline.tsx; tests/personal-records.test.mjs; CONTENT_GUIDE.md; AGENTS.md; ORCHESTRATOR.md; PLAN.md; README.md; PHASES.md.
+
+
+Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+
+Certificate intake validation: content checker (3 journey / 24 certificate records), all six content tests, lint, TypeScript and production build passed. Chrome at 1440/390/320px confirmed 24 rows, newest-first ordering, keyboard entry into PDF actions, no document overflow and no page errors. All 24 local PDF URLs returned HTTP 200 with PDF signatures. Screenshots inspected at mobile width; artifacts remain under /tmp. Local preview/Chrome initially failed under sandbox restrictions; approved elevated runs passed. External issuer identity/authenticity has not been independently checked.
+
+Changed for this intake: src/content/certificates.ts, src/lib/{types,personal-records}.ts, src/components/certificates/certificate-archive.tsx, src/app/globals.css, public/certificates/*.pdf, CERTIFICATE_EVIDENCE.md and the six project/status/content documents. Existing uncommitted journey changes were preserved; this intake is not a new phase and no mixed-work commit was created.
+
+Manual verification: run npm run dev, visit /#live, browse all 24 records, Tab through View PDF links, compare issue/completion dates and Saylor details to their PDFs, and check the archive at 320px. Phase 6 still requires explicit approval; no publication or deployment performed.
+
+
+## Phase 6 — terminal and contact — 2026-10-24
+
+Authorized by “now do next step”. Completed twelve local commands: help, whoami, about, skills, projects, experience, education, github, linkedin, resume, contact, clear. The plan listed eleven names while the checklist requested twelve; whoami was added from observed reference behavior. No arbitrary shell execution, automatic external navigation, injected HTML or runtime API requests. Output uses typed text/native links. Missing biography/skills/contact fields remain unset; interests are labelled, education preserves ongoing/expected completion and no professional experience is invented.
+
+The terminal client boundary receives serializable content from the server page. Labelled input, Enter/Run submission, Up/Down history with draft restoration, scrollable focusable output, separate polite result announcement, visible focus and native links support keyboard use. History is bounded to 100 commands and displayed output to 50 entries; nothing is persisted or transmitted. Contact stays server-rendered and displays GitHub; email/LinkedIn/resume/location only render when supplied in profile content. No new dependencies.
+
+Changed: src/content/terminal.ts, src/lib/terminal.ts, src/components/terminal/portfolio-terminal.tsx, src/components/contact/contact-panel.tsx, src/app/page.tsx, src/app/globals.css, tests/terminal.test.mjs, package.json and project documentation. The phase commit also captures the previously uncommitted authorized Phase 5 journey/certificate intake documented above; existing work was preserved.
+
+Checks: npm run test:terminal (four tests), npm run test:content (six tests), npm run check:content (3 journey / 24 certificate records), lint, typecheck and production build passed. A test assertion initially mismatched the valid missing-experience wording and was corrected. Production Chrome checks cover all twelve commands, mixed-case/whitespace, unknown input rendered as text, clear, draft/history, project link/browser Back, GitHub output and contact hrefs, keyboard entry/exit and no overflow at 1440/768/390/320px. The first multi-viewport run preserved state between same-URL navigations; the QA script now reloads per viewport. Full accessibility/performance auditing remains Phase 7. External GitHub availability was not rechecked in this phase; the existing approved URL is used. Node emits its existing informational MODULE_TYPELESS_PACKAGE_JSON warning in TypeScript tests. No deployment.
+
+Manual verification: npm run dev, visit /#terminal, type help, try all listed commands, unknown input and clear. Type a draft and use Up/Down to recall commands and restore it. Tab/Shift+Tab between the input, Run button and output links; follow a project and use Back. At /#contact confirm only genuine available links appear. Resize to 320px and enable reduced motion. Phase 7 (animations, responsiveness and accessibility audit) requires explicit approval before proceeding.

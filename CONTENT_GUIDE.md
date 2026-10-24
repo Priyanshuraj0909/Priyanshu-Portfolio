@@ -1,6 +1,6 @@
 # Personal record intake and verification
 
-Phase 5, 24 October 2026. **No journey entries, certificates, issuer verification URLs or certificate PDFs have been supplied.** `src/content/journey.ts` and `src/content/certificates.ts` intentionally contain empty arrays. No reference-owner records or test fixtures are production content.
+Phase 5, 24 October 2026. **Three journey entries have been supplied and confirmed directly by Priyanshu Raj. Certificates, issuer verification URLs and certificate PDFs remain pending.** `src/content/journey.ts` contains those three records; `src/content/certificates.ts` remains empty. No reference-owner records or test fixtures are production content.
 
 The timeline and archive render on the server. Confirmed records can be added through these typed arrays without changing components. Draft records with missing confirmation dates, invalid calendar dates or invalid destinations are excluded by `src/lib/personal-records.ts`; `npm run check:content` reports those issues so they can be resolved before publication.
 
@@ -17,6 +17,7 @@ For each entry provide:
 | `startDate` | `YYYY`, `YYYY-MM` or `YYYY-MM-DD`, preserving the supplied precision. |
 | `endDate` | Same date formats, or `null` if not supplied. |
 | `ongoing` | Set `true` only if explicitly confirmed as current; then `endDate` must be `null`. A missing end date alone does not imply Present. |
+| `expectedEndDate` | Optional anticipated completion date for an ongoing record, explicitly labeled Expected completion. It is separate from `endDate` and never asserts graduation. |
 | `description` | Approved factual description, or an empty string. Never infer scores, tenure, employment or proficiency. |
 | `confirmedOn` | Full `YYYY-MM-DD` date on which Priyanshu Raj confirmed the details; `null` while awaiting confirmation. |
 
@@ -51,10 +52,26 @@ For a local PDF, put the original file in `public/certificates/`; its public pat
 
 ### Evidence log
 
-No confirmed personal records or certificate destinations as of 2026-10-24. When supplied, add one row per record with its ID, owner confirmation source, public source URL if available, confirmation date, and actual link/PDF check date/result. Source files should contain only approved portfolio content, not private correspondence or unnecessary personal details.
+Source for all three entries: Priyanshu Raj's direct reply to the journey/certificate intake question on 2026-10-24. No public source URLs were provided; owner confirmation is the evidence, not independent institutional verification.
+
+| Record ID | Confirmed details | Confirmation date | Public source / destination check |
+| --- | --- | --- | --- |
+| `bennett-btech-cse` | B.Tech CSE, Bennett University, pursuing since 2024, expected completion 2028; supplied focus/description | 2026-10-24 | No public source URL supplied; no certificate destination |
+| `independent-ai-ml-full-stack` | Independent Learning & Project Development, 2025–Present; supplied project/technology learning description | 2026-10-24 | No public source URL supplied; no certificate destination |
+| `bennett-machine-learning-operations` | Machine Learning Operations learning at Bennett University, 2026–Present; supplied description | 2026-10-24 | No public source URL supplied; no certificate destination |
+
+The supplied 2025 start is retained without guessing a month or an alternative year. Independent development and MLOps are education/learning records, not employment or awarded qualifications. The B.Tech is ongoing with an expected 2028 completion, not a completed degree. Project names and technologies in the journey are the owner's learning description; no new dossier, verified proficiency, project-feature claim or metric is introduced. StudySync AI has no verified dossier and no link is invented. Profile skills remain unchanged.
+
+Certificate intake on 2026-10-24: 24 owner-supplied certificate PDFs and their content are now populated. See CERTIFICATE_EVIDENCE.md for page mapping, corrected issue/completion dates and the live issuer-link verification limitation. Do not store private correspondence or unnecessary personal details in source files.
 
 ## Checks and fixtures
 
 `npm run test:content` uses Node's built-in test runner and synthetic fixtures confined to `tests/personal-records.test.mjs`. It covers date precision/leap years, chronological order, unconfirmed drafts, explicit ongoing status and permitted destination shapes. No test certificate, issuer URL or PDF is placed in `public` or the content arrays.
 
-Phase 5 browser populated-state QA uses only temporary intercepted HTML generated from the real components. Its data is explicitly labeled TEST ONLY and never registered as an application route. Those checks validate layout/keyboard behavior, not genuine certificate availability. The actual production build is checked separately for empty states and omission of unavailable actions.
+Phase 5 browser populated-state QA uses only temporary intercepted HTML generated from the real components. Its data is explicitly labeled TEST ONLY and never registered as an application route. Those checks validate layout/keyboard behavior, not genuine certificate availability. The initial production build was checked separately for empty states. After journey intake, production was rechecked with the three confirmed records; the certificate empty state and omission of unavailable actions remain.
+
+
+Certificate intake update — 2026-10-24: 24 records from the supplied deduplicated PDF now populate the archive, with individual single-page PDFs, printed issue/completion dates, categories and available credential IDs/hours/CEUs/grades. See CERTIFICATE_EVIDENCE.md for source mapping and issuer URLs retained as documentary evidence pending live checks. This supersedes earlier certificate empty-state notes. Phase 6 remains unapproved.
+
+
+Terminal/contact now read profile.ts, projects.ts and confirmed journey content. Add owner-approved biography, skills, email, location, LinkedIn and resume there when supplied; missing values stay null/empty. Phase 6 does not promote course topics or interests into skills. No contact messages are sent by the portfolio.
