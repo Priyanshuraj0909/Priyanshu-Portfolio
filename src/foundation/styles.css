@@ -5,6 +5,7 @@
 :root { --void: #05070b; --panel: #0b1019; --text: #f3f6fc; --muted: #8994a8; --dim: #8994a8; --signal: #9b7cff; --glow: #58e1ff; --hair: #ffffff18; --hair-strong: #ffffff38; --font-space-grotesk: "Space Grotesk"; --font-jetbrains-mono: "JetBrains Mono"; --font-oxanium: "Oxanium"; }
 .site-atmosphere { background: radial-gradient(at 85% 15%, #65419b2a, transparent 45%), radial-gradient(at 5% 70%, #18576a18, transparent 45%); }
 .site-atmosphere::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(transparent, #000, transparent); }
+.site-nav { margin-inline: auto; }
 .site-nav a { min-width: 44px; justify-content: center; }
 
 .boot-screen { position: fixed; z-index: 40; inset: 0; background: radial-gradient(ellipse at 70% 35%, #30204588, transparent 60%), #05070bf5; pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 24px; }

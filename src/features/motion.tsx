@@ -11,12 +11,12 @@ export function MotionPreferences({ children }: { children: ReactNode }) {
   function toggle() { setPaused(value => { try { localStorage.setItem("portfolio:motion-paused", String(!value)); } catch {} return !value; }); }
   return <Preferences.Provider value={{ paused, reduced, toggle }}><MotionConfig reducedMotion={paused ? "always" : "user"}>{children}</MotionConfig></Preferences.Provider>;
 }
-export function MotionToggle() {
+export function MotionToggle({ placement = "header" }: { placement?: "header" | "footer" }) {
   const preferences = useContext(Preferences);
   if (!preferences) return null;
   const { paused, reduced, toggle } = preferences;
   const label = reduced ? "Reduced motion" : paused ? "Resume motion" : "Pause motion";
-  return <button className="motion-control header-motion" onClick={toggle} aria-pressed={paused} aria-label={label}>{paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}<span className="motion-label">{label}</span></button>;
+  return <button className={`motion-control ${placement}-motion`} onClick={toggle} aria-pressed={paused} aria-label={label}>{paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}<span className="motion-label">{label}</span></button>;
 }
 export function Reveal({ children }: { children: ReactNode }) {
   const { paused, reduced } = useMotionPreferences();

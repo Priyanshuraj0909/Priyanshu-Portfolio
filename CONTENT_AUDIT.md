@@ -13,7 +13,7 @@ Current implementation: complete Vite portfolio with five genuine projects, thre
 | GitHub | https://github.com/Priyanshuraj0909 | Public profile/repositories read during audit |
 | LinkedIn | Owner supplied `https://www.linkedin.com/in/priyanshu-raj-00aab5334/` on 2026-10-24 | Published in contact and terminal output |
 | Email / resume | Not supplied | Editable nulls; omit fake actions |
-| Location | India suggested conditionally (“if appropriate”) | Confirm residence before publishing; IST clock can be labelled as timezone |
+| Location | Owner supplied `India · IST (UTC+5:30)` on 2026-10-24 | Published in the contact section |
 | Availability, CGPA, internships, school, rankings, work/leadership/achievements | Not supplied | No invented entries or status |
 | Journey | Three previously confirmed learning/education records | Preserve; none establishes employment |
 
@@ -57,4 +57,4 @@ Records retain title, issuer, issue date, categories and available completion da
 Vite currently serves only the foundation screen. The mature legacy app includes a Canvas hero (not Three/R3F), four dossiers, journey, certificates, twelve-command terminal and GitHub contact. These are preserved but not active Vite features. Latest prompt needs a Three/R3F/Drei scene, six evidence-backed capabilities, Medical dossier, routed SPA deep links, certificate search/filter/previews, ten requested terminal commands including certificates (currently missing), prompt priyanshu@nexus:~$, and final SEO/Open Graph/performance/accessibility work. Drei/React Router are absent. Plan installation only in approved phases; audit adds no dependencies.
 
 
-Current update: the supplied biography/subtitle and LinkedIn URL are implemented in profile.ts. Medical has a source-backed dossier and genuine public screenshot; CineMatch uses a labelled real local frontend capture. Four public demos were checked; CineMatch remains login-protected. Search/categories/previews and the requested terminal prompt/commands are complete. Six Coursera records passed live identity checks; Ethics remains a blank record and its issuer action is omitted. Drei/Router are installed. StudySync source, email/resume/location/availability and unprovided achievements remain unavailable. Deployment awaits Vercel access.
+Current update: the supplied biography/subtitle, LinkedIn URL and `India · IST (UTC+5:30)` location are implemented in profile.ts. Medical has a source-backed dossier and genuine public screenshot; CineMatch uses a labelled real local frontend capture. Four public demos were checked; CineMatch remains login-protected. Search/categories/previews and the requested terminal prompt/commands are complete. Six Coursera records passed live identity checks; Ethics remains a blank record and its issuer action is omitted. Drei/Router are installed. StudySync source, email/resume/availability and unprovided achievements remain unavailable. Deployment awaits Vercel access.

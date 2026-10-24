@@ -100,6 +100,8 @@ button, a, input { -webkit-tap-highlight-color: #af92fc25; }
 .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--hair); padding-block: 28px 60px; }
 .footer-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; color: var(--muted); font: 9px/1.8 var(--font-jetbrains-mono), monospace; }
 .footer-bar a { display: inline-flex; align-items: center; min-height: 44px; gap: 20px; text-decoration: none; }
+.footer-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 16px 28px; }
+.footer-motion { display: inline-flex; align-items: center; gap: 10px; border-radius: 28px; padding-inline: 18px; }
 
 @media (max-width: 1050px) {
   .nav-number, .site-brand span { display: none; }
@@ -274,6 +276,8 @@ button, a, input { -webkit-tap-highlight-color: #af92fc25; }
   .contact-grid { grid-template-columns: 1fr; gap: 52px; }
   .contact-invitation { max-width: 30ch; }
   .contact-credit { padding-top: 0; }
+  .footer-bar, .footer-actions { align-items: flex-start; }
+  .footer-actions { width: 100%; justify-content: space-between; }
 }
 @media (min-width: 761px) and (max-width: 1050px) {
   .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr); }
