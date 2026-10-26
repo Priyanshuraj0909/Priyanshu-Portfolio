@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes, Link, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { MotionPreferences } from "@/features/motion";
 import { Home } from "@/features/home";
-import { Dossier } from "@/features/dossier";
+const Dossier = lazy(() => import("@/features/dossier").then(m => ({default:m.Dossier})));
 import { projects } from "@/content/projects";
 import { profile } from "@/content/profile";
 
@@ -27,5 +27,5 @@ function RouteFocus() {
 }
 function NotFound() { return <main id="main" className="page-container dossier" tabIndex={-1}><h1 className="section-title">Signal not found.</h1><Link to="/">Return to portfolio</Link></main>; }
 export function App() {
-  return <MotionPreferences><BrowserRouter><div className="site-atmosphere" aria-hidden="true" /><a className="skip-link" href="#main">Skip to content</a><RouteFocus /><Routes><Route path="/" element={<Home />} /><Route path="/systems/:slug" element={<Dossier />} /><Route path="*" element={<NotFound />} /></Routes></BrowserRouter></MotionPreferences>;
+  return <MotionPreferences><BrowserRouter><div className="site-atmosphere" aria-hidden="true" /><a className="skip-link" href="#main">Skip to content</a><RouteFocus /><Suspense fallback={<main id="main" className="page-container dossier" tabIndex={-1}><p role="status">Loading project…</p></main>}><Routes><Route path="/" element={<Home />} /><Route path="/systems/:slug" element={<Dossier />} /><Route path="*" element={<NotFound />} /></Routes></Suspense></BrowserRouter></MotionPreferences>;
 }

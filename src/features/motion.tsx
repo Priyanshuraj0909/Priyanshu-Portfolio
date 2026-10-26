@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { MotionConfig, useReducedMotion, motion } from "motion/react";
 import { Pause, Play } from "lucide-react";
 
@@ -10,6 +10,7 @@ export const useMotionPreferences = () => useContext(Preferences) ?? { paused: f
 export function MotionPreferences({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion() ?? false;
   const [paused, setPaused] = useState(() => { try { return localStorage.getItem("portfolio:motion-paused") === "true"; } catch { return false; } });
+  useEffect(() => { document.documentElement.dataset.motion = paused || reduced ? "paused" : "active"; return () => { delete document.documentElement.dataset.motion; }; }, [paused, reduced]);
   function toggle() { setPaused(value => { try { localStorage.setItem("portfolio:motion-paused", String(!value)); } catch {} return !value; }); }
   return <Preferences.Provider value={{ paused, reduced, toggle }}><MotionConfig reducedMotion={paused ? "always" : "user"}>{children}</MotionConfig></Preferences.Provider>;
 }

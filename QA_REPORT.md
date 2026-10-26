@@ -66,3 +66,19 @@ persistent pause, reduced motion, keyboard focus and responsive widths from 320 
 was corrected. External visual-reference pages remained blocked by the network
 proxy after retry; no claim is made to have inspected them. No hosted deployment
 was performed as part of this redesign.
+
+## Inference edition — 25 October 2026
+
+ECHO reference inspected from source and its included design screenshot; original
+implementation described in INFERENCE_DESIGN.md. Dark palette, compact AI/ML
+inference sculpture, project selector, intro transition and lazy sections replace
+the studio edition presentation. All 13 unit tests, lint, typecheck, production
+build, content and deployment checks pass. Chromium: 33 production interaction
+assertions plus failed-scene-import and direct-archive-anchor checks pass. Native
+scrolling, visible focus and reduced motion are retained. Physical GPU performance
+and deployed hosting remain unverified.
+
+Final verification, 26 October 2026: production deployment-artifact checks passed
+again after the final motion changes. Inspected the rendered 390px mobile WebGL
+hero and Fakeddit project preview in Chromium; selection works and there is no
+horizontal overflow. Browser reported no errors (software-rendering warnings only).

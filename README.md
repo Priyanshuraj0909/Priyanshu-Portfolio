@@ -1,8 +1,8 @@
 # Priyanshu Raj — developer portfolio
 
-An original editorial portfolio with warm ivory surfaces, copper accents, oversized typography and an interactive procedural 3D sculpture. Built with React, TypeScript, Vite and React Three Fiber. The homepage leads with selected work, then about and learning, the certificate archive, an interactive terminal and contact.
+A dark editorial portfolio with metallic typography, mint accents and a lightweight procedural inference-core sculpture inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. Features a skippable opening transition, interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks.
 
-Five source-backed projects and dossier routes, three journey records and all 24 original certificate PDFs remain available. See REDESIGN.md for design references and browser validation. The earlier Next.js implementation remains under the legacy scripts.
+Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
 ## Run
 
