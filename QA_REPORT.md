@@ -82,3 +82,13 @@ Final verification, 26 October 2026: production deployment-artifact checks passe
 again after the final motion changes. Inspected the rendered 390px mobile WebGL
 hero and Fakeddit project preview in Chromium; selection works and there is no
 horizontal overflow. Browser reported no errors (software-rendering warnings only).
+
+## Page-wide learning sphere — 26 October 2026
+
+Replaced the small inference-core model with a large faceted sphere and segmented
+orbital rings. One persistent canvas emerges from depth after the intro and reacts
+to whole-page pointer movement, scrolling, hover and keyboard focus. Added floating
+expand/collapse and pause controls. Existing tests (13), lint, typecheck, production
+build and deployment-artifact checks pass. 28 new Chromium production assertions
+pass; desktop and mobile screenshots were inspected. No uncaught browser errors.
+The lazy Three.js chunk still produces the known build-size warning.

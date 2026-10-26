@@ -49,3 +49,33 @@ controls, certificate filtering, terminal history, five direct routes and back
 navigation, 320/390/768/1440px layouts, reduced motion and keyboard access.
 Two further checks confirmed failed scene imports fall back without trapping the
 visitor, and direct archive anchors bypass the introduction and load the archive.
+
+## Page-wide learning sphere — 26 October 2026
+
+This update replaces the small four-layer inference-core illustration above with
+an original faceted learning sphere, twelve segmented orbital arcs, three fine
+orbits and 96 data points. Its silhouette fills most of the desktop hero and scales
+to mobile width. Geometry remains procedural, with no external model or texture.
+
+One fixed, non-interactive canvas sits behind the entire homepage. The same model
+starts small and distant during the introduction, then advances toward the camera
+and scales up as the overlay clears. Pointer movement anywhere on the page changes
+its orientation. Scroll progress rotates it; section changes move it laterally.
+Hovering or focusing actual links and controls spreads the rings slightly. Floating
+expand/collapse and pause controls remain available throughout the page. Content
+surfaces dim the background sculpture to retain reading contrast.
+
+Unlike the earlier hero-only implementation, the canvas remains active while the
+homepage is visible because it is present behind every section. It stops animation
+when paused or the document is hidden, uses demand rendering while paused, and
+unmounts when navigating to a project page. The observers and window listeners are
+cleaned up. Reduced motion uses a static CSS sphere and skips the WebGL import.
+DPR remains capped at 1 on mobile and 1.5 on desktop. No dependency was added.
+
+Validation: all 13 existing tests, lint, type checking, production build and
+artifact checks pass. 28 targeted production-browser assertions passed, covering
+intro state, full-viewport single canvas, expansion, pause and persistence, scroll
+section updates, global hover and keyboard responses, working project/terminal
+controls, scene persistence to contact, widths from 320 to 1440px, static fallback
+and cleanup on project navigation. Inspected desktop hero, work and mobile views.
+Physical-device GPU profiling and hosted deployment are not claimed.

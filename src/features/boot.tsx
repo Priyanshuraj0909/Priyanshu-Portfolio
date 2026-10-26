@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMotionPreferences } from "./motion";
 export function shouldIntroduce() {
-  try { return !location.hash && !sessionStorage.getItem("portfolio:intro-v2") && !matchMedia('(prefers-reduced-motion: reduce)').matches && localStorage.getItem('portfolio:motion-paused') !== 'true'; } catch { return false; }
+  try { return !location.hash && !sessionStorage.getItem("portfolio:intro-v3") && !matchMedia('(prefers-reduced-motion: reduce)').matches && localStorage.getItem('portfolio:motion-paused') !== 'true'; } catch { return false; }
 }
 export function Boot({ ready, onComplete }: { ready: boolean; onComplete: () => void }) {
   const skip = useRef<HTMLButtonElement>(null);
@@ -32,10 +32,10 @@ export function Boot({ ready, onComplete }: { ready: boolean; onComplete: () => 
     window.addEventListener('keydown', escape);
     return () => { document.body.style.overflow = previous; window.removeEventListener('keydown', escape); };
   }, []);
-  function complete() { try { sessionStorage.setItem('portfolio:intro-v2', 'true'); } catch {} onComplete(); }
+  function complete() { try { sessionStorage.setItem('portfolio:intro-v3', 'true'); } catch {} onComplete(); }
   return <AnimatePresence onExitComplete={complete}>{!leaving && <motion.div className="intro-loader" key="intro" initial={{opacity:1}} exit={{opacity:0, y:reduced || paused ? 0:-24}} transition={{duration:reduced || paused ? 0:.65, ease:[.22,1,.36,1]}}>
     <div className="loader-top"><span>PRIYANSHU RAJ</span><span>AI / ML · FULL STACK</span></div>
-    <div className="loader-center"><div className="loader-network" aria-hidden="true"><i /><i /><i /><span>PR</span></div><p>CONNECTING THE DOTS<span aria-hidden="true">…</span></p><span className="loader-status" role="status">{ready && fonts ? 'Ready to explore' : 'Preparing your experience'}</span></div>
+    <div className="loader-center"><div className="loader-network" aria-hidden="true"><i /><i /><i /><span>PR</span></div><p>BRINGING IDEAS INTO FOCUS<span aria-hidden="true">…</span></p><span className="loader-status" role="status">{ready && fonts ? 'Ready to explore' : 'Preparing your experience'}</span></div>
     <div className="loader-bottom"><span>FROM DATA TO SOMETHING USEFUL.</span><button ref={skip} onClick={() => setLeaving(true)}>Skip intro ↗</button></div>
   </motion.div>}</AnimatePresence>;
 }

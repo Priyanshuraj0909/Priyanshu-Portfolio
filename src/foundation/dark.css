@@ -94,3 +94,50 @@ em { font-family:inherit; font-style:normal; color:#8b9c93; }
 @media(prefers-reduced-motion:reduce) { .portfolio-shell { transition:none; } .capability-module:hover { transform:none; } }
 [data-motion="paused"] *, [data-motion="paused"] *::before, [data-motion="paused"] *::after { animation-play-state:paused !important; }
 .studio-header nav a[aria-current] { color:#a0e6ce; text-decoration:underline; text-underline-offset:8px; }
+
+/* A single persistent sculpture moves from the opening into the whole page. */
+.page-sculpture { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; opacity:1; transition:opacity 1s; }
+.page-sculpture canvas { pointer-events:none; }
+.page-sculpture[data-section]:not([data-section="0"]) { opacity:.3; }
+.page-sculpture[data-engaged="true"]:not([data-section="0"]) { opacity:.45; }
+.page-sculpture[data-entering="true"] { opacity:.55; }
+.sculpture-halo { position:absolute; inset:0; background:radial-gradient(ellipse at 72% 50%,#78ba9b18,transparent 55%); }
+.portfolio-shell { position:relative; z-index:1; isolation:isolate; }
+.studio-hero { background:linear-gradient(90deg,#0a0c0dce 0%,#0a0c0d70 36%,transparent 72%); }
+.hero-object { background:none; overflow:visible; pointer-events:none; min-height:440px; }
+.hero-object::before { display:none; }
+.object-label { background:#0c1712b8; bottom:20px; }
+.hero-type { z-index:2; }
+.hero-type h1 { background-image:linear-gradient(#f2f5f1 20%,#a6b8ae 100%); }
+.hero-side { background:linear-gradient(90deg,#0a0c0de8,#0a0c0d00); }
+.work-section,.archive-section { background:#0f1213c9; }
+.about-section { background:#0a0c0dba; }
+.playground { background:#0a0c0dba; }
+.studio-contact { background:linear-gradient(110deg,#142b20d9,#0b120cba); }
+.project-selector,.preview-caption,.about-intro,.journey-timeline { text-shadow:0 2px 15px #0009; }
+.scene-controls { position:fixed; z-index:20; bottom:18px; right:22px; display:flex; align-items:center; gap:8px; padding:7px; background:#101b16eb; border:1px solid #a0e6ce33; border-radius:40px; backdrop-filter:blur(12px); box-shadow:0 8px 32px #0004; }
+.scene-controls button { min-height:40px; border:0; background:transparent; color:#d3e8dc; cursor:pointer; padding:8px 14px; font:10px var(--font-jetbrains-mono); }
+.scene-controls button:hover { background:#a0e6ce18; border-radius:30px; }
+.scene-controls button:disabled { opacity:.5; cursor:default; }
+.scene-controls .core-control { border-right:1px solid #a0e6ce30; display:flex; gap:14px; align-items:center; }
+.scene-controls .footer-motion { gap:8px; }
+.studio-footer { padding-bottom:100px; }
+.intro-loader { background:linear-gradient(90deg,#0a0c0df5,#0a0c0d70); }
+.loader-network { opacity:.6; }
+.sphere-fallback { position:absolute; width:min(75vw,80vh); aspect-ratio:1; right:2%; top:50%; transform:translateY(-50%); opacity:.6; }
+.sphere-fallback i { position:absolute; inset:6%; border:2px solid #9ce8c7; border-radius:50%; transform:rotate(-25deg) scaleY(.55); box-shadow:0 0 25px #98e8be16; }
+.sphere-fallback i:nth-child(2) { transform:rotate(45deg) scaleY(.55); }
+.sphere-fallback i:nth-child(3) { transform:rotate(110deg) scaleY(.55); }
+.sphere-fallback span { position:absolute; inset:30%; background:linear-gradient(135deg,#d2f4df,#375d4b 45%,#0f2118 46%,#6ba58b); clip-path:polygon(50% 0,100% 30%,86% 85%,50% 100%,14% 85%,0 30%); }
+@media(max-width:700px) {
+ .hero-object { min-height:350px; }
+ .hero-side { background:#0a0c0dc9; margin-top:10px; padding:18px 0; }
+ .studio-hero { background:linear-gradient(#0a0c0d35,#0a0c0d00 65%,#0a0c0d80); }
+ .hero-type { background:linear-gradient(#0a0c0d85,#0a0c0d00); }
+ .object-label { bottom:0; }
+ .page-sculpture[data-section]:not([data-section="0"]) { opacity:.2; }
+ .scene-controls { bottom:12px; right:12px; left:12px; justify-content:center; width:max-content; max-width:calc(100% - 24px); margin:auto; }
+ .scene-controls button { font-size:9px; padding-inline:12px; }
+ .sphere-fallback { width:96vw; right:2vw; }
+}
+@media(prefers-reduced-motion:reduce) { .page-sculpture { transition:none; } }
