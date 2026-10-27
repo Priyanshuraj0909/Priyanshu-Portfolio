@@ -8,7 +8,7 @@ Executed on local Node 26.10.0: lint, all 13 tests, strict typecheck, content va
 
 Live HTTPS smoke: 65 successful requests cover the homepage, five direct dossiers, 24 PDFs (all PDF signatures valid), 24 previews, five project images, JS/CSS entry assets, favicon, brand mark, social image and robots.txt. The existing sitemap endpoint returned 404, the homepage was noindex and lacked canonical metadata. Headless installed Chrome with reduced motion opened /#about, confirmed the About section in view and the GitHub profile action; no uncaught browser errors. This is a live smoke check, not a repeat of the full historical accessibility, motion or device matrix.
 
-The updated build generates the missing public metadata and sitemap. Its publication must be confirmed after Vercel builds the updated commit; no hosting settings were changed through Vercel. Temporary evidence: /tmp/portfolio-live-checks.json, /tmp/portfolio-live.html and /tmp/priyanshu-phase2-qa/verify-live-links.mjs.
+Published commit f3b43a8 to origin/main. The GitHub Vercel status reports success for deployment FSfrsSrU9Vq2Wbbhq1hLLmrE3xrJ. Subsequent live requests confirmed index/follow, the correct homepage and five dossier canonical URLs, absolute social images, the static About anchor, robots.txt Allow and a valid six-route XML sitemap. No hosting settings were changed through Vercel. Temporary evidence: /tmp/portfolio-live-checks.json, /tmp/portfolio-live.html and /tmp/priyanshu-phase2-qa/verify-live-links.mjs.
 
 ## Historical production verification — 24 October 2026
 
@@ -19,7 +19,7 @@ Pinned the deployment runtime to Node 24 in package.json to match .nvmrc, set Ve
 Fresh `npm ci --no-audit --no-fund` passed on local Node 26.10.0. Lint, all 13 tests, content validation, strict TypeScript, production build and deployment artifact checks subsequently passed on Node 24.22.1, the pinned deployment major. The legacy production build also passed on local Node 26.10.0. The existing lazy WebGL chunk-size and module-type notices remain non-blocking. Browser checks below are earlier coverage; this follow-up did not repeat that matrix. Hosted Vercel deployment and the new remote CI run have not been verified locally. No deployment origin was supplied, so noindex remains enabled.
 
 ## Current result
-The Vite portfolio is published to GitHub and live at `https://priyanshu-portfolio-pi-ruby.vercel.app`. The owner confirmed this origin on 2026-10-27 and HTTPS/browser smoke checks passed. Public metadata fixes are implemented locally; their hosted deployment requires a rebuild and recheck. Owner authorization covers publication without further implementation checkpoints.
+The Vite portfolio is published to GitHub and live at `https://priyanshu-portfolio-pi-ruby.vercel.app`. The owner confirmed this origin on 2026-10-27 and HTTPS/browser smoke checks passed. Public metadata fixes deployed successfully through the existing GitHub/Vercel connection and passed live verification. Owner authorization covers publication without further implementation checkpoints.
 
 ## Executed checks
 | Check | Actual result |

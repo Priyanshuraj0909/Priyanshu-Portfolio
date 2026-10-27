@@ -5,7 +5,7 @@
 - Repository: [https://github.com/Priyanshuraj0909/Priyanshu-Portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
 - Owner-supplied account dashboard: https://vercel.com/king-09 (management only).
 
-The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the existing deployment is public. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
+The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the deployment is public. Commit f3b43a8 deployed successfully through the existing GitHub/Vercel connection; homepage and five dossier canonical/social metadata, indexing, robots.txt and the six-page XML sitemap passed live checks on 2026-10-27. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
 
 ## Build configuration
 
