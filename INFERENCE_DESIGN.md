@@ -79,3 +79,37 @@ section updates, global hover and keyboard responses, working project/terminal
 controls, scene persistence to contact, widths from 320 to 1440px, static fallback
 and cleanup on project navigation. Inspected desktop hero, work and mobile views.
 Physical-device GPU profiling and hosted deployment are not claimed.
+
+## Signature identity and cinematic opening — 26 October 2026
+
+Replaced the lowercase pr/asterisk with an original angular PR monogram: an ivory
+path, mint diagonal and a small signal square. The React SVG component, standalone
+public/brand-mark.svg and favicon share the same path geometry. Header, footer and
+scene label use the same component. The favicon URL is versioned to refresh caches.
+
+Online references consulted:
+- Official Motion skill: https://github.com/motiondivision/ai-kit/blob/main/plugins/motion/skills/motion/SKILL.md
+  (AI Kit commit 1e424943582cbbdb6e3f410687e39f96451447bb). Applied its React,
+  CSS-vs-Motion and animation best-practices guidance. No MCP installation needed
+  for this self-contained guidance; the Motion MCP server was not connected.
+- Official shared-layout and SVG path-drawing examples in motiondivision/motion,
+  commit 136f854291ad3c325dfa257d28912c4849ba2e9b, under dev/react/src/examples.
+- Motion.dev, Awwwards and Behance pages were blocked by the network proxy.
+  No claim is made to have viewed their gallery content; no third-party logo copied.
+
+The opening draws the SVG, reveals the name through a mask, and sweeps a restrained
+light across the same dark/mint environment. A Motion LayoutGroup/layoutId transfers
+the center mark to the header. Loading, revealing and ready phases coordinate the
+logo transfer, curtain dissolve, hero text arrival and sphere emergence. The sphere
+starts advancing during the reveal, not after it. Interaction stays locked until
+the transition completes; focus and scroll then restore.
+
+Normal introduction: 1.7-second minimum, capped at 3.8 seconds if fonts or scene
+are unavailable, followed by a 1.05-second reveal. Skip and Escape trigger the same
+handoff. Reduced motion and saved pause bypass the introduction. Session and hash
+handling are retained with a new introduction version. No new production packages.
+
+Final validation on 27 October: lint, typecheck, production build, artifact checks
+and 31 targeted production-browser assertions pass. Confirmed the shared SVG
+physically transitions from its large center position to the 44px header slot.
+Focus restoration runs after the ready-state DOM commit to avoid the earlier race.

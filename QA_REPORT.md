@@ -92,3 +92,20 @@ expand/collapse and pause controls. Existing tests (13), lint, typecheck, produc
 build and deployment-artifact checks pass. 28 new Chromium production assertions
 pass; desktop and mobile screenshots were inspected. No uncaught browser errors.
 The lazy Three.js chunk still produces the known build-size warning.
+
+## Signature identity and cinematic introduction — 27 October 2026
+
+Replaced the pr/asterisk identity with an original angular PR SVG monogram across
+the header, footer, scene label, standalone mark and versioned favicon. Applied the
+official Motion skill and shared-layout/path-drawing examples described in
+INFERENCE_DESIGN.md. The introduction now draws the mark, reveals the name, and
+hands the same mark to the header while the page and learning sphere emerge.
+
+Lint, TypeScript, production build and deployment-artifact checks pass. Playwright
+CLI/Chromium passed 31 assertions: SVG consistency and delivery, measured shared
+logo movement, coordinated scene reveal, locked/unlocked controls, restored focus
+and scrolling, session behavior, 320/390/768px layouts, Skip/Escape, reduced motion,
+deep links and project controls. No uncaught browser errors. Desktop intro, desktop
+page and mobile page screenshots inspected. Fixed a focus race by restoring focus
+in an effect after the ready-state DOM commit instead of a pre-commit animation frame.
+The lazy renderer retains its known bundle-size warning; live deployment unverified.

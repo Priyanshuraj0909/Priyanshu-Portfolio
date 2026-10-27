@@ -10,7 +10,7 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
   static getDerivedStateFromError() { return { failed: true }; }
   render() { return this.state.failed ? <Fallback /> : this.props.children; }
 }
-export function Neural({ onReady, entering }: { onReady: () => void; entering: boolean }) {
+export function Neural({ onReady, entering, controlsLocked = entering }: { onReady: () => void; entering: boolean; controlsLocked?: boolean }) {
   const { paused, reduced } = useMotionPreferences();
   const signals = useRef<SceneSignals>({x:0,y:0,progress:0,section:0,engaged:0});
   const [visible,setVisible]=useState(false);
@@ -43,6 +43,6 @@ export function Neural({ onReady, entering }: { onReady: () => void; entering: b
       <div className="sculpture-halo" />
       {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} onReady={onReady} /></Suspense></SceneBoundary>:<Fallback />}
     </div>
-    <div className="scene-controls" aria-label="3D sculpture controls" inert={entering || undefined}><button className="core-control" onClick={()=>setExpanded(value=>!value)} aria-pressed={expanded} disabled={reduced}>{expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
+    <div className="scene-controls" aria-label="3D sculpture controls" inert={controlsLocked || undefined}><button className="core-control" onClick={()=>setExpanded(value=>!value)} aria-pressed={expanded} disabled={reduced}>{expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
   </>;
 }
