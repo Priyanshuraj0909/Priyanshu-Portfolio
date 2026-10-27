@@ -1,3 +1,4 @@
+import { site } from "../src/content/site.ts";
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { projects } from "../src/content/projects.ts";
@@ -7,14 +8,20 @@ const root = new URL("../dist/", import.meta.url);
 const config = JSON.parse(await readFile(new URL("../vercel.json", import.meta.url), "utf8"));
 assert.equal(config.framework, "vite");
 assert.equal(config.outputDirectory, "dist");
-const origin = process.env.PORTFOLIO_SITE_URL
-  ? new URL(process.env.PORTFOLIO_SITE_URL).origin : null;
+const siteUrl = process.env.PORTFOLIO_SITE_URL ?? site.url;
+const origin = siteUrl ? new URL(siteUrl).origin : null;
 
 for (const path of ["index.html", ...projects.map(p => `systems/${p.slug}/index.html`), "404.html"]) {
   const html = await readFile(new URL(path, root), "utf8");
   assert.match(html, /<main\b/, `${path}: missing static content`);
   assert.match(html, /<title>[^<]+<\/title>/, `${path}: missing title`);
-  assert.match(html, origin ? /content="index, follow"/ : /content="noindex, nofollow"/);
+  assert.match(html, origin && path !== "404.html" ? /content="index, follow"/ : /content="noindex, nofollow"/);
+  if (path === "index.html") assert.ok(html.includes('id="about"'), "Homepage: missing About anchor");
+  if (origin && path !== "404.html") {
+    const route = path === "index.html" ? "/" : `/${path.replace("/index.html", "")}`;
+    assert.ok(html.includes(`<link rel="canonical" href="${origin}${route}"`), `${path}: incorrect canonical URL`);
+    assert.ok(html.includes(`content="${origin}/social-card.png"`), `${path}: missing absolute social image`);
+  }
   for (const match of html.matchAll(/(?:src|href)="(\/[^"?#]*)/g)) {
     if (/\.[a-z0-9]+$/i.test(match[1])) {
       await access(new URL(match[1].slice(1), root));

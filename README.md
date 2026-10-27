@@ -4,6 +4,8 @@ A dark editorial portfolio with metallic typography, mint accents and a large pr
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
+Live portfolio: **[https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)** · [About](https://priyanshu-portfolio-pi-ruby.vercel.app/#about) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
+
 ## Run
 
 Use Node 24 (`nvm use`), then:
@@ -24,7 +26,7 @@ npm run build
 npm run check:deployment
 ```
 
-All 13 content/parser/filter tests, lint, builds and production browser checks passed. See QA_REPORT.md for executed coverage and limits. `npm run dev:legacy`, `build:legacy` and `typecheck:legacy` retain the previous Next.js app. Runtime never calls GitHub or model APIs.
+All 13 content/parser/filter tests, lint, typecheck, production build and deployment checks passed. Earlier production browser checks and the latest live smoke checks are recorded separately. See QA_REPORT.md for executed coverage and limits. `npm run dev:legacy`, `build:legacy` and `typecheck:legacy` retain the previous Next.js app. Runtime never calls GitHub or model APIs.
 
 GitHub Actions runs a clean install, lint, tests, content checks, production build and deployment artifact checks on Node 24 for pushes and pull requests to `main`. Vercel uses the same Node major and lockfile installation through `vercel.json`.
 
@@ -36,6 +38,7 @@ GitHub Actions runs a clean install, lint, tests, content checks, production bui
 - src/content: typed editable owner data and evidence-backed project/certificate records.
 - src/lib: pure validation, command dispatch and certificate search.
 - public: genuine project/document assets, original favicon and social graphic.
+- src/content/site.ts: confirmed public portfolio origin and source repository.
 - scripts/prerender.mjs: static readable fallback and metadata for homepage + five dossiers.
 
 Edit profile.ts for supplied contact/biography, projects.ts for source-verified projects, journey.ts for confirmed records, journey-drafts.ts for unpublished intake and certificates.ts for original-document records. Missing personal values stay null; do not fabricate achievements, metrics or proficiency. StudySync AI awaits source information. Source/media evidence is in PROJECT_EVIDENCE.md, CERTIFICATE_EVIDENCE.md and CONTENT_AUDIT.md.
@@ -44,4 +47,4 @@ Edit profile.ts for supplied contact/biography, projects.ts for source-verified 
 
 The owner authorized all remaining implementation phases autonomously. Local phase commits are retained. See MASTER_ORCHESTRATOR.md, PHASES.md, AGENTS.md and DESIGN_SYSTEM.md for architecture, scope and verification. Earlier plans are preserved in docs/history.
 
-The complete repository is published on GitHub at `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`, with local `main` tracking `origin/main`. Vercel deployment to the owner-supplied `king-09` account target is the remaining external step; its integration or CLI session must be authenticated for project access. The dashboard URL is not the portfolio URL. No live deployment is claimed. DEPLOYMENT.md contains the ready configuration and release checks. Noindex remains until the actual HTTPS origin is configured through the hosted build's PORTFOLIO_SITE_URL; the build then generates canonical/sitemap/absolute social metadata without guessing a domain.
+The owner confirmed the live portfolio at `https://priyanshu-portfolio-pi-ruby.vercel.app/#about` on 2026-10-27. The public origin is `https://priyanshu-portfolio-pi-ruby.vercel.app` and the source repository is `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`. HTTPS homepage delivery was verified. The release build now defaults to this confirmed origin for canonical URLs, sitemap and absolute social metadata; `PORTFOLIO_SITE_URL` can override it, and an explicitly empty value retains noindex for private previews. The deployed metadata update still requires a successful Vercel rebuild and live recheck. See QA_REPORT.md and DEPLOYMENT.md for executed checks and remaining limits.

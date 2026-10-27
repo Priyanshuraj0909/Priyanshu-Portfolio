@@ -1,4 +1,16 @@
-# Production verification — 2026-10-24
+# Production verification
+
+## Live portfolio and URL update — 27 October 2026
+
+The owner confirmed [the live portfolio](https://priyanshu-portfolio-pi-ruby.vercel.app/#about) and [source repository](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio). Synced four newer published redesign commits with a fast-forward before editing. Added src/content/site.ts as the confirmed origin/repository record, updated current workflow/release documents, and added the About anchor to the readable static fallback. Historical plans under docs/history remain unchanged.
+
+Executed on local Node 26.10.0: lint, all 13 tests, strict typecheck, content validation, production build and deployment artifact checks passed. Verified both the public-origin build (canonical URLs, absolute social images, sitemap and indexing) and an explicitly empty PORTFOLIO_SITE_URL preview build (noindex/Disallow); restored the public build afterward. The static 404 stays noindex. Existing lazy renderer size and module-type notices remain. No dependencies changed.
+
+Live HTTPS smoke: 65 successful requests cover the homepage, five direct dossiers, 24 PDFs (all PDF signatures valid), 24 previews, five project images, JS/CSS entry assets, favicon, brand mark, social image and robots.txt. The existing sitemap endpoint returned 404, the homepage was noindex and lacked canonical metadata. Headless installed Chrome with reduced motion opened /#about, confirmed the About section in view and the GitHub profile action; no uncaught browser errors. This is a live smoke check, not a repeat of the full historical accessibility, motion or device matrix.
+
+The updated build generates the missing public metadata and sitemap. Its publication must be confirmed after Vercel builds the updated commit; no hosting settings were changed through Vercel. Temporary evidence: /tmp/portfolio-live-checks.json, /tmp/portfolio-live.html and /tmp/priyanshu-phase2-qa/verify-live-links.mjs.
+
+## Historical production verification — 24 October 2026
 
 ## Deployment readiness follow-up
 
@@ -6,8 +18,8 @@ Pinned the deployment runtime to Node 24 in package.json to match .nvmrc, set Ve
 
 Fresh `npm ci --no-audit --no-fund` passed on local Node 26.10.0. Lint, all 13 tests, content validation, strict TypeScript, production build and deployment artifact checks subsequently passed on Node 24.22.1, the pinned deployment major. The legacy production build also passed on local Node 26.10.0. The existing lazy WebGL chunk-size and module-type notices remain non-blocking. Browser checks below are earlier coverage; this follow-up did not repeat that matrix. Hosted Vercel deployment and the new remote CI run have not been verified locally. No deployment origin was supplied, so noindex remains enabled.
 
-## Result
-The complete Vite portfolio is implemented, locally verified and published to `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`; local `main` tracks `origin/main`. Public deployment remains pending authenticated Vercel access. The owner supplied `https://vercel.com/king-09` as the account target on 2026-10-24, but the available integration is not installed/connected and the CLI reports logged out. The dashboard URL is not a portfolio origin, so no live portfolio URL is claimed. Owner authorization covers deployment without further implementation checkpoints.
+## Current result
+The Vite portfolio is published to GitHub and live at `https://priyanshu-portfolio-pi-ruby.vercel.app`. The owner confirmed this origin on 2026-10-27 and HTTPS/browser smoke checks passed. Public metadata fixes are implemented locally; their hosted deployment requires a rebuild and recheck. Owner authorization covers publication without further implementation checkpoints.
 
 ## Executed checks
 | Check | Actual result |
@@ -50,8 +62,8 @@ Corrected explicit filter labels, visible-text/accessibility-name consistency, i
 3. Open each of five project dossiers; check genuine image captions, source/demo actions, direct refresh and Back.
 4. Search/filter/reset the archive; open original PDFs and available issuer records. Check issue/completion precision and all 24 records.
 5. Type help, each of the ten commands, unknown input and clear; use Up/Down with a draft. Tab to output links and leave the form normally.
-6. `npm run build`, `npm run preview`; review static metadata and no-JS fallback. Configure the real PORTFOLIO_SITE_URL in the hosted build only when known to generate canonical URLs/sitemap and enable indexing.
-7. Connect the Vercel integration, select `king-09`, create or select the intended project and deploy this prepared checkout. Confirm the returned deployment URL, redirects/deep routes, PDFs and live metadata before marking Phase 10 fully complete.
+6. `npm run build`, `npm run preview`; review static metadata and no-JS fallback. The public build defaults to the confirmed origin in src/content/site.ts; explicitly empty PORTFOLIO_SITE_URL retains noindex for private previews.
+7. After Vercel builds the updated commit, recheck the confirmed public URL, canonical metadata, robots.txt and sitemap.xml. The existing deployment and its dossier/PDF routes have already passed live HTTPS smoke checks; full hosted interaction/device coverage remains a separate check.
 
 Temporary browser scripts, screenshots and detailed results are under /tmp/priyanshu-phase2-qa and /tmp/portfolio-*.json/png. They are verification artifacts, not product assets. No credentials/private messages or reference-owner assets were copied.
 

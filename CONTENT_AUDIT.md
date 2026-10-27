@@ -58,3 +58,8 @@ Vite currently serves only the foundation screen. The mature legacy app includes
 
 
 Current update: the supplied biography/subtitle, LinkedIn URL and `India · IST (UTC+5:30)` location are implemented in profile.ts. Medical has a source-backed dossier and genuine public screenshot; CineMatch uses a labelled real local frontend capture. Four public demos were checked; CineMatch remains login-protected. Search/categories/previews and the requested terminal prompt/commands are complete. Six Coursera records passed live identity checks; Ethics remains a blank record and its issuer action is omitted. Drei/Router are installed. StudySync source, email/resume/availability and unprovided achievements remain unavailable. Deployment awaits Vercel access.
+
+
+## Confirmed portfolio deployment — 2026-10-27
+
+The owner confirmed the live portfolio at `https://priyanshu-portfolio-pi-ruby.vercel.app/#about` on 2026-10-27. The public origin is `https://priyanshu-portfolio-pi-ruby.vercel.app` and the source repository is `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`. HTTPS homepage delivery was verified. The release build now defaults to this confirmed origin for canonical URLs, sitemap and absolute social metadata; `PORTFOLIO_SITE_URL` can override it, and an explicitly empty value retains noindex for private previews. The deployed metadata update still requires a successful Vercel rebuild and live recheck. See QA_REPORT.md and DEPLOYMENT.md for executed checks and remaining limits.
