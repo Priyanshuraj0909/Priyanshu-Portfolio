@@ -135,3 +135,6 @@ widths, keyboard focus scrolling and no uncaught errors. Desktop and mobile
 screenshots inspected; fixed inherited CSS that hid mobile numbers. Existing
 renderer chunk-size and Node module-type warnings remain. Publication status is
 recorded in DEPLOYMENT.md.
+
+The same Chrome checks passed against the public Vercel URL after deployment
+of `aa133f6`; GitHub's Vercel status reports success.

@@ -18,3 +18,12 @@ Node 24 is pinned in .nvmrc and package.json. Vercel uses `npm ci`, `npm run bui
 Push reviewed changes to the existing GitHub repository. If the project is connected to GitHub, Vercel can build that commit automatically; a successful push alone does not prove a deployment. An old Vercel environment override can supersede the source default: remove it or set it to `https://priyanshu-portfolio-pi-ruby.vercel.app` for production. Preview environments can set an empty value to remain noindex.
 
 After deployment, check homepage and five direct dossier URLs, About anchor, refresh/Back, PDFs/previews, favicon/social image, console errors and mobile layout. Confirm canonical and Open Graph URLs use `https://priyanshu-portfolio-pi-ruby.vercel.app`, robots.txt allows indexing and sitemap.xml is valid XML. Hosting settings or manual deploys require authenticated Vercel access. See QA_REPORT.md for the checks actually completed and the remaining live verification.
+
+## Numbered navigation release — 29 October 2026
+
+Published implementation commit `aa133f6959fb11c6a3530a049669a4b47008a1bb`
+to `origin/main`. The connected Vercel deployment reported success:
+https://vercel.com/king-09/priyanshu-portfolio/DdZm6RCwmCpLA7Sz3EXXmxTjrhBo
+The release adds the six-link numbered navigation from the supplied reference.
+Live Chrome verification passed all six navigation anchors and active states,
+320/390/768px page widths and keyboard focus scrolling, with no uncaught errors.
