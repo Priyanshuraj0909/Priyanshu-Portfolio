@@ -4,7 +4,7 @@ A teal and peach editorial portfolio with warm metallic typography, peach accent
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
-Live portfolio: **[https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)** · [About](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about) · [Vercel mirror](https://priyanshu-portfolio-pi-ruby.vercel.app/) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
+Live portfolio: **[https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)** · [About](https://priyanshu-portfolio-pi-ruby.vercel.app/#about) · [Public backup](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
 
 ## Run
 

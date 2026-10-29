@@ -1,8 +1,8 @@
 # Production deployments
 
-- Reliable public portfolio: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
-- About: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about)
-- Vercel mirror: [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
+- Primary Vercel portfolio: [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
+- About: [https://priyanshu-portfolio-pi-ruby.vercel.app/#about](https://priyanshu-portfolio-pi-ruby.vercel.app/#about)
+- Public backup: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
 - Repository: [https://github.com/Priyanshuraj0909/Priyanshu-Portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
 - Owner-supplied account dashboard: https://vercel.com/king-09 (management only).
 
@@ -14,6 +14,12 @@ edge were healthy. A public backup deployment was published at the reliable URL
 above. It returned HTTP 200 through Cloudflare, served the current Contact-link
 build, used its own canonical origin, and passed Chrome checks at 320, 390, 768
 and 1440 pixels. The Vercel project remains deployed as a mirror.
+
+Vercel subsequently reassigned the hostname to edge addresses ending in `.131`.
+The primary URL returned HTTP 200, its hashed JavaScript returned HTTP 200 with
+immutable caching, and the complete About/Contact browser checks passed through
+ordinary DNS without uncaught errors. Vercel is restored as the primary link;
+the independent public deployment remains available during future route issues.
 
 ## Build configuration
 

@@ -246,3 +246,13 @@ Published the verified source as a public backup at
 deployment returned HTTP 200, served the current JavaScript/CSS and supplied
 biography, emitted the backup origin as its canonical URL, and passed the About
 Contact-link browser suite at 320/390/768/1440px without uncaught errors.
+
+## Vercel route recovery — 29 October 2026
+
+After the owner reported another failure, the Vercel hostname was confirmed to
+have moved to new public edge addresses. The homepage and current hashed
+JavaScript returned HTTP 200, GitHub's Vercel status reported success, and both
+live Chrome suites passed through ordinary DNS: exact About content/order,
+WebGL and reduced-motion views, legacy anchors, Contact navigation, keyboard
+focus and 320/390/768/1024/1440px layouts. No frontend defect was found. GitHub
+now lists Vercel as primary and retains the independently verified public backup.
