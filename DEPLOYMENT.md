@@ -54,3 +54,26 @@ Post-deployment public verification was limited by connectivity: two Chrome
 navigations timed out at 30 seconds and an independent curl request timed out
 at 20 seconds. Successful hosting status is verified; live visual verification
 for this release remains unconfirmed.
+
+## Public connectivity diagnosis — 29 October 2026
+
+The owner reported the portfolio would not open. The latest commit `ba00880`
+has a successful Vercel deployment status:
+https://vercel.com/king-09/priyanshu-portfolio/AQmUqb5CtYd9wMA23B5RthzUeZcK
+
+Default DNS resolves the public hostname to `216.198.79.3` and `64.29.17.3`
+(also confirmed via Google's public DNS JSON endpoint). Connections to those
+addresses timed out from the execution environment, while vercel.com responded.
+Using curl's per-request `--resolve` for the same hostname with `76.76.21.21`
+returned HTTP 200, the latest About-first HTML, and the application JavaScript.
+Chrome with a per-process host resolver override to the working edge passed
+About-first order, exact biography/emphasis, 320/390/768/1024/1440px layouts,
+reduced motion, project CTA and legacy home-anchor checks without uncaught errors.
+
+This isolates the observed failure to the DNS-selected connection path, not a
+failed build or demonstrated frontend crash. It does not prove an ISP-wide
+outage or repair the normal public route. No system DNS/hosts or Vercel domain
+settings were changed. The public GitHub deployments API returned no alternate
+deployment records. Authenticated Vercel tools are not connected; the Vercel
+plugin was found but is not installed. A normal-route recheck and the owner's
+browser error remain needed to confirm end-user recovery.

@@ -215,3 +215,11 @@ Vercel reported successful deployment of `31b9320`. Live browser verification
 could not complete: two navigations timed out, as did an independent HTTP request.
 Local visual/content/navigation checks passed; do not treat this release's live
 visual checks as executed successfully.
+
+## Connectivity follow-up — 29 October 2026
+
+Live About-first browser checks passed using a process-local resolver override
+to a reachable Vercel edge. Normal DNS-selected addresses still time out in this
+environment; this is not a normal-route availability pass. See DEPLOYMENT.md
+for the tested addresses and limits. No frontend changes were required by the
+observed evidence and no system network settings were changed.
