@@ -35,3 +35,11 @@ success at https://vercel.com/king-09/priyanshu-portfolio/ES4AyByrWBJmcTA4JaytmA
 Live Chrome checks confirmed the teal foundation and peach navigation,
 320/390/768px layouts, reduced-motion fallback and no uncaught errors at the
 public portfolio URL.
+
+## Contact finale release — 29 October 2026
+
+Implementation commit `11b8acd` was pushed to `origin/main`; Vercel reported
+success at https://vercel.com/king-09/priyanshu-portfolio/8LPWGjjAUTnoR2grcoxqwbJvbMBs.
+Live Chrome checks passed the contact deep link, personal heading, approved email
+link, social links, 320/390/768/1440px widths, touch targets, keyboard focus and
+Back to top, without uncaught errors. Resume remains omitted pending owner input.

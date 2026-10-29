@@ -183,3 +183,6 @@ screenshots inspected. Existing bundle-size and module-type warnings remain.
 All 13 existing content/terminal tests passed after adding the approved email.
 Adjusted desktop email typography after screenshot inspection to keep the address
 from breaking onto a final single-character line.
+
+The same contact browser checks passed against the public portfolio after Vercel
+reported successful deployment of `11b8acd`.
