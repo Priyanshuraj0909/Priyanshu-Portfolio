@@ -192,3 +192,21 @@ reported successful deployment of `11b8acd`.
 Corrected the closing section label from `06 / CONTACT` to `04 / CONTACT`
 as requested. Production build, TypeScript, deployment-artifact and whitespace
 checks passed.
+
+## About-first opening — 29 October 2026
+
+The opening section is now `01 / ABOUT` with a two-line personal name, the exact
+owner-supplied biography and emphasized name/interests, alongside the existing
+learning sphere. Projects now follows as `02 / SELECTED WORK`; Journey retains
+the three records and capabilities in its own section. Preserved `#about`,
+`#vault`, `#logs` and the legacy `#core` home anchor, and aligned scene section
+tracking and the static fallback with the new order. Updated typed biography
+content also supplies metadata and terminal About output. Kept Teal & Peach and
+the approved contact details. Mobile biography uses a solid backdrop.
+
+TypeScript, production build, deployment artifacts and all 13 existing tests
+passed. Chrome checks passed exact paragraph text and bold emphasis, section
+order, unique About anchor, 320/390/768/1024/1440px page/title widths, reduced
+motion fallback, project CTA, legacy home anchor and all six navigation active
+states/keyboard focus scrolling, with no uncaught errors. Desktop and mobile
+screenshots inspected. Existing renderer size/module-type warnings remain.

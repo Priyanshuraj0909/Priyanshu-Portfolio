@@ -29,7 +29,7 @@ export function Neural({ onReady, entering, controlsLocked = entering }: { onRea
     const engage=(event:Event)=>{const target=event.target;const on=target instanceof Element && Boolean(target.closest('a,button,input,select'));signals.current.engaged=on?1:0;setEngaged(on);};
     const reset=()=>{signals.current.x=0;signals.current.y=0;signals.current.engaged=0;setEngaged(false);};
     const visibility=()=>setHidden(document.hidden);
-    const ids=['core','vault','about','live','terminal','contact'];
+    const ids=['about','vault','logs','live','terminal','contact'];
     const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){const index=ids.indexOf(entry.target.id);signals.current.section=index;setSection(index);}},{rootMargin:'-20% 0px -45% 0px'});
     ids.forEach(id=>{const element=document.getElementById(id);if(element)observer.observe(element);});
     const resize=new ResizeObserver(()=>{measure();scroll();});resize.observe(document.body);

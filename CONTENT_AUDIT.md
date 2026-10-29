@@ -69,3 +69,11 @@ The owner confirmed the live portfolio at `https://priyanshu-portfolio-pi-ruby.v
 The owner supplied `priyanshuraj032004@gmail.com` for the closing contact section.
 It is now stored in `src/content/profile.ts` and used by the contact and terminal
 views. Resume remains unavailable; no placeholder link is rendered.
+
+## Updated biography — 29 October 2026
+
+The owner supplied two paragraphs beginning “I'm Priyanshu Raj, a Computer Science
+Engineering undergraduate at Bennett University,” with AI/ML, Generative AI and
+Full-Stack Development interests. Stored typed text/emphasis in `aboutParagraphs`
+in `src/content/profile.ts` and derived the plain biography from the same source.
+The opening About section displays both paragraphs verbatim.
