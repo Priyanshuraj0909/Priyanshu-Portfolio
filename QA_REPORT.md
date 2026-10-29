@@ -138,3 +138,10 @@ recorded in DEPLOYMENT.md.
 
 The same Chrome checks passed against the public Vercel URL after deployment
 of `aa133f6`; GitHub's Vercel status reports success.
+
+## Compact navigation — 29 October 2026
+
+Reduced numbered menu text from 16px maximum to 12px (10px on mobile),
+link gaps and vertical padding. Preserved 44px minimum link height and focus
+styles. TypeScript, production build, deployment artifacts and whitespace checks
+passed; existing build warnings remain.
