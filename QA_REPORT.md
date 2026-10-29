@@ -236,3 +236,13 @@ section. It uses the existing `#contact` anchor, Teal & Peach styling, visible
 focus treatment and a 44px minimum target. Production build, TypeScript,
 deployment artifacts and whitespace checks passed. Chrome checks passed the
 contact anchor, keyboard focus and 320/390/768/1440px layouts without overflow.
+
+## Reliable public backup — 29 October 2026
+
+The Vercel hostname repeatedly timed out before HTTP while the same build passed
+through another Vercel edge, isolating the failure to its managed network route.
+Published the verified source as a public backup at
+`https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/`. The final
+deployment returned HTTP 200, served the current JavaScript/CSS and supplied
+biography, emitted the backup origin as its canonical URL, and passed the About
+Contact-link browser suite at 320/390/768/1440px without uncaught errors.

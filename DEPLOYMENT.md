@@ -1,11 +1,19 @@
-# Vercel deployment
+# Production deployments
 
-- Live portfolio: [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
-- About: [https://priyanshu-portfolio-pi-ruby.vercel.app/#about](https://priyanshu-portfolio-pi-ruby.vercel.app/#about)
+- Reliable public portfolio: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
+- About: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about)
+- Vercel mirror: [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
 - Repository: [https://github.com/Priyanshuraj0909/Priyanshu-Portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
 - Owner-supplied account dashboard: https://vercel.com/king-09 (management only).
 
 The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the deployment is public. Commit f3b43a8 deployed successfully through the existing GitHub/Vercel connection; homepage and five dossier canonical/social metadata, indexing, robots.txt and the six-page XML sitemap passed live checks on 2026-10-27. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
+
+On 2026-10-29 the Vercel-managed hostname repeatedly timed out on its current
+DNS-selected edge addresses even though the application and alternate Vercel
+edge were healthy. A public backup deployment was published at the reliable URL
+above. It returned HTTP 200 through Cloudflare, served the current Contact-link
+build, used its own canonical origin, and passed Chrome checks at 320, 390, 768
+and 1440 pixels. The Vercel project remains deployed as a mirror.
 
 ## Build configuration
 
