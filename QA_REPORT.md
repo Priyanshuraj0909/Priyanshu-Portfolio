@@ -223,3 +223,8 @@ to a reachable Vercel edge. Normal DNS-selected addresses still time out in this
 environment; this is not a normal-route availability pass. See DEPLOYMENT.md
 for the tested addresses and limits. No frontend changes were required by the
 observed evidence and no system network settings were changed.
+
+The normal route recovered later in the same investigation. It returned HTTP
+200, and the full About-first browser suite passed through ordinary DNS. This
+confirms the deployed application is currently serving correctly; the earlier
+failure was transient on the selected Vercel network path.

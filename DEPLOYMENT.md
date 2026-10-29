@@ -77,3 +77,9 @@ settings were changed. The public GitHub deployments API returned no alternate
 deployment records. Authenticated Vercel tools are not connected; the Vercel
 plugin was found but is not installed. A normal-route recheck and the owner's
 browser error remain needed to confirm end-user recovery.
+
+The normal public route subsequently recovered during the same investigation:
+it returned HTTP 200 from Vercel with the latest 8,501-byte homepage. A fresh
+Chrome run through ordinary DNS passed the About-first content, responsive
+widths, WebGL/reduced-motion rendering, CTA and home-anchor checks without
+uncaught errors. No source or hosting configuration change was required.
