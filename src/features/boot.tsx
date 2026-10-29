@@ -45,8 +45,8 @@ export function Boot({ ready, revealing, onReveal, onComplete }: { ready: boolea
     <motion.div className="cinema-meta" animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration: .2 }}><span>PRIYANSHU RAJ</span><span>INDEPENDENT MIND. CONNECTED IDEAS.</span></motion.div>
     <div className="cinema-stage">
       <motion.svg className="cinema-frame" viewBox="0 0 480 240" fill="none" aria-hidden="true" initial={{opacity:0,scale:.94}} animate={{opacity:revealing?0:1,scale:revealing?1.08:1}} transition={{duration:.8}}>
-        <path d="M36 80V36H80M400 36H444V80M444 160V204H400M80 204H36V160" stroke="#a0e6ce" strokeOpacity=".25" />
-        <motion.path d="M0 120H150M330 120H480" stroke="#a0e6ce" strokeOpacity=".3" initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:1.1,delay:.2}} />
+        <path d="M36 80V36H80M400 36H444V80M444 160V204H400M80 204H36V160" stroke="#ffb6a1" strokeOpacity=".25" />
+        <motion.path d="M0 120H150M330 120H480" stroke="#ffb6a1" strokeOpacity=".3" initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:1.1,delay:.2}} />
       </motion.svg>
       <div className="cinema-mark-slot">{!revealing && <BrandMark shared draw />}</div>
       <div className="cinema-title-mask"><motion.h1 initial={{y:'110%',opacity:0}} animate={{y:revealing?'-110%':0,opacity:revealing?0:1}} transition={{duration:.65,delay:revealing?0:.4,ease:[.22,1,.36,1]}}>PRIYANSHU RAJ</motion.h1></div>

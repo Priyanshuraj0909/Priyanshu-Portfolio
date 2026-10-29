@@ -64,19 +64,19 @@ function LearningSphere({ active, mobile, entering, expanded, signals, onReady }
     core.current.scale.setScalar(1 - spread.current * .18);
   });
   return <group ref={root}>
-    <mesh ref={core} rotation={[.4, .3, .2]}><icosahedronGeometry args={[.92, 1]} /><meshStandardMaterial color="#567d70" metalness={.65} roughness={.28} flatShading /></mesh>
-    <mesh><icosahedronGeometry args={[1.03, 1]} /><meshBasicMaterial color="#b8f8df" wireframe transparent opacity={.35} /></mesh>
-    <points><bufferGeometry><bufferAttribute attach="attributes-position" args={[particles, 3]} /></bufferGeometry><pointsMaterial color="#baffdf" size={mobile ? .035 : .025} sizeAttenuation /></points>
+    <mesh ref={core} rotation={[.4, .3, .2]}><icosahedronGeometry args={[.92, 1]} /><meshStandardMaterial color="#0d9488" metalness={.65} roughness={.28} flatShading /></mesh>
+    <mesh><icosahedronGeometry args={[1.03, 1]} /><meshBasicMaterial color="#ffd1c2" wireframe transparent opacity={.35} /></mesh>
+    <points><bufferGeometry><bufferAttribute attach="attributes-position" args={[particles, 3]} /></bufferGeometry><pointsMaterial color="#ffe2d5" size={mobile ? .035 : .025} sizeAttenuation /></points>
     <group ref={rings}>
       {[0, 1, 2].map(layer => <group key={layer} rotation={[layer * .75 + .25, layer * .9, layer * .35]}>
-        {[0, 1, 2, 3].map(segment => <mesh key={segment} rotation={[0, 0, segment * Math.PI / 2]}><torusGeometry args={[1.58 + layer * .13, .045 + layer * .012, 6, mobile ? 24 : 40, Math.PI * .39]} /><meshStandardMaterial color={layer === 1 ? '#d7eee3' : '#75ac96'} metalness={.65} roughness={.25} /></mesh>)}
-        <mesh><torusGeometry args={[1.58 + layer * .13, .006, 4, mobile ? 64 : 96]} /><meshBasicMaterial color="#8bddba" transparent opacity={.3} /></mesh>
+        {[0, 1, 2, 3].map(segment => <mesh key={segment} rotation={[0, 0, segment * Math.PI / 2]}><torusGeometry args={[1.58 + layer * .13, .045 + layer * .012, 6, mobile ? 24 : 40, Math.PI * .39]} /><meshStandardMaterial color={layer === 1 ? '#ffb6a1' : '#18b8a6'} metalness={.65} roughness={.25} /></mesh>)}
+        <mesh><torusGeometry args={[1.58 + layer * .13, .006, 4, mobile ? 64 : 96]} /><meshBasicMaterial color="#ffccb8" transparent opacity={.3} /></mesh>
       </group>)}
     </group>
   </group>;
 }
 export default function NeuralScene(props: SceneProps) {
   return <Canvas aria-hidden="true" dpr={[1, props.mobile ? 1 : 1.5]} frameloop={props.active ? "always" : "demand"} camera={{position:[0,0,8],fov:42}} gl={{alpha:true,antialias:!props.mobile,powerPreference:'low-power'}}>
-    <ambientLight intensity={1.2} /><directionalLight position={[3,5,6]} intensity={4} color="#e5fff3" /><directionalLight position={[-4,-2,3]} intensity={3} color="#5eac9f" /><LearningSphere {...props} />
+    <ambientLight intensity={1.2} /><directionalLight position={[3,5,6]} intensity={4} color="#fff0e5" /><directionalLight position={[-4,-2,3]} intensity={3} color="#20b9ad" /><LearningSphere {...props} />
   </Canvas>;
 }

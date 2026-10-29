@@ -1,5 +1,15 @@
 # Design system — implemented
 
+## Current palette — 29 October 2026
+
+The owner supplied a Teal & Peach reference, superseding earlier palette values
+below. Current runtime styling lives in `src/foundation/dark.css`: deep teal
+`#064F57` foundation, `#0D9488` sphere material, peach `#FFB6A1` accents, warm
+cream `#FFF1E8` text and `#B8D6D2` secondary text. Navigation, introduction,
+monogram, favicon, controls, static fallback and WebGL use this palette. Original
+project screenshots and certificate PDFs retain their source colors.
+
+
 ## Sources and precedence
 Requested tokens below come directly from the latest master prompt. Browser inspection of https://www.advaysinha.in/ on 2026-10-24 established layout/typography/visual references at 1440×900 and 390×900. Observed body background was rgb(6,8,22), text rgb(243,244,246) and Space Grotesk; these differ from the requested values. Use the owner's explicit palette while matching practical layout/proportions. These requested tokens are now applied in src/foundation/styles.css.
 

@@ -145,3 +145,19 @@ Reduced numbered menu text from 16px maximum to 12px (10px on mobile),
 link gaps and vertical padding. Preserved 44px minimum link height and focus
 styles. TypeScript, production build, deployment artifacts and whitespace checks
 passed; existing build warnings remain.
+
+## Teal & Peach palette — 29 October 2026
+
+Applied the owner's supplied reference across runtime CSS, WebGL materials/lights,
+static fallback, introduction, monogram, favicon and browser theme color. Kept the
+compact navigation sizing and source project/certificate assets. Updated README
+and current design tokens.
+
+Chrome desktop/mobile screenshots inspected. Browser checks passed palette values,
+320/390/768px overflow checks, reduced-motion fallback, all six navigation anchors,
+active states and keyboard focus scrolling, without uncaught errors. Solid token
+contrast against the teal foundation: primary text 8.39:1, secondary text 6.00:1,
+peach accents 5.50:1; button text on peach 6.99:1. These token measurements do not
+claim an exhaustive audit of every translucent surface or animated composite.
+TypeScript, production build and deployment-artifact checks passed; existing large
+renderer chunk and Node module-type warnings remain.
