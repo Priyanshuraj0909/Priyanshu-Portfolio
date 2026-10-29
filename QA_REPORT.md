@@ -161,3 +161,6 @@ peach accents 5.50:1; button text on peach 6.99:1. These token measurements do n
 claim an exhaustive audit of every translucent surface or animated composite.
 TypeScript, production build and deployment-artifact checks passed; existing large
 renderer chunk and Node module-type warnings remain.
+
+The palette/browser checks also passed against the public URL after Vercel
+reported successful deployment of `1dcb6cb`.

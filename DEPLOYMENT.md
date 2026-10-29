@@ -27,3 +27,11 @@ https://vercel.com/king-09/priyanshu-portfolio/DdZm6RCwmCpLA7Sz3EXXmxTjrhBo
 The release adds the six-link numbered navigation from the supplied reference.
 Live Chrome verification passed all six navigation anchors and active states,
 320/390/768px page widths and keyboard focus scrolling, with no uncaught errors.
+
+## Teal & Peach release — 29 October 2026
+
+Implementation commit `1dcb6cb` was pushed to `origin/main` and Vercel reported
+success at https://vercel.com/king-09/priyanshu-portfolio/ES4AyByrWBJmcTA4JaytmAzB1Wty.
+Live Chrome checks confirmed the teal foundation and peach navigation,
+320/390/768px layouts, reduced-motion fallback and no uncaught errors at the
+public portfolio URL.
