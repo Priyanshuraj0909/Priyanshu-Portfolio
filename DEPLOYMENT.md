@@ -43,3 +43,14 @@ success at https://vercel.com/king-09/priyanshu-portfolio/8LPWGjjAUTnoR2grcoxqwb
 Live Chrome checks passed the contact deep link, personal heading, approved email
 link, social links, 320/390/768/1440px widths, touch targets, keyboard focus and
 Back to top, without uncaught errors. Resume remains omitted pending owner input.
+
+## About-first release — 29 October 2026
+
+Implementation commit `31b9320` was pushed to `origin/main`; GitHub's Vercel status
+reported success at https://vercel.com/king-09/priyanshu-portfolio/7kEDPCyXRbzAdMtunDanteF6ijxi.
+The opening is now `01 / ABOUT` and uses the owner's exact biography.
+Local Chrome layout/content/navigation checks and production checks passed.
+Post-deployment public verification was limited by connectivity: two Chrome
+navigations timed out at 30 seconds and an independent curl request timed out
+at 20 seconds. Successful hosting status is verified; live visual verification
+for this release remains unconfirmed.

@@ -210,3 +210,8 @@ order, unique About anchor, 320/390/768/1024/1440px page/title widths, reduced
 motion fallback, project CTA, legacy home anchor and all six navigation active
 states/keyboard focus scrolling, with no uncaught errors. Desktop and mobile
 screenshots inspected. Existing renderer size/module-type warnings remain.
+
+Vercel reported successful deployment of `31b9320`. Live browser verification
+could not complete: two navigations timed out, as did an independent HTTP request.
+Local visual/content/navigation checks passed; do not treat this release's live
+visual checks as executed successfully.
