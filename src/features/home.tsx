@@ -7,6 +7,7 @@ import { ProjectGallery } from "./project-gallery";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Contact } from "./contact";
 import { JourneyTimeline } from "@/components/journey/journey-timeline";
 const PortfolioTerminal = lazy(() => import("@/components/terminal/portfolio-terminal").then(m => ({default:m.PortfolioTerminal})));
 import { profile } from "@/content/profile";
@@ -45,6 +46,6 @@ export function Home() {
     <section id="about" className="about-section studio-section" aria-labelledby="about-title"><div className="about-intro"><p className="eyebrow">02 / THE PERSON BEHIND THE CODE</p><div><h2 id="about-title">A curious mind.<br />A builder’s <em>instinct.</em></h2><p className="about-bio">{profile.biography}</p><p className="body-copy">From the first question to the working application, my projects explore how data, models, and interfaces can come together.</p><a className="text-link" href={profile.github}>Follow what I’m building <ArrowUpRight size={18} aria-hidden="true" /></a></div></div><Capabilities /><div id="logs" className="learning"><div className="editorial-heading"><p className="eyebrow">THE JOURNEY SO FAR</p><h3>Learning by doing.</h3></div><JourneyTimeline entries={journey} /></div></section>
     <section id="live" className="studio-section archive-section" aria-labelledby="certificates-title"><div className="editorial-heading"><p className="eyebrow">03 / CONTINUOUS LEARNING</p><h2 id="certificates-title">Notes of <em>progress.</em></h2><p>24 certificates. One ongoing curiosity.</p></div><Deferred label="certificate archive"><Certificates /></Deferred></section>
     <section id="terminal" className="studio-section playground" aria-labelledby="terminal-title"><div><p className="eyebrow">A LITTLE SOMETHING TO EXPLORE</p><h2 id="terminal-title">Prefer the<br /><em>command line?</em></h2><p>Get to know my work, one command at a time.<br />Start with <code>help</code>.</p></div><Deferred label="interactive terminal"><PortfolioTerminal context={{ profile, projects, journey, certificates, commands: terminalCommands }} /></Deferred></section>
-    <section id="contact" className="studio-section studio-contact" aria-labelledby="contact-title"><p className="eyebrow">04 / LET’S CONNECT</p><h2 id="contact-title">Good things start<br />with a <em>conversation.</em></h2><div className="contact-bottom"><p>Have a question, an interesting idea,<br />or just want to say hello?</p><div><a href={profile.github}>GitHub <ArrowUpRight aria-hidden="true" /></a>{profile.linkedin && <a href={profile.linkedin}>LinkedIn <ArrowUpRight aria-hidden="true" /></a>}</div></div></section>
+    <Contact />
     </main><Footer /></div></LayoutGroup>;
 }

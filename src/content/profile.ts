@@ -12,7 +12,7 @@ export const profile = {
     "Data Science",
   ],
   biography: "Computer Science and Engineering student at Bennett University building intelligent applications, machine-learning systems, and practical full-stack software.",
-  email: null,
+  email: "priyanshuraj032004@gmail.com",
   location: "India · IST (UTC+5:30)",
   github: "https://github.com/Priyanshuraj0909",
   linkedin: "https://www.linkedin.com/in/priyanshu-raj-00aab5334/",

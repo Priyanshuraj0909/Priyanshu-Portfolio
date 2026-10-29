@@ -164,3 +164,22 @@ renderer chunk and Node module-type warnings remain.
 
 The palette/browser checks also passed against the public URL after Vercel
 reported successful deployment of `1dcb6cb`.
+
+## Contact finale — 29 October 2026
+
+Replaced the closing contact block with an oversized personal name, original CSS
+dotted globe, contact/time-zone column, stacked GitHub/LinkedIn links, signoff and
+copyright. Retained Teal & Peach, the procedural scene, motion controls and native
+Back to top. Email/resume are rendered only when approved profile values exist;
+the owner supplied `priyanshuraj032004@gmail.com` during this update, and the
+resume remains null. No reference-owner content or assets were copied.
+
+TypeScript, production build, deployment artifacts and whitespace checks passed.
+Chrome checks passed contact deep linking, correct name and GitHub URL, available
+link count, approved email link, 320/390/768/1440px page widths, 44px social link
+heights, keyboard focus and Back to top, with no uncaught errors. Desktop/mobile
+screenshots inspected. Existing bundle-size and module-type warnings remain.
+
+All 13 existing content/terminal tests passed after adding the approved email.
+Adjusted desktop email typography after screenshot inspection to keep the address
+from breaking onto a final single-character line.
