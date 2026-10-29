@@ -121,3 +121,17 @@ deep links and project controls. No uncaught browser errors. Desktop intro, desk
 page and mobile page screenshots inspected. Fixed a focus race by restoring focus
 in an effect after the ready-state DOM commit instead of a pre-commit animation frame.
 The lazy renderer retains its known bundle-size warning; live deployment unverified.
+
+## Numbered navigation — 29 October 2026
+
+Updated the homepage menu to match the supplied reference: six numbered uppercase
+links, lavender accents, dark gradient and an active underline. Retained the PR
+identity and existing anchors; Journey targets the nested learning timeline.
+Mobile uses horizontal scrolling, with native links and visible keyboard focus.
+
+TypeScript, production build, deployment-artifact checks and diff whitespace checks
+pass. Chrome checks passed all six anchors and active states, 320/390/768px page
+widths, keyboard focus scrolling and no uncaught errors. Desktop and mobile
+screenshots inspected; fixed inherited CSS that hid mobile numbers. Existing
+renderer chunk-size and Node module-type warnings remain. Publication status is
+recorded in DEPLOYMENT.md.

@@ -189,3 +189,16 @@ html { scroll-padding-bottom:90px; }
 @media(prefers-reduced-motion:reduce) { .portfolio-shell { transition:none; } }
 .studio-brand .header-mark-slot,.studio-brand .brand-symbol { padding:0; color:#edf3ee; font-size:inherit; }
 .portfolio-shell.is-entering { transform:none; }
+
+/* Numbered section navigation, following the owner's reference. */
+.studio-header { flex-wrap:wrap; row-gap:12px; padding-bottom:0; border-bottom-color:#b69aff30; background:linear-gradient(110deg,#0a0c0f,#151020); }
+.studio-header .numbered-nav { order:3; flex:1 0 100%; min-width:0; gap:clamp(24px,5vw,64px); justify-content:center; overflow-x:auto; padding:0 4px 20px; scrollbar-width:thin; scrollbar-color:#b69aff60 transparent; }
+.studio-header .numbered-nav a { position:relative; flex-shrink:0; display:inline-flex; align-items:center; gap:12px; min-height:52px; padding:10px 0 18px; color:#aaa5b6; font:400 clamp(12px,1.35vw,16px)/1.5 var(--font-jetbrains-mono),monospace; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; }
+.studio-header .numbered-nav .nav-number { display:inline; color:#b69aff; font-size:.9em; }
+.studio-header .numbered-nav a::after { content:""; position:absolute; bottom:0; inset-inline:0; height:2px; background:#b69aff; transform:scaleX(0); transform-origin:left; transition:transform .2s ease; }
+.studio-header .numbered-nav a:hover,.studio-header .numbered-nav a[aria-current] { color:#f0ebf7; text-decoration:none; }
+.studio-header .numbered-nav a:hover::after,.studio-header .numbered-nav a[aria-current]::after { transform:scaleX(1); }
+.studio-header .numbered-nav a:focus-visible { outline:2px solid #b69aff; outline-offset:3px; }
+@media(max-width:1000px) { .studio-header .numbered-nav { justify-content:flex-start; gap:36px; } }
+@media(max-width:700px) { .studio-header { padding-bottom:0; } .studio-header .numbered-nav { gap:28px; padding-bottom:14px; } .studio-header .numbered-nav a { gap:9px; font-size:12px; } }
+@media(prefers-reduced-motion:reduce) { .studio-header .numbered-nav a::after { transition:none; } }
