@@ -42,7 +42,10 @@ export function Home() {
           <p className="eyebrow">AI / ML ENGINEER & FULL-STACK DEVELOPER</p>
           <h1 id="intro-title">Priyanshu<span>Raj<span className="hero-dot">.</span></span></h1>
           <div className="about-biography">{aboutParagraphs.map((paragraph, index) => <p key={index}>{paragraph.map((part, partIndex) => part.emphasis ? <strong key={partIndex}>{part.text}</strong> : <span key={partIndex}>{part.text}</span>)}</p>)}</div>
-          <a className="studio-button" href="#vault">Explore my work <ArrowDown size={18} aria-hidden="true" /></a>
+          <div className="about-actions">
+            <a className="studio-button" href="#vault">Explore my work <ArrowDown size={18} aria-hidden="true" /></a>
+            <a className="about-contact-link" href="#contact">Contact <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
         </div>
         <div className="hero-object" aria-label="Learning sphere: a faceted core with orbiting data rings"><div className="object-label"><BrandMark /><span>THE LEARNING SPHERE<br /><small>Move, scroll, explore.</small></span></div></div>
       </div>

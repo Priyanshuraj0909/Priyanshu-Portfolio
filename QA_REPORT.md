@@ -228,3 +228,11 @@ The normal route recovered later in the same investigation. It returned HTTP
 200, and the full About-first browser suite passed through ordinary DNS. This
 confirms the deployed application is currently serving correctly; the earlier
 failure was transient on the selected Vercel network path.
+
+## About contact link — 29 October 2026
+
+Added a compact `Contact ↗` link beside `Explore my work` in the opening About
+section. It uses the existing `#contact` anchor, Teal & Peach styling, visible
+focus treatment and a 44px minimum target. Production build, TypeScript,
+deployment artifacts and whitespace checks passed. Chrome checks passed the
+contact anchor, keyboard focus and 320/390/768/1440px layouts without overflow.

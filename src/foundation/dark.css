@@ -243,9 +243,14 @@ html { scroll-padding-bottom:90px; }
 .about-biography { margin-top:32px; max-width:55ch; color:var(--muted); font-size:clamp(14px,1.1vw,16px); line-height:1.85; }
 .about-biography p { margin:0 0 16px; }
 .about-biography strong { color:var(--text); font-weight:600; }
-.about-first .studio-button { margin-top:6px; }
+.about-actions { display:flex; align-items:center; flex-wrap:wrap; gap:18px 28px; margin-top:6px; }
+.about-first .studio-button { margin-top:0; }
+.about-contact-link { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:10px 2px; color:var(--text); font:12px/1.5 var(--font-jetbrains-mono),monospace; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; border-bottom:1px solid var(--signal); transition:color .2s,border-color .2s; }
+.about-contact-link:hover { color:var(--signal); }
+.about-contact-link svg { color:var(--signal); }
 .about-first .hero-object { grid-column:2; grid-row:1; margin-top:0; align-self:stretch; min-height:0; }
 .about-first .object-label { bottom:36px; }
 #logs > .editorial-heading h2 { font-size:clamp(38px,5vw,68px); }
 @media(max-width:1000px) { .about-first .hero-layout { gap:26px; min-height:760px; } .about-first .hero-type h1 { font-size:clamp(60px,8vw,90px); } }
-@media(max-width:700px) { .about-first .hero-layout { grid-template-columns:1fr; gap:0; min-height:0; padding-top:32px; } .about-first .hero-type { grid-column:1; grid-row:1; max-width:none; background:#064f57; } .about-first .hero-type h1 { font-size:clamp(58px,16vw,100px); } .about-first .hero-type > .eyebrow { font-size:8px; margin-bottom:24px; } .about-biography { margin-top:26px; font-size:14px; line-height:1.8; } .about-first .hero-object { grid-column:1; grid-row:2; min-height:310px; margin-top:12px; } .about-first .object-label { bottom:8px; } }
+@media(max-width:700px) { .about-first .hero-layout { grid-template-columns:1fr; gap:0; min-height:0; padding-top:32px; } .about-first .hero-type { grid-column:1; grid-row:1; max-width:none; background:#064f57; } .about-first .hero-type h1 { font-size:clamp(58px,16vw,100px); } .about-first .hero-type > .eyebrow { font-size:8px; margin-bottom:24px; } .about-biography { margin-top:26px; font-size:14px; line-height:1.8; } .about-actions { gap:14px 22px; } .about-contact-link { font-size:10px; } .about-first .hero-object { grid-column:1; grid-row:2; min-height:310px; margin-top:12px; } .about-first .object-label { bottom:8px; } }
+@media(prefers-reduced-motion:reduce) { .about-contact-link { transition:none; } }
