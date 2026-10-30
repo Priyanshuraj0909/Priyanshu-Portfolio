@@ -311,3 +311,11 @@ Uses the approved Teal & Peach palette and smaller mobile spacing.
 Production build (including TypeScript), deployment-artifact and whitespace
 checks passed. Browser visual verification was not performed. Existing renderer
 size and Node module-type warnings remain.
+
+## Compact Terminal label — 30 October 2026
+
+Replaced the separated number/divider/title with `05 / TERMINAL`, using the
+same eyebrow typography as Continuous Learning. Removed custom label spacing,
+rule and number color. Production build (including TypeScript), deployment
+artifact and whitespace checks passed. Browser visual verification was not
+performed; existing renderer-size and Node module-type warnings remain.
