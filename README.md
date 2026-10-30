@@ -1,10 +1,13 @@
 # Priyanshu Raj — developer portfolio
 
-A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. About opens the homepage with the supplied biography beside the learning sphere, followed by Projects and Journey. The sphere emerges from the background during the opening and reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
+A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. About opens the homepage immediately with the supplied biography beside a static sphere fallback, followed by Projects and Journey. The interactive sphere loads after the readable first screen and reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
 Live portfolio: **[https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)** · [About](https://priyanshu-portfolio-pi-ruby.vercel.app/#about) · [Public backup](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
+
+`https://vercel.com/king-09` is the owner's management dashboard, not a public
+portfolio URL. Share the `vercel.app` link above with visitors.
 
 ## Run
 
@@ -33,7 +36,7 @@ GitHub Actions runs a clean install, lint, tests, content checks, production bui
 ## Architecture and content
 
 - src/main.tsx / src/foundation: Vite entry, router, theme and fonts.
-- src/features: boot, hero/neural graph, motion preferences, capabilities, dossiers, archive and home composition.
+- src/features: hero/neural graph, motion preferences, capabilities, dossiers, archive and home composition.
 - src/components: reusable semantic layout/project/journey/terminal/contact primitives.
 - src/content: typed editable owner data and evidence-backed project/certificate records.
 - src/lib: pure validation, command dispatch and certificate search.

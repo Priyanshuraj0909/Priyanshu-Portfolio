@@ -4,7 +4,9 @@
 - About: [https://priyanshu-portfolio-pi-ruby.vercel.app/#about](https://priyanshu-portfolio-pi-ruby.vercel.app/#about)
 - Public backup: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
 - Repository: [https://github.com/Priyanshuraj0909/Priyanshu-Portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
-- Owner-supplied account dashboard: https://vercel.com/king-09 (management only).
+- Owner-supplied account dashboard: https://vercel.com/king-09 (management only;
+  it is not a public portfolio URL and currently returns 404 without a matching
+  public profile route).
 
 The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the deployment is public. Commit f3b43a8 deployed successfully through the existing GitHub/Vercel connection; homepage and five dossier canonical/social metadata, indexing, robots.txt and the six-page XML sitemap passed live checks on 2026-10-27. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
 
@@ -20,6 +22,12 @@ The primary URL returned HTTP 200, its hashed JavaScript returned HTTP 200 with
 immutable caching, and the complete About/Contact browser checks passed through
 ordinary DNS without uncaught errors. Vercel is restored as the primary link;
 the independent public deployment remains available during future route issues.
+
+On 2026-10-30 the account dashboard URL returned HTTP 404 while the public
+portfolio returned HTTP 200 with approximately 0.10-second server response in
+the same check. The first-visit blocking intro was removed and the optional
+WebGL bundle was moved behind a short post-paint delay, so readable content no
+longer waits for the 3D renderer. The public portfolio URL remains unchanged.
 
 ## Build configuration
 

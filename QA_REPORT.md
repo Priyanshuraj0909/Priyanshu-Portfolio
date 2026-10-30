@@ -270,3 +270,15 @@ keyboard focus and 320/390/768/1440px layouts without document overflow.
 
 Updated the Journey eyebrow to `03 / THE JOURNEY SO FAR`, matching its position
 after `01 / ABOUT` and `02 / SELECTED WORK` in the homepage sequence.
+
+## Fast Vercel opening — 30 October 2026
+
+Confirmed that `https://vercel.com/king-09` is a management/profile route and
+returns HTTP 404; it is not the public portfolio. The correct Vercel deployment
+returned HTTP 200 with roughly 0.10-second server response. Removed the
+first-visit intro that could block content for about 4.85 seconds and deferred
+the optional WebGL bundle until after the readable first screen paints. The
+initial JavaScript decreased from 440.33 kB to 436.29 kB (139.25 kB to 138.15
+kB gzip). TypeScript, production build, all 13 tests, deployment artifacts and
+whitespace checks passed. Chrome confirmed immediate visible content, delayed
+WebGL enhancement, no overflow and no uncaught errors at 390 and 1440 pixels.

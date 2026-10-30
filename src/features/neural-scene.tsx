@@ -9,11 +9,10 @@ interface SceneProps {
   entering: boolean;
   expanded: boolean;
   signals: RefObject<SceneSignals>;
-  onReady: () => void;
 }
 
 // Original procedural learning sphere; no model, textures or HDR downloads.
-function LearningSphere({ active, mobile, entering, expanded, signals, onReady }: SceneProps) {
+function LearningSphere({ active, mobile, entering, expanded, signals }: SceneProps) {
   const root = useRef<Group>(null);
   const rings = useRef<Group>(null);
   const core = useRef<Mesh>(null);
@@ -33,9 +32,7 @@ function LearningSphere({ active, mobile, entering, expanded, signals, onReady }
   }, []);
   useEffect(() => {
     invalidate();
-    const frame = requestAnimationFrame(onReady);
-    return () => cancelAnimationFrame(frame);
-  }, [onReady, invalidate]);
+  }, [invalidate]);
   useEffect(() => { invalidate(); }, [expanded, entering, active, invalidate]);
   useFrame((_, delta) => {
     if (!root.current || !rings.current || !core.current) return;

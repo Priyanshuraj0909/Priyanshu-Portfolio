@@ -1,7 +1,6 @@
-import { lazy, useState, useCallback, useEffect, useRef } from "react";
+import { lazy } from "react";
 import { LayoutGroup } from "motion/react";
 import { BrandMark } from "@/components/brand/brand-mark";
-import { Boot, shouldIntroduce } from "./boot";
 import { Deferred } from "./deferred";
 import { ProjectGallery } from "./project-gallery";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
@@ -20,20 +19,7 @@ import { Capabilities } from "./capabilities";
 const Certificates = lazy(() => import("./certificates").then(m => ({default:m.Certificates})));
 
 export function Home() {
-  const [phase, setPhase] = useState<"loading" | "revealing" | "ready">(() => shouldIntroduce() ? "loading" : "ready");
-  const introducing = phase !== "ready";
-  const focusAfterIntro = useRef(introducing);
-  useEffect(() => {
-    if (phase === "ready" && focusAfterIntro.current) {
-      focusAfterIntro.current = false;
-      document.getElementById("main")?.focus({ preventScroll: true });
-    }
-  }, [phase]);
-  const reveal = useCallback(() => setPhase("revealing"), []);
-  const [sceneReady, setSceneReady] = useState(false);
-  const ready = useCallback(() => setSceneReady(true), []);
-  const enter = useCallback(() => setPhase("ready"), []);
-  return <LayoutGroup id="portfolio-identity"><Neural onReady={ready} entering={phase === "loading"} controlsLocked={introducing} />{introducing && <Boot ready={sceneReady} revealing={phase === "revealing"} onReveal={reveal} onComplete={enter} />}<div className={phase === "loading" ? 'portfolio-shell is-entering' : 'portfolio-shell'} data-phase={phase} inert={introducing || undefined}><Header showMark={phase !== "loading"} /><main id="main" tabIndex={-1}>
+  return <LayoutGroup id="portfolio-identity"><Neural /><div className="portfolio-shell" data-phase="ready"><Header showMark /><main id="main" tabIndex={-1}>
     <section id="about" className="studio-hero about-first" aria-labelledby="intro-title">
       <span id="core" className="home-anchor" aria-hidden="true" />
       <div className="hero-kicker"><span>01 / ABOUT</span><span>INTELLIGENCE, WITH INTENTION.</span></div>

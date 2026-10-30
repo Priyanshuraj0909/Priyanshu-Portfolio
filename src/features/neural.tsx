@@ -10,7 +10,7 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
   static getDerivedStateFromError() { return { failed: true }; }
   render() { return this.state.failed ? <Fallback /> : this.props.children; }
 }
-export function Neural({ onReady, entering, controlsLocked = entering }: { onReady: () => void; entering: boolean; controlsLocked?: boolean }) {
+export function Neural({ entering = false, controlsLocked = false }: { entering?: boolean; controlsLocked?: boolean }) {
   const { paused, reduced } = useMotionPreferences();
   const signals = useRef<SceneSignals>({x:0,y:0,progress:0,section:0,engaged:0});
   const [visible,setVisible]=useState(false);
@@ -20,7 +20,9 @@ export function Neural({ onReady, entering, controlsLocked = entering }: { onRea
   const [engaged,setEngaged]=useState(false);
   const [expanded,setExpanded]=useState(false);
   useEffect(() => {
-    const frame=requestAnimationFrame(()=>setVisible(true));
+    // Paint the readable portfolio first, then load the optional WebGL bundle.
+    // The CSS fallback keeps the visual identity present during this short delay.
+    const sceneTimer=window.setTimeout(()=>setVisible(true),mobile?900:450);
     let height=Math.max(1,document.documentElement.scrollHeight-innerHeight);
     let scrollFrame=0;
     const measure=()=>{height=Math.max(1,document.documentElement.scrollHeight-innerHeight);setMobile(innerWidth<760);};
@@ -35,13 +37,13 @@ export function Neural({ onReady, entering, controlsLocked = entering }: { onRea
     const resize=new ResizeObserver(()=>{measure();scroll();});resize.observe(document.body);
     window.addEventListener('scroll',scroll,{passive:true});window.addEventListener('resize',measure);window.addEventListener('pointermove',pointer,{passive:true});window.addEventListener('pointerover',engage);window.addEventListener('focusin',engage);window.addEventListener('focusout',reset);window.addEventListener('blur',reset);document.documentElement.addEventListener('pointerleave',reset);document.addEventListener('visibilitychange',visibility);
     scroll();
-    return()=>{cancelAnimationFrame(frame);cancelAnimationFrame(scrollFrame);observer.disconnect();resize.disconnect();window.removeEventListener('scroll',scroll);window.removeEventListener('resize',measure);window.removeEventListener('pointermove',pointer);window.removeEventListener('pointerover',engage);window.removeEventListener('focusin',engage);window.removeEventListener('focusout',reset);window.removeEventListener('blur',reset);document.documentElement.removeEventListener('pointerleave',reset);document.removeEventListener('visibilitychange',visibility);};
+    return()=>{clearTimeout(sceneTimer);cancelAnimationFrame(scrollFrame);observer.disconnect();resize.disconnect();window.removeEventListener('scroll',scroll);window.removeEventListener('resize',measure);window.removeEventListener('pointermove',pointer);window.removeEventListener('pointerover',engage);window.removeEventListener('focusin',engage);window.removeEventListener('focusout',reset);window.removeEventListener('blur',reset);document.documentElement.removeEventListener('pointerleave',reset);document.removeEventListener('visibilitychange',visibility);};
   },[]);
   const active=!paused&&!reduced&&!hidden;
   return <>
     <div className="page-sculpture" data-active={active} data-section={section} data-engaged={engaged} data-entering={entering} aria-hidden="true">
       <div className="sculpture-halo" />
-      {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} onReady={onReady} /></Suspense></SceneBoundary>:<Fallback />}
+      {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} /></Suspense></SceneBoundary>:<Fallback />}
     </div>
     <div className="scene-controls" aria-label="3D sculpture controls" inert={controlsLocked || undefined}><button className="core-control" onClick={()=>setExpanded(value=>!value)} aria-pressed={expanded} disabled={reduced}>{expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
   </>;
