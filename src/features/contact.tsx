@@ -31,7 +31,7 @@ function ContactDetails({ person }: { person: Profile }) {
 export function Contact() {
   return <section id="contact" className="studio-section studio-contact contact-finale" aria-labelledby="contact-title">
     <div className="contact-dot-globe" aria-hidden="true" />
-    <p className="contact-eyebrow"><span>04 / CONTACT</span><span className="contact-eyebrow-rule" aria-hidden="true" />LET’S CONNECT</p>
+    <p className="contact-eyebrow"><span>06 / CONTACT</span><span className="contact-eyebrow-rule" aria-hidden="true" />LET’S CONNECT</p>
     <h2 id="contact-title" className="contact-name">PRIYANSHU RAJ<span>.</span></h2>
     <ContactDetails person={profile} />
   </section>;
