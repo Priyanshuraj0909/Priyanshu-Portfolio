@@ -289,3 +289,9 @@ Updated the capabilities heading to `04 / TECHNICAL CAPABILITIES` as requested.
 TypeScript, production build, deployment-artifact and whitespace checks passed.
 Existing renderer-size and Node module-type warnings remain. Browser verification
 and live publication were not performed for this text-only edit.
+
+## Unnumbered capabilities heading — 30 October 2026
+
+Removed the `04 /` prefix from Technical Capabilities at the owner’s request.
+Production build (including TypeScript), deployment-artifact and whitespace
+checks passed. Browser verification was not performed for this text-only edit.
