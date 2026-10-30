@@ -319,3 +319,18 @@ same eyebrow typography as Continuous Learning. Removed custom label spacing,
 rule and number color. Production build (including TypeScript), deployment
 artifact and whitespace checks passed. Browser visual verification was not
 performed; existing renderer-size and Node module-type warnings remain.
+
+## Vercel connection recurrence — 30 October 2026
+
+The owner reported a blank page at /#terminal. Two normal-route HTTPS probes
+timed out during connection (10s and 8s), before any HTTP response. DNS selected
+216.198.79.67 and 64.29.17.67. A request-only override to Vercel edge
+76.76.21.21 returned HTTP 200 in 0.33s and served the latest JavaScript.
+Chromium through that edge passed About content, section order, five viewport
+widths, WebGL/reduced-motion fallback and navigation without uncaught errors.
+The old QA selector matched both hero buttons; a temporary corrected script
+passed. This does not establish normal-route recovery or the owner’s ISP status.
+The backup hostname also timed out during DNS resolution from this environment,
+so it is not claimed as a verified working alternative today. No frontend defect
+was demonstrated and no source/network/domain settings were changed. Vercel
+account access is not connected; hosting investigation remains pending that access.
