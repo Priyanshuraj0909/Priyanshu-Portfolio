@@ -22,7 +22,7 @@ export function Neural({ entering = false, controlsLocked = false }: { entering?
   useEffect(() => {
     // Paint the readable portfolio first, then load the optional WebGL bundle.
     // The CSS fallback keeps the visual identity present during this short delay.
-    const sceneTimer=window.setTimeout(()=>setVisible(true),mobile?900:450);
+    const sceneTimer=window.setTimeout(()=>setVisible(true),window.innerWidth<760?900:450);
     let height=Math.max(1,document.documentElement.scrollHeight-innerHeight);
     let scrollFrame=0;
     const measure=()=>{height=Math.max(1,document.documentElement.scrollHeight-innerHeight);setMobile(innerWidth<760);};

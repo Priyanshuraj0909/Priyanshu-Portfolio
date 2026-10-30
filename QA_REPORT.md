@@ -341,3 +341,22 @@ Updated the closing label to `06 / CONTACT`, following `05 / TERMINAL`, as
 requested. Production build (including TypeScript), deployment-artifact and
 whitespace checks passed. Browser/live verification was not performed for this
 text-only change. Existing renderer-size and Node module-type warnings remain.
+
+## GitHub failed check repair — 30 October 2026
+
+The verify job for commit 99adee7 failed at lint because the Neural startup
+effect read mobile state without declaring it as a dependency. GitHub job
+123937120704 logs and a local lint run reproduced the same warning; the
+workflow treats every lint warning as a failure. Vercel separately reported
+success for that commit.
+
+The mount-only startup timer now reads window.innerWidth directly, preserving
+the 900ms mobile / 450ms desktop delay without capturing reactive state or
+restarting observers and listeners on resize. Responsive scene state remains
+updated by the existing resize handler.
+
+Local lint, all 13 tests, personal-content validation, TypeScript, production
+build, deployment-artifact checks and git diff --check passed on Node 26.10.0.
+GitHub CI uses Node 24 per .nvmrc; its post-push result must be checked separately.
+Existing nonfatal module-type and WebGL chunk-size warnings remain. No browser
+visual check was performed for this one-line lifecycle correction.
