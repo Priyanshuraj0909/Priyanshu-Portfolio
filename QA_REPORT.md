@@ -302,3 +302,12 @@ Changed the archive heading to `04 / CONTINUOUS LEARNING` at the owner’s reque
 Production build (including TypeScript), deployment-artifact and whitespace
 checks passed. Existing renderer-size and Node module-type warnings remain.
 Browser and live-deployment verification were not performed for this text edit.
+
+## Terminal section label — 30 October 2026
+
+Added a full-width `05 — TERMINAL` label above the existing terminal layout,
+with spaced monospace text, an accent number and a decorative horizontal rule.
+Uses the approved Teal & Peach palette and smaller mobile spacing.
+Production build (including TypeScript), deployment-artifact and whitespace
+checks passed. Browser visual verification was not performed. Existing renderer
+size and Node module-type warnings remain.

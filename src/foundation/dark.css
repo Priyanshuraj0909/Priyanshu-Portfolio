@@ -254,3 +254,8 @@ html { scroll-padding-bottom:90px; }
 @media(max-width:1000px) { .about-first .hero-layout { gap:26px; min-height:760px; } .about-first .hero-type h1 { font-size:clamp(60px,8vw,90px); } }
 @media(max-width:700px) { .about-first .hero-layout { grid-template-columns:1fr; gap:0; min-height:0; padding-top:32px; } .about-first .hero-type { grid-column:1; grid-row:1; max-width:none; background:#064f57; } .about-first .hero-type h1 { font-size:clamp(58px,16vw,100px); } .about-first .hero-type > .eyebrow { font-size:8px; margin-bottom:24px; } .about-biography { margin-top:26px; font-size:14px; line-height:1.8; } .about-actions { gap:14px 22px; } .about-contact-link { font-size:10px; } .about-first .hero-object { grid-column:1; grid-row:2; min-height:310px; margin-top:12px; } .about-first .object-label { bottom:8px; } }
 @media(prefers-reduced-motion:reduce) { .about-contact-link { transition:none; } }
+
+.terminal-section-label { grid-column:1 / -1; display:flex; align-items:center; gap:28px; margin:0; color:var(--muted); font:12px/1.7 var(--font-jetbrains-mono),monospace; letter-spacing:.2em; }
+.terminal-section-label > span:first-child { color:var(--signal); }
+.terminal-section-rule { flex:0 0 64px; height:1px; background:var(--hair); }
+@media(max-width:700px) { .terminal-section-label { gap:20px; font-size:10px; } .terminal-section-rule { flex-basis:48px; } }
