@@ -265,3 +265,8 @@ button retains its native `#contact` anchor, visible focus behavior and at least
 44px target height. TypeScript, production build, deployment artifacts and
 whitespace checks passed. Chrome confirmed the peach background, navigation,
 keyboard focus and 320/390/768/1440px layouts without document overflow.
+
+## Journey section number — 30 October 2026
+
+Updated the Journey eyebrow to `03 / THE JOURNEY SO FAR`, matching its position
+after `01 / ABOUT` and `02 / SELECTED WORK` in the homepage sequence.
