@@ -256,3 +256,12 @@ live Chrome suites passed through ordinary DNS: exact About content/order,
 WebGL and reduced-motion views, legacy anchors, Contact navigation, keyboard
 focus and 320/390/768/1024/1440px layouts. No frontend defect was found. GitHub
 now lists Vercel as primary and retains the independently verified public backup.
+
+## Filled Contact action — 30 October 2026
+
+Changed the opening `Contact ↗` action from an underlined text link to a filled
+peach button matching `Explore my work`, with dark teal text and arrow. The
+button retains its native `#contact` anchor, visible focus behavior and at least
+44px target height. TypeScript, production build, deployment artifacts and
+whitespace checks passed. Chrome confirmed the peach background, navigation,
+keyboard focus and 320/390/768/1440px layouts without document overflow.
