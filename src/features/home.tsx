@@ -42,7 +42,7 @@ export function Home() {
       <a className="text-link" href={profile.github}>More on GitHub <ArrowUpRight size={18} aria-hidden="true" /></a>
     </section>
     <section id="logs" className="about-section studio-section" aria-labelledby="journey-title"><div className="editorial-heading"><p className="eyebrow">03 / THE JOURNEY SO FAR</p><h2 id="journey-title">Learning by doing.</h2></div><JourneyTimeline entries={journey} /><Capabilities /></section>
-    <section id="live" className="studio-section archive-section" aria-labelledby="certificates-title"><div className="editorial-heading"><p className="eyebrow">03 / CONTINUOUS LEARNING</p><h2 id="certificates-title">Notes of <em>progress.</em></h2><p>24 certificates. One ongoing curiosity.</p></div><Deferred label="certificate archive"><Certificates /></Deferred></section>
+    <section id="live" className="studio-section archive-section" aria-labelledby="certificates-title"><div className="editorial-heading"><p className="eyebrow">04 / CONTINUOUS LEARNING</p><h2 id="certificates-title">Notes of <em>progress.</em></h2><p>24 certificates. One ongoing curiosity.</p></div><Deferred label="certificate archive"><Certificates /></Deferred></section>
     <section id="terminal" className="studio-section playground" aria-labelledby="terminal-title"><div><p className="eyebrow">A LITTLE SOMETHING TO EXPLORE</p><h2 id="terminal-title">Prefer the<br /><em>command line?</em></h2><p>Get to know my work, one command at a time.<br />Start with <code>help</code>.</p></div><Deferred label="interactive terminal"><PortfolioTerminal context={{ profile, projects, journey, certificates, commands: terminalCommands }} /></Deferred></section>
     <Contact />
     </main><Footer /></div></LayoutGroup>;
