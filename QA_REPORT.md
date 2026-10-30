@@ -282,3 +282,10 @@ initial JavaScript decreased from 440.33 kB to 436.29 kB (139.25 kB to 138.15
 kB gzip). TypeScript, production build, all 13 tests, deployment artifacts and
 whitespace checks passed. Chrome confirmed immediate visible content, delayed
 WebGL enhancement, no overflow and no uncaught errors at 390 and 1440 pixels.
+
+## Technical capabilities number — 30 October 2026
+
+Updated the capabilities heading to `04 / TECHNICAL CAPABILITIES` as requested.
+TypeScript, production build, deployment-artifact and whitespace checks passed.
+Existing renderer-size and Node module-type warnings remain. Browser verification
+and live publication were not performed for this text-only edit.
