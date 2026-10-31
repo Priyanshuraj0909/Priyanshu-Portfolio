@@ -10,7 +10,7 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
   static getDerivedStateFromError() { return { failed: true }; }
   render() { return this.state.failed ? <Fallback /> : this.props.children; }
 }
-export function Neural({ entering = false, controlsLocked = false }: { entering?: boolean; controlsLocked?: boolean }) {
+export function Neural({ entering = false, controlsLocked = false, onReady }: { entering?: boolean; controlsLocked?: boolean; onReady?: () => void }) {
   const { paused, reduced } = useMotionPreferences();
   const signals = useRef<SceneSignals>({x:0,y:0,progress:0,section:0,engaged:0});
   const [visible,setVisible]=useState(false);
@@ -41,9 +41,9 @@ export function Neural({ entering = false, controlsLocked = false }: { entering?
   },[]);
   const active=!paused&&!reduced&&!hidden;
   return <>
-    <div className="page-sculpture" data-active={active} data-section={section} data-engaged={engaged} data-entering={entering} aria-hidden="true">
+    <div className="page-sculpture" data-active={active} data-section={section} data-engaged={engaged} data-entering={entering} data-booting={controlsLocked} aria-hidden="true">
       <div className="sculpture-halo" />
-      {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} /></Suspense></SceneBoundary>:<Fallback />}
+      {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} onReady={onReady} /></Suspense></SceneBoundary>:<Fallback />}
     </div>
     <div className="scene-controls" aria-label="3D sculpture controls" inert={controlsLocked || undefined}><button className="core-control" onClick={()=>setExpanded(value=>!value)} aria-pressed={expanded} disabled={reduced}>{expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
   </>;

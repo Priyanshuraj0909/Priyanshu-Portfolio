@@ -1,4 +1,5 @@
-import { lazy } from "react";
+import { lazy, useCallback, useState } from "react";
+import { Boot, shouldIntroduce } from "./boot";
 import { LayoutGroup } from "motion/react";
 import { BrandMark } from "@/components/brand/brand-mark";
 import { Deferred } from "./deferred";
@@ -19,7 +20,18 @@ import { Capabilities } from "./capabilities";
 const Certificates = lazy(() => import("./certificates").then(m => ({default:m.Certificates})));
 
 export function Home() {
-  return <LayoutGroup id="portfolio-identity"><Neural /><div className="portfolio-shell" data-phase="ready"><Header showMark /><main id="main" tabIndex={-1}>
+  const [phase, setPhase] = useState<"loading" | "revealing" | "ready">(() => shouldIntroduce() ? "loading" : "ready");
+  const [sceneReady, setSceneReady] = useState(false);
+  const onSceneReady = useCallback(() => setSceneReady(true), []);
+  const reveal = useCallback(() => setPhase(current => current === "loading" ? "revealing" : current), []);
+  const complete = useCallback(() => {
+    setPhase("ready");
+    requestAnimationFrame(() => document.getElementById("main")?.focus({ preventScroll: true }));
+  }, []);
+  const booting = phase !== "ready";
+  return <LayoutGroup id="portfolio-identity"><Neural entering={phase === "loading"} controlsLocked={booting} onReady={onSceneReady} />
+    {booting && <Boot ready={sceneReady} revealing={phase === "revealing"} onReveal={reveal} onComplete={complete} />}
+    <div className={`portfolio-shell${phase === "loading" ? " is-entering" : ""}`} data-phase={phase} inert={booting || undefined}><Header showMark /><main id="main" tabIndex={-1}>
     <section id="about" className="studio-hero about-first" aria-labelledby="intro-title">
       <span id="core" className="home-anchor" aria-hidden="true" />
       <div className="hero-kicker"><span>01 / ABOUT</span><span>INTELLIGENCE, WITH INTENTION.</span></div>

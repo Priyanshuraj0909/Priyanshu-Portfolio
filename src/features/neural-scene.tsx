@@ -4,6 +4,7 @@ import { Group, Mesh, MathUtils } from "three";
 import type { SceneSignals } from "./neural";
 
 interface SceneProps {
+  onReady?: () => void;
   active: boolean;
   mobile: boolean;
   entering: boolean;
@@ -12,13 +13,15 @@ interface SceneProps {
 }
 
 // Original procedural learning sphere; no model, textures or HDR downloads.
-function LearningSphere({ active, mobile, entering, expanded, signals }: SceneProps) {
+function LearningSphere({ active, mobile, entering, expanded, signals, onReady }: SceneProps) {
   const root = useRef<Group>(null);
   const rings = useRef<Group>(null);
   const core = useRef<Mesh>(null);
   const time = useRef(0);
+  const announced = useRef(false);
   const emergence = useRef(entering ? 0 : 1);
-  const spread = useRef(0);
+  const spread = useRef(entering ? 2 : 0);
+  const assembly = useRef(entering ? 0 : 1);
   const { viewport, invalidate } = useThree();
   const particles = useMemo(() => {
     const positions: number[] = [];
@@ -36,21 +39,23 @@ function LearningSphere({ active, mobile, entering, expanded, signals }: ScenePr
   useEffect(() => { invalidate(); }, [expanded, entering, active, invalidate]);
   useFrame((_, delta) => {
     if (!root.current || !rings.current || !core.current) return;
+    if (!announced.current) { announced.current = true; onReady?.(); }
     const dt = Math.min(delta, .05);
     if (active) time.current += dt;
     // Paused scenes still accept the explicit expand/collapse action in one frame.
-    spread.current = active ? MathUtils.damp(spread.current, expanded ? 1 : signals.current.engaged * .2, 4, dt) : expanded ? 1 : 0;
+    spread.current = active ? MathUtils.damp(spread.current, entering ? 1 : expanded ? 1 : signals.current.engaged * .2, 4, dt) : expanded ? 1 : 0;
     emergence.current = active ? MathUtils.damp(emergence.current, entering ? 0 : 1, 2.6, dt) : 1;
     const emergenceValue = emergence.current;
     const { x, y, progress, section } = signals.current;
     const radius = Math.min(viewport.width * (mobile ? .43 : .34), viewport.height * .46);
     const size = radius / 1.9;
-    root.current.scale.setScalar(size * (.22 + emergenceValue * .78));
+    if (active) assembly.current = MathUtils.damp(assembly.current, 1, 4.5, dt);
+    root.current.scale.setScalar(size * (.48 + emergenceValue * .52) * (.65 + assembly.current * .35));
     if (active) {
       const side = section === 0 ? .2 : Math.sin(section * 1.7) * .23;
       root.current.position.x = MathUtils.damp(root.current.position.x, (mobile ? 0 : viewport.width * side) * emergenceValue, 2.5, dt);
-      root.current.position.y = MathUtils.damp(root.current.position.y, mobile ? -.15 : -.15 + Math.sin(progress * Math.PI * 2) * .45, 2.5, dt);
-      root.current.position.z = -8 * (1 - emergenceValue);
+      root.current.position.y = MathUtils.damp(root.current.position.y, (1 - emergenceValue) * .65 + emergenceValue * (mobile ? -.15 : -.15 + Math.sin(progress * Math.PI * 2) * .45), 2.5, dt);
+      root.current.position.z = 0;
       root.current.rotation.set(y * -.17 + progress * .8, x * .25 + time.current * .06 + progress * Math.PI, -.25 + x * .06);
       rings.current.rotation.y = time.current * -.09;
       rings.current.rotation.z = time.current * .06 + progress * 1.3;

@@ -1,6 +1,6 @@
 # Priyanshu Raj — developer portfolio
 
-A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. About opens the homepage immediately with the supplied biography beside a static sphere fallback, followed by Projects and Journey. The interactive sphere loads after the readable first screen and reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
+A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. On the first visit each session, a short 3D opening assembles the learning sphere before it glides into the existing About page, followed by Projects and Journey. Enter portfolio or Escape skips the opening; reduced motion, saved pause preferences and deep links bypass it. Readiness checks have a 3.6-second deadline, with a static sphere fallback if WebGL is unavailable. The same interactive sphere reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
@@ -32,6 +32,12 @@ npm run check:deployment
 All 13 content/parser/filter tests, lint, typecheck, production build and deployment checks passed. Earlier production browser checks and the latest live smoke checks are recorded separately. See QA_REPORT.md for executed coverage and limits. `npm run dev:legacy`, `build:legacy` and `typecheck:legacy` retain the previous Next.js app. Runtime never calls GitHub or model APIs.
 
 GitHub Actions runs a clean install, lint, tests, content checks, production build and deployment artifact checks on Node 24 for pushes and pull requests to `main`. Vercel uses the same Node major and lockfile installation through `vercel.json`.
+
+## Opening animation
+
+The intro uses the existing Motion and React Three Fiber stack; no animation dependency was added. It runs once per tab session on `/`, `/#about` and `/#core`; other anchors and dossier routes remain directly accessible. To replay it, open a fresh tab or clear `portfolio:intro-v5` from session storage. Readiness is based on fonts and the first scene frame; the thin line is a readiness indicator, not a download percentage.
+
+Design references: [GSAP Showcase](https://gsap.com/showcase/) for coordinated motion and [Siteinspire](https://www.siteinspire.com/) for restrained typography and spacing. Awwwards WebGL/preloader galleries were requested but could not be fetched during this session. No reference assets or personal content were copied.
 
 ## Architecture and content
 

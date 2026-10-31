@@ -1,21 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { BrandMark } from "@/components/brand/brand-mark";
 import { useMotionPreferences } from "./motion";
+
+const INTRO_KEY = "portfolio:intro-v5";
 export function shouldIntroduce() {
-  try { return !location.hash && !sessionStorage.getItem('portfolio:intro-v4') && !matchMedia('(prefers-reduced-motion: reduce)').matches && localStorage.getItem('portfolio:motion-paused') !== 'true'; } catch { return false; }
+  try {
+    return (!location.hash || ["#about", "#core"].includes(location.hash)) && !sessionStorage.getItem(INTRO_KEY)
+      && !matchMedia("(prefers-reduced-motion: reduce)").matches
+      && localStorage.getItem("portfolio:motion-paused") !== "true";
+  } catch { return false; }
 }
-export function Boot({ ready, revealing, onReveal, onComplete }: { ready: boolean; revealing: boolean; onReveal: () => void; onComplete: () => void }) {
+
+export function Boot({ ready, revealing, onReveal, onComplete }: {
+  ready: boolean; revealing: boolean; onReveal: () => void; onComplete: () => void;
+}) {
   const skip = useRef<HTMLButtonElement>(null);
   const { reduced, paused } = useMotionPreferences();
   const [minimum, setMinimum] = useState(false);
   const [fonts, setFonts] = useState(false);
-  const complete = useRef(false);
   useEffect(() => {
     let live = true;
     document.fonts.ready.then(() => { if (live) setFonts(true); });
-    const timer = setTimeout(() => setMinimum(true), 1700);
-    const deadline = setTimeout(onReveal, 3800);
+    const timer = setTimeout(() => setMinimum(true), 1800);
+    // Optional visuals must never prevent entry on slow or unsupported devices.
+    const deadline = setTimeout(onReveal, 3600);
     return () => { live = false; clearTimeout(timer); clearTimeout(deadline); };
   }, [onReveal]);
   useEffect(() => {
@@ -25,34 +33,32 @@ export function Boot({ ready, revealing, onReveal, onComplete }: { ready: boolea
     }
   }, [minimum, fonts, ready, reduced, paused, revealing, onReveal]);
   useEffect(() => {
+    if (!revealing) return;
+    try { sessionStorage.setItem(INTRO_KEY, "true"); } catch { /* Storage is optional. */ }
+    const timer = setTimeout(onComplete, reduced || paused ? 0 : 1200);
+    return () => clearTimeout(timer);
+  }, [revealing, reduced, paused, onComplete]);
+  useEffect(() => {
     skip.current?.focus({ preventScroll: true });
     const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') onReveal(); };
-    window.addEventListener('keydown', escape);
-    return () => { document.body.style.overflow = previous; window.removeEventListener('keydown', escape); };
+    document.body.style.overflow = "hidden";
+    const escape = (event: KeyboardEvent) => { if (event.key === "Escape") onReveal(); };
+    window.addEventListener("keydown", escape);
+    return () => { document.body.style.overflow = previous; window.removeEventListener("keydown", escape); };
   }, [onReveal]);
-  function finish() {
-    if (!revealing || complete.current) return;
-    complete.current = true;
-    try { sessionStorage.setItem('portfolio:intro-v4', 'true'); } catch {}
-    onComplete();
-  }
-  const duration = reduced || paused ? 0 : 1.05;
-  return <motion.div className="cinema-loader" role="dialog" aria-modal="true" aria-label="Portfolio introduction" initial={{ opacity: 1 }} animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration, ease: [.76,0,.24,1] }} onAnimationComplete={finish}>
-    <motion.div className="cinema-curtain" initial={false} animate={{ scale: revealing ? 1.16 : 1 }} transition={{ duration, ease: [.76,0,.24,1] }} />
-    <motion.div className="cinema-light" initial={{ x:'-100%', opacity:0 }} animate={{ x:'100%', opacity:[0,.4,0] }} transition={{duration:2,delay:.15,ease:'easeInOut'}} aria-hidden="true" />
-    <motion.div className="cinema-meta" animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration: .2 }}><span>PRIYANSHU RAJ</span><span>INDEPENDENT MIND. CONNECTED IDEAS.</span></motion.div>
-    <div className="cinema-stage">
-      <motion.svg className="cinema-frame" viewBox="0 0 480 240" fill="none" aria-hidden="true" initial={{opacity:0,scale:.94}} animate={{opacity:revealing?0:1,scale:revealing?1.08:1}} transition={{duration:.8}}>
-        <path d="M36 80V36H80M400 36H444V80M444 160V204H400M80 204H36V160" stroke="#ffb6a1" strokeOpacity=".25" />
-        <motion.path d="M0 120H150M330 120H480" stroke="#ffb6a1" strokeOpacity=".3" initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:1.1,delay:.2}} />
-      </motion.svg>
-      <div className="cinema-mark-slot">{!revealing && <BrandMark shared draw />}</div>
-      <div className="cinema-title-mask"><motion.h1 initial={{y:'110%',opacity:0}} animate={{y:revealing?'-110%':0,opacity:revealing?0:1}} transition={{duration:.65,delay:revealing?0:.4,ease:[.22,1,.36,1]}}>PRIYANSHU RAJ</motion.h1></div>
-      <motion.p className="cinema-subtitle" initial={{opacity:0,y:8}} animate={{opacity:revealing?0:1,y:0}} transition={{duration:.6,delay:revealing?0:.8}}>DATA <span>→</span> INTELLIGENCE <span>→</span> EXPERIENCE</motion.p>
-      <motion.p className="cinema-status" role="status" animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration: .2 }}>{ready && fonts ? 'Ready when you are.' : 'Preparing the experience…'}</motion.p>
+  const duration = reduced || paused ? 0 : 1.2;
+  return <motion.div className="boot-loader" role="dialog" aria-modal="true" aria-label="Portfolio introduction"
+    onKeyDown={event => {
+      if (event.key === "Tab") { event.preventDefault(); skip.current?.focus(); }
+    }} initial={false} animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration, ease: [.22, 1, .36, 1] }}>
+    <div className="boot-grid" aria-hidden="true" />
+    <div className="boot-masthead"><span>PRIYANSHU RAJ<span className="boot-edition">PERSONAL PORTFOLIO</span></span><span className="boot-signal"><i />CONNECTING IDEAS</span></div>
+    <div className="boot-coordinates" aria-hidden="true"><span>01 / THE LEARNING SPHERE</span><span>DATA → INTELLIGENCE → EXPERIENCE</span></div>
+    <div className="boot-caption">
+      <motion.p className="boot-eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .6 }}>A LITTLE CURIOSITY. A WORLD OF POSSIBILITY.</motion.p>
+      <div className="boot-title-mask"><motion.p className="boot-title" initial={{ y: "110%" }} animate={{ y: revealing ? "-110%" : 0 }} transition={{ duration: .8, ease: [.22, 1, .36, 1] }}>Ideas, taking <em>shape.</em></motion.p></div>
+      <div className="boot-readiness" role="status"><span className="boot-track" aria-hidden="true"><motion.i initial={{ scaleX: 0 }} animate={{ scaleX: ready && fonts ? 1 : .65 }} transition={{ duration: ready && fonts ? .45 : 1.8, ease: "easeOut" }} /></span><span>{ready && fonts ? "Experience ready" : "Preparing the experience"}</span></div>
     </div>
-    <motion.div className="cinema-bottom" animate={{ opacity: revealing ? 0 : 1 }} transition={{ duration: .2 }}><span>DESIGNED TO CONNECT.</span><button ref={skip} onClick={onReveal} disabled={revealing}>Skip intro <span aria-hidden="true">↗</span></button></motion.div>
+    <div className="boot-bottom"><span>INTELLIGENCE, WITH INTENTION.<small>AI / ML & FULL-STACK DEVELOPMENT</small></span><button ref={skip} onClick={onReveal} aria-label="Skip introduction">Enter portfolio <span aria-hidden="true">↗</span></button></div>
   </motion.div>;
 }

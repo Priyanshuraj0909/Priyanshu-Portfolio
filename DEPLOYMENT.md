@@ -105,3 +105,12 @@ it returned HTTP 200 from Vercel with the latest 8,501-byte homepage. A fresh
 Chrome run through ordinary DNS passed the About-first content, responsive
 widths, WebGL/reduced-motion rendering, CTA and home-anchor checks without
 uncaught errors. No source or hosting configuration change was required.
+
+## First-visit opening — 31 October 2026
+
+The owner requested a new 3D first-visit intro, superseding the 30 October
+removal. The short opening now reuses the persistent learning sphere and
+transitions into About without changing section structure. A skip button,
+Escape, reduced-motion and saved-pause bypass, direct-link bypass and a hard
+readiness deadline preserve access. It runs once per tab session; use a fresh
+tab to see it again. Local validation is recorded in QA_REPORT.md.

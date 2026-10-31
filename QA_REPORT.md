@@ -360,3 +360,37 @@ build, deployment-artifact checks and git diff --check passed on Node 26.10.0.
 GitHub CI uses Node 24 per .nvmrc; its post-push result must be checked separately.
 Existing nonfatal module-type and WebGL chunk-size warnings remain. No browser
 visual check was performed for this one-line lifecycle correction.
+
+## First-visit 3D opening — 31 October 2026
+
+Restored an owner-requested, once-per-session opening using the existing
+procedural learning sphere and Motion stack. The same Canvas persists while
+the centered sculpture assembles, then moves into the unchanged About layout.
+The opening uses the current teal/peach palette, masked title motion, a subtle
+grid and a readiness line (not a simulated download percentage). No new
+packages, models, textures or external runtime requests were added.
+
+Fonts and the first scene frame gate the reveal after a 1.8-second minimum;
+a 3.6-second deadline starts the 1.2-second reveal even if optional assets fail.
+The Enter portfolio button and Escape skip immediately into that transition.
+The dialog contains keyboard focus while the page and sculpture controls are
+inert; completion restores scrolling and focuses main. Deep anchors/dossiers,
+reduced motion, saved pause and denied session storage bypass the opening.
+Root, #about and #core support the first-visit opening. The session key is
+portfolio:intro-v5.
+
+Local lint, TypeScript/production build, all 13 existing tests, personal-content
+checks, deployment-artifact checks and whitespace checks passed. Headless
+installed Chrome with Playwright verified desktop first visit, one persistent
+Canvas, focus and scroll cleanup, refresh bypass, 320/390/768px layouts,
+Shift+Tab containment, Escape, button skip, reduced motion, saved pause,
+#terminal bypass, #about entry, blocked optional scene-chunk fallback/deadline
+and denied-storage bypass. No unexpected page errors occurred. Desktop,
+mobile and post-reveal screenshots were inspected; the initial sphere/title
+overlap and a legacy masthead selector collision were corrected. Browser checks
+used the local Vite server; physical devices and Safari were not tested.
+
+References reviewed: https://gsap.com/showcase/ and https://www.siteinspire.com/.
+The requested Awwwards WebGL and preloader galleries timed out; they are not
+claimed as inspected. Existing nonfatal module-type and renderer-size warnings
+remain. Publication and live verification are recorded separately below.
