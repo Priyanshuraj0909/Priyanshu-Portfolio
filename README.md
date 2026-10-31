@@ -4,10 +4,18 @@ A teal and peach editorial portfolio with warm metallic typography, peach accent
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
-Live portfolio: **[https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)** · [About](https://priyanshu-portfolio-pi-ruby.vercel.app/#about) · [Public backup](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
+Recommended portfolio link: **[Open Priyanshu’s portfolio](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)** · [About](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/#about) · [Vercel mirror](https://priyanshu-portfolio-pi-ruby.vercel.app/) · [Source on GitHub](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
 
 `https://vercel.com/king-09` is the owner's management dashboard, not a public
-portfolio URL. Share the `vercel.app` link above with visitors.
+portfolio URL. Share the recommended link above with visitors. On 31 October
+2026 the owner confirmed that it opens while Vercel times out on both tested
+networks. The recommended link uses independent Cloudflare hosting; the old
+Vercel address remains subject to the unresolved network-path issue.
+
+Run `npm run check:connectivity` to compare ordinary Vercel access, DNS-selected
+edges and the independent host. A successful build or isolated HTTP 200 does
+not establish recovery on every network. See DEPLOYMENT.md for the evidence
+and hosting limits.
 
 ## Run
 

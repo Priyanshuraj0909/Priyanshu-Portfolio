@@ -403,3 +403,27 @@ intro, reveal, persistent Canvas, unlocked page, viewport width, refresh bypass
 and absence of page errors. Screenshots were captured in /private/tmp for
 local visual review. The independent backup Site was not republished in this
 bounded Vercel update.
+
+## Recurring connection timeout — 31 October 2026
+
+- Reproduced twice outside the network-restricted sandbox at 23:20–23:22 IST:
+  ordinary Vercel HTTPS and both default DNS IPv4 edges timed out before TCP/TLS.
+- Same hostname with request-only routing to Google-resolved edges returned
+  HTTP 200. No persistent DNS, hosts or browser changes were made.
+- Independent Cloudflare Site returned HTTP 200 twice; the owner confirmed it
+  opens on their device while Vercel fails on Wi-Fi and mobile data.
+- Recommended sharing link now uses the independent host. Vercel's original
+  hostname remains unresolved; transient success must not be called a repair.
+- Added the existing read-only connectivity diagnostic to the documented
+  workflow and preserved failure timings (curl's `000` status is parsed safely).
+- Lint and all 13 tests passed. The independent checkout passed Node 24 tests,
+  content validation, TypeScript, Vite build and deployment artifact checks.
+  Existing large-renderer and module-type warnings remain.
+- Published independent Site version 5 successfully from source commit
+  `719f69f497333688b6bc1ff1f0d214160683fee1`, including the latest intro.
+  Deployment ID: `appgdep_6ae62b43a3a48191b86f89387ac018f7`.
+- Live Chrome at 1440px and 390px passed HTTPS, first-session intro/reveal,
+  one persistent Canvas, unlocked page, no horizontal overflow, refresh bypass
+  and no uncaught page errors through ordinary DNS. Homepage and all five direct
+  project routes returned HTTP 200; robots.txt and sitemap.xml returned HTTP
+  200, with the independent origin in homepage canonical and sitemap metadata.

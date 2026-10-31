@@ -1,6 +1,7 @@
 # Production deployments
 
-- Primary Vercel portfolio: [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
+- Recommended sharing URL: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
+- Vercel mirror (intermittent connectivity): [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
 - About: [https://priyanshu-portfolio-pi-ruby.vercel.app/#about](https://priyanshu-portfolio-pi-ruby.vercel.app/#about)
 - Public backup: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
 - Repository: [https://github.com/Priyanshuraj0909/Priyanshu-Portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio)
@@ -9,6 +10,9 @@
   public profile route).
 
 The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the deployment is public. Commit f3b43a8 deployed successfully through the existing GitHub/Vercel connection; homepage and five dossier canonical/social metadata, indexing, robots.txt and the six-page XML sitemap passed live checks on 2026-10-27. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
+
+Historical checks below describe availability at the time, not a lasting repair.
+See the 31 October recurrence entry for the current recommendation.
 
 On 2026-10-29 the Vercel-managed hostname repeatedly timed out on its current
 DNS-selected edge addresses even though the application and alternate Vercel
@@ -121,3 +125,46 @@ live Chrome at 1440px and 390px passed intro/reveal, persistent Canvas, unlocked
 page, repeat-visit bypass and no page errors. Deployment details:
 https://vercel.com/king-09/priyanshu-portfolio/5rQZWiHs3tJfPiW1AdiMoicnkSiq
 The backup Site was not updated as part of this Vercel-focused request.
+
+## Recurring connection timeout — 31 October 2026
+
+The owner supplied Chrome's `ERR_CONNECTION_TIMED_OUT` screenshot and confirmed
+failure on Wi-Fi and mobile data. At 23:20–23:22 IST, ordinary HTTPS access
+also failed here before TCP/TLS established. The default resolver returned
+`216.198.79.195` and `64.29.17.195`; both timed out. Google Public DNS returned
+edges ending in `.131`, then `.67`; request-only comparisons to those addresses
+returned HTTP 200 for the same hostname with certificate validation enabled.
+Different DNS answers alone do not prove stale DNS: geographic edge selection
+can vary. The evidence establishes a failing selected connection path, not
+whether the responsible component is an ISP, resolver, firewall or Vercel.
+
+The independent Cloudflare-hosted Site returned HTTP 200 on both probes. The
+owner explicitly confirmed that its URL opens on their device. README now
+recommends that independent URL for sharing. This avoids dependence on the
+observed Vercel route; it does not repair the original hostname or guarantee
+uninterrupted service. A frontend redirect cannot run before a connection
+establishes. No system DNS/hosts edits, hardcoded edge IPs, paid domain purchases
+or Vercel account-setting changes were made.
+
+`npm run check:connectivity` is a bounded, read-only diagnostic that compares
+default/public DNS, ordinary HTTPS, the independent host and returned IPv4
+edges. It exits nonzero when normal Vercel access fails, even if the independent
+host works. Failed requests preserve their DNS/TCP/TLS timing values. It needs
+Node and curl plus network access; sandbox DNS failures are not site evidence.
+
+The source default in `src/content/site.ts` remains Vercel for that deployment.
+The separate Sites checkout uses its own public origin for canonical/social
+URLs and sitemap. Future portfolio changes must also be published to the
+existing Site `appgprj_6ae37d32f5ac8191b8fe565e7256d547`; a GitHub/Vercel push
+alone does not update it. Vercel account tools are unavailable in this session,
+so repairing or escalating that hostname's routing remains unresolved.
+Vercel's relevant guide: https://vercel.com/kb/guide/troubleshooting-connectivity-issues
+
+Sites version 5 successfully published the latest portfolio, including the
+first-visit intro, from source commit
+`719f69f497333688b6bc1ff1f0d214160683fee1`. Deployment
+`appgdep_6ae62b43a3a48191b86f89387ac018f7` returned `succeeded` and the existing
+public URL. Its audience remains public; no new Site was created.
+Live Chrome passed desktop/mobile intro and repeat-visit checks without page
+errors. Homepage, all five direct project routes, robots.txt and sitemap.xml
+returned HTTP 200; canonical/sitemap origins match this independent host.

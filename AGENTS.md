@@ -20,3 +20,7 @@ For remaining work, act autonomously within the owner authorization, run relevan
 
 ## Autonomy approval — 2026-10-24
 The owner subsequently instructed “cdo everything by your self”. This approves the completed audit commit and all remaining implementation phases without intermediate approval stops. Continue through verification and local phase commits autonomously. Preserve unknown personal fields and do not fabricate claims. Publishing may proceed only with available authorized hosting access; never infer missing credentials or a GitHub remote. This update supersedes earlier phase-stop/commit-approval gates.
+
+## Connectivity update — 2026-10-31
+
+Recurring Vercel connection timeouts were reproduced before TCP/TLS. The owner confirmed that the independent public URL `https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/` opens while Vercel fails on Wi-Fi and mobile data. Recommend this independent URL for sharing. Sites project `appgprj_6ae37d32f5ac8191b8fe565e7256d547` is public; version 5 successfully published the latest portfolio including the first-visit intro. Preserve its audience and identity. Future application updates need publication to this existing Site as well as GitHub/Vercel. The Vercel source default remains in src/content/site.ts; the Sites checkout uses its own origin. Do not claim the original Vercel hostname is repaired or promise permanent uptime. See DEPLOYMENT.md and QA_REPORT.md for evidence and limits.

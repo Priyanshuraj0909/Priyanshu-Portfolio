@@ -20,7 +20,8 @@
     "build:legacy": "next build --webpack",
     "typecheck:legacy": "next typegen && tsc --noEmit",
     "test:certificates": "node --test tests/certificate-search.test.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check:connectivity": "node scripts/check-connectivity.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
