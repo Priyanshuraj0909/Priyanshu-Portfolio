@@ -5,11 +5,14 @@ import { promisify } from 'node:util';
 import { isIP } from 'node:net';
 
 const execute = promisify(execFile);
-const hostname = 'priyanshu-portfolio-pi-ruby.vercel.app';
+const hostname = process.argv[2] ?? 'priyanshu-portfolio-pi-ruby.vercel.app';
+if (!/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(hostname)) {
+  throw new Error('Pass a hostname without a scheme, path or port.');
+}
 const backup = 'https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/';
 const resolver = new Resolver({ timeout: 3000, tries: 1 });
 // Quote http_code: curl emits 000 on connection failure, which is invalid JSON as a number.
-const metrics = '{"http":"%{http_code}","remote":"%{remote_ip}","dnsSeconds":%{time_namelookup},"tcpSeconds":%{time_connect},"tlsSeconds":%{time_appconnect},"totalSeconds":%{time_total}}';
+const metrics = '{"http":"%{http_code}","remote":"%{remote_ip}","finalUrl":"%{url_effective}","redirects":%{num_redirects},"dnsSeconds":%{time_namelookup},"tcpSeconds":%{time_connect},"tlsSeconds":%{time_appconnect},"totalSeconds":%{time_total}}';
 
 function timings(stdout) {
   const result = JSON.parse(stdout);
@@ -17,7 +20,7 @@ function timings(stdout) {
 }
 
 async function probe(url, address) {
-  const args = ['--silent', '--show-error', '--output', '/dev/null', '--connect-timeout', '5', '--max-time', '8', '--write-out', metrics];
+  const args = ['--silent', '--show-error', '--location', '--max-redirs', '5', '--proto', '=https', '--proto-redir', '=https', '--output', '/dev/null', '--connect-timeout', '5', '--max-time', '8', '--write-out', metrics];
   // Per-request routing preserves hostname, SNI and certificate verification.
   // It compares paths only; a working edge does not repair public DNS routing.
   if (address) args.push('--resolve', `${hostname}:443:${address}`);

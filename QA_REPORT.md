@@ -427,3 +427,20 @@ bounded Vercel update.
   and no uncaught page errors through ordinary DNS. Homepage and all five direct
   project routes returned HTTP 200; robots.txt and sitemap.xml returned HTTP
   200, with the independent origin in homepage canonical and sitemap metadata.
+
+## Custom-domain DNS and canonical metadata — 31 October 2026
+
+- The owner's screenshot shows NXDOMAIN for `priyanshuraj.tech`. Public Google
+  DNS returned records for both root and www during this investigation.
+- Ordinary HTTPS: root 308 to www, then www 200 with valid certificate and the
+  expected portfolio asset. The full normal chain passed in approximately
+  0.23s. This does not establish recovery on the owner's affected device.
+- Corrected the source SEO origin from the Vercel mirror to the working www
+  custom domain. Independent hosting keeps its own SEO origin.
+- The read-only connectivity script now accepts an optional validated hostname,
+  follows up to five HTTPS-only redirects and reports final URL/redirect count.
+- Node 24 production build, TypeScript, deployment artifacts, lint and
+  whitespace checks passed. Existing renderer-size/module-type warnings remain.
+- No registrar or Vercel domain settings were edited. DNS cache/propagation is
+  a possible explanation, not a confirmed diagnosis. Owner-side recheck and
+  authenticated domain-account inspection remain outstanding.

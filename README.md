@@ -2,6 +2,7 @@
 
 | Hosting | Live portfolio |
 | --- | --- |
+| Custom domain | [www.priyanshuraj.tech](https://www.priyanshuraj.tech/) |
 | Independent host (recommended) | [priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/) |
 | Vercel | [priyanshu-portfolio-pi-ruby.vercel.app](https://priyanshu-portfolio-pi-ruby.vercel.app/) |
 
@@ -21,6 +22,12 @@ Run `npm run check:connectivity` to compare ordinary Vercel access, DNS-selected
 edges and the independent host. A successful build or isolated HTTP 200 does
 not establish recovery on every network. See DEPLOYMENT.md for the evidence
 and hosting limits.
+
+Custom-domain diagnostics: `npm run check:connectivity -- priyanshuraj.tech`.
+The root domain redirects to `www`; the check follows HTTPS redirects and
+reports the final URL. A browser's `DNS_PROBE_FINISHED_NXDOMAIN` occurs before
+the app loads. Public DNS and HTTPS worked here on 31 October 2026, but the
+owner's affected device still needs a recheck. See DEPLOYMENT.md.
 
 ## Run
 
@@ -69,4 +76,9 @@ Edit profile.ts for supplied contact/biography, projects.ts for source-verified 
 
 The owner authorized all remaining implementation phases autonomously. Local phase commits are retained. See MASTER_ORCHESTRATOR.md, PHASES.md, AGENTS.md and DESIGN_SYSTEM.md for architecture, scope and verification. Earlier plans are preserved in docs/history.
 
-The owner confirmed the live portfolio at `https://priyanshu-portfolio-pi-ruby.vercel.app/#about` on 2026-10-27. The public origin is `https://priyanshu-portfolio-pi-ruby.vercel.app` and the source repository is `https://github.com/Priyanshuraj0909/Priyanshu-Portfolio`. HTTPS homepage delivery was verified. The release build now defaults to this confirmed origin for canonical URLs, sitemap and absolute social metadata; `PORTFOLIO_SITE_URL` can override it, and an explicitly empty value retains noindex for private previews. Vercel successfully deployed commit f3b43a8; live checks confirmed indexing, canonical/social URLs, robots.txt and the six-page sitemap on 2026-10-27. See QA_REPORT.md and DEPLOYMENT.md for executed checks and remaining limits.
+The owner supplied the custom domain `priyanshuraj.tech` on 31 October 2026.
+Its existing HTTPS redirect leads to `https://www.priyanshuraj.tech`, now the
+default origin for canonical URLs, sitemap and social metadata. The Vercel
+mirror remains available. `PORTFOLIO_SITE_URL` overrides the origin; an explicitly
+empty value retains noindex for private previews. The independent deployment
+uses its own origin. See QA_REPORT.md and DEPLOYMENT.md for checks and limits.

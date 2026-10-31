@@ -41,9 +41,9 @@ Node 24 is pinned in .nvmrc and package.json. Vercel uses `npm ci`, `npm run bui
 
 ## Updating the published site
 
-Push reviewed changes to the existing GitHub repository. If the project is connected to GitHub, Vercel can build that commit automatically; a successful push alone does not prove a deployment. An old Vercel environment override can supersede the source default: remove it or set it to `https://priyanshu-portfolio-pi-ruby.vercel.app` for production. Preview environments can set an empty value to remain noindex.
+Push reviewed changes to the existing GitHub repository. If the project is connected to GitHub, Vercel can build that commit automatically; a successful push alone does not prove a deployment. An old Vercel environment override can supersede the source default: remove it or set it to `https://www.priyanshuraj.tech` for production. Preview environments can set an empty value to remain noindex.
 
-After deployment, check homepage and five direct dossier URLs, About anchor, refresh/Back, PDFs/previews, favicon/social image, console errors and mobile layout. Confirm canonical and Open Graph URLs use `https://priyanshu-portfolio-pi-ruby.vercel.app`, robots.txt allows indexing and sitemap.xml is valid XML. Hosting settings or manual deploys require authenticated Vercel access. See QA_REPORT.md for the checks actually completed and the remaining live verification.
+After deployment, check homepage and five direct dossier URLs, About anchor, refresh/Back, PDFs/previews, favicon/social image, console errors and mobile layout. Confirm canonical and Open Graph URLs use `https://www.priyanshuraj.tech`, robots.txt allows indexing and sitemap.xml is valid XML. Hosting settings or manual deploys require authenticated Vercel access. See QA_REPORT.md for the checks actually completed and the remaining live verification.
 
 ## Numbered navigation release — 29 October 2026
 
@@ -168,3 +168,40 @@ public URL. Its audience remains public; no new Site was created.
 Live Chrome passed desktop/mobile intro and repeat-visit checks without page
 errors. Homepage, all five direct project routes, robots.txt and sitemap.xml
 returned HTTP 200; canonical/sitemap origins match this independent host.
+
+## Custom-domain NXDOMAIN investigation — 31 October 2026
+
+The owner supplied a mobile screenshot of `priyanshuraj.tech` returning
+`DNS_PROBE_FINISHED_NXDOMAIN`. This is a DNS lookup failure, distinct from the
+earlier Vercel TCP timeouts. No tracked source referenced this custom domain.
+At approximately 23:35–23:36 IST, Google Public DNS returned a root A record
+of `216.198.79.1`, four `tech-domains.*.orderbox-dns.com` nameservers, and a
+`www` CNAME of `cname.vercel-dns.com` resolving to Vercel edges. These are
+observed records, not proposed replacement IPs.
+
+Normal HTTPS to the root returned 308 to `https://www.priyanshuraj.tech/`;
+normal HTTPS to www returned 200 with the portfolio's current entry asset.
+Certificate verification passed. The updated connectivity check followed the
+complete normal redirect chain to HTTP 200 in approximately 0.23 seconds.
+An initial direct DNS command timed out; that was not an NXDOMAIN response.
+The screenshot's NXDOMAIN could not be reproduced here. A cached negative
+answer, recent DNS changes or inconsistent resolvers remain possibilities;
+the responsible component and affected-device recovery are unconfirmed.
+
+The custom domain served canonical metadata for the old Vercel hostname.
+Updated the default origin and environment example to
+`https://www.priyanshuraj.tech`, matching the existing hosting redirect.
+This aligns canonical/social metadata and the sitemap; it cannot repair a
+resolver returning NXDOMAIN or force Google to refresh its search results.
+The independent Site retains its own origin and does not need a new app build
+for this Vercel-specific metadata change.
+
+Run `npm run check:connectivity -- priyanshuraj.tech` or pass the www hostname
+to compare DNS and HTTPS. Checks now follow bounded HTTPS-only redirects and
+report the final URL. No persistent DNS, hosts, registrar, nameserver or Vercel
+domain changes were made. Vercel/registrar account tools remain unconnected;
+domain-setting changes require that access. The owner's registrar/recent-DNS
+change question is pending. Do not claim the affected phone is fixed yet.
+
+References: https://developers.google.com/speed/public-dns/docs/troubleshooting
+and https://vercel.com/docs/domains/troubleshooting.
