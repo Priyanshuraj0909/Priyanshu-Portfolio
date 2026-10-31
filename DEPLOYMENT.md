@@ -114,3 +114,10 @@ transitions into About without changing section structure. A skip button,
 Escape, reduced-motion and saved-pause bypass, direct-link bypass and a hard
 readiness deadline preserve access. It runs once per tab session; use a fresh
 tab to see it again. Local validation is recorded in QA_REPORT.md.
+
+Implementation commit `4a37c48` was pushed to GitHub and passed its verify
+workflow. Vercel reported successful deployment. The primary hostname served the matching production assets;
+live Chrome at 1440px and 390px passed intro/reveal, persistent Canvas, unlocked
+page, repeat-visit bypass and no page errors. Deployment details:
+https://vercel.com/king-09/priyanshu-portfolio/5rQZWiHs3tJfPiW1AdiMoicnkSiq
+The backup Site was not updated as part of this Vercel-focused request.

@@ -394,3 +394,12 @@ References reviewed: https://gsap.com/showcase/ and https://www.siteinspire.com/
 The requested Awwwards WebGL and preloader galleries timed out; they are not
 claimed as inspected. Existing nonfatal module-type and renderer-size warnings
 remain. Publication and live verification are recorded separately below.
+
+Publication check: implementation commit `4a37c48` was pushed to origin/main;
+GitHub Actions verify completed successfully; Vercel reported Deployment has completed. The public Vercel hostname
+served the matching index-D_o2w4Jc.js and index-B3c0rwUS.css production assets.
+Live Chrome checks at 1440px and 390px passed HTTPS delivery, first-session
+intro, reveal, persistent Canvas, unlocked page, viewport width, refresh bypass
+and absence of page errors. Screenshots were captured in /private/tmp for
+local visual review. The independent backup Site was not republished in this
+bounded Vercel update.
