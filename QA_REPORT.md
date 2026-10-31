@@ -430,8 +430,10 @@ bounded Vercel update.
 
 ## Custom-domain DNS and canonical metadata — 31 October 2026
 
-- The owner's screenshot shows NXDOMAIN for `priyanshuraj.tech`. Public Google
-  DNS returned records for both root and www during this investigation.
+- Closer inspection corrected the initial reading of the screenshot: the
+  failing hostname is `priyasnhuraj.tech` (n/s swapped), not `priyanshuraj.tech`.
+  Google Public DNS returned status 3/NXDOMAIN for the typo and status 0 with
+  records for the correctly spelled domain. This reproduces the pictured error.
 - Ordinary HTTPS: root 308 to www, then www 200 with valid certificate and the
   expected portfolio asset. The full normal chain passed in approximately
   0.23s. This does not establish recovery on the owner's affected device.
@@ -441,6 +443,7 @@ bounded Vercel update.
   follows up to five HTTPS-only redirects and reports final URL/redirect count.
 - Node 24 production build, TypeScript, deployment artifacts, lint and
   whitespace checks passed. Existing renderer-size/module-type warnings remain.
-- No registrar or Vercel domain settings were edited. DNS cache/propagation is
-  a possible explanation, not a confirmed diagnosis. Owner-side recheck and
-  authenticated domain-account inspection remain outstanding.
+- Live Chrome through normal DNS at 1440px and 390px passed custom-domain
+  delivery, intro/reveal, repeat bypass, layout and no uncaught errors.
+- No registrar or Vercel domain settings were edited. The typo explains this
+  screenshot; an owner-side recheck using the correct link remains outstanding.

@@ -1,4 +1,4 @@
-// Owner-supplied custom domain verified over HTTPS on 2026-10-31.
+// Portfolio custom domain verified over HTTPS on 2026-10-31.
 // Keep the origin free of paths/fragments; About is a homepage anchor.
 export const site = {
   url: "https://www.priyanshuraj.tech",

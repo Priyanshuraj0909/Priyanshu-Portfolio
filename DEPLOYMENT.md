@@ -171,9 +171,12 @@ returned HTTP 200; canonical/sitemap origins match this independent host.
 
 ## Custom-domain NXDOMAIN investigation — 31 October 2026
 
-The owner supplied a mobile screenshot of `priyanshuraj.tech` returning
-`DNS_PROBE_FINISHED_NXDOMAIN`. This is a DNS lookup failure, distinct from the
-earlier Vercel TCP timeouts. No tracked source referenced this custom domain.
+Closer inspection of the owner's mobile screenshot identifies the failing
+hostname as `priyasnhuraj.tech`, with n/s transposed. The initial investigation
+misread this as `priyanshuraj.tech`. Google Public DNS confirms status 3
+(NXDOMAIN) for the misspelling and status 0 with an A record for the correctly
+spelled domain. This explains the pictured error. No tracked source referenced
+the misspelling or the custom domain before this update.
 At approximately 23:35–23:36 IST, Google Public DNS returned a root A record
 of `216.198.79.1`, four `tech-domains.*.orderbox-dns.com` nameservers, and a
 `www` CNAME of `cname.vercel-dns.com` resolving to Vercel edges. These are
@@ -184,9 +187,10 @@ normal HTTPS to www returned 200 with the portfolio's current entry asset.
 Certificate verification passed. The updated connectivity check followed the
 complete normal redirect chain to HTTP 200 in approximately 0.23 seconds.
 An initial direct DNS command timed out; that was not an NXDOMAIN response.
-The screenshot's NXDOMAIN could not be reproduced here. A cached negative
-answer, recent DNS changes or inconsistent resolvers remain possibilities;
-the responsible component and affected-device recovery are unconfirmed.
+The screenshot's NXDOMAIN was reproduced for the misspelled hostname. The
+correctly spelled root/www addresses passed; the owner's affected device has
+not yet been retested with the correct link. No evidence requires a DNS change
+to the working domain to address this screenshot.
 
 The custom domain served canonical metadata for the old Vercel hostname.
 Updated the default origin and environment example to
@@ -200,8 +204,10 @@ Run `npm run check:connectivity -- priyanshuraj.tech` or pass the www hostname
 to compare DNS and HTTPS. Checks now follow bounded HTTPS-only redirects and
 report the final URL. No persistent DNS, hosts, registrar, nameserver or Vercel
 domain changes were made. Vercel/registrar account tools remain unconnected;
-domain-setting changes require that access. The owner's registrar/recent-DNS
-change question is pending. Do not claim the affected phone is fixed yet.
+domain-setting changes require that access. The registrar question asked
+before identifying the typo is no longer needed to explain this screenshot.
+A redirect from the misspelling would require ownership and DNS/hosting of
+that separate domain; no domain was purchased or claimed.
 
 References: https://developers.google.com/speed/public-dns/docs/troubleshooting
 and https://vercel.com/docs/domains/troubleshooting.
