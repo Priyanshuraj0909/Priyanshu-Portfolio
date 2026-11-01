@@ -1,5 +1,6 @@
 import { Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode } from "react";
 import { useMotionPreferences, MotionToggle } from "./motion";
+import { shouldAutoLoadScene } from "@/lib/scene-loading";
 const Scene = lazy(() => import("./neural-scene"));
 export interface SceneSignals { x: number; y: number; progress: number; section: number; engaged: number }
 function Fallback() {
@@ -14,15 +15,16 @@ export function Neural({ entering = false, controlsLocked = false, onReady }: { 
   const { paused, reduced } = useMotionPreferences();
   const signals = useRef<SceneSignals>({x:0,y:0,progress:0,section:0,engaged:0});
   const [visible,setVisible]=useState(false);
+  const [automatic]=useState(() => {
+    const connection=(navigator as Navigator & {connection?: {saveData?: boolean; effectiveType?: string}}).connection;
+    return shouldAutoLoadScene({width:innerWidth,coarsePointer:matchMedia('(pointer: coarse)').matches,saveData:connection?.saveData,effectiveType:connection?.effectiveType});
+  });
   const [hidden,setHidden]=useState(() => document.hidden);
   const [mobile,setMobile]=useState(() => window.innerWidth < 760);
   const [section,setSection]=useState(0);
   const [engaged,setEngaged]=useState(false);
   const [expanded,setExpanded]=useState(false);
   useEffect(() => {
-    // Paint the readable portfolio first, then load the optional WebGL bundle.
-    // The CSS fallback keeps the visual identity present during this short delay.
-    const sceneTimer=window.setTimeout(()=>setVisible(true),window.innerWidth<760?900:450);
     let height=Math.max(1,document.documentElement.scrollHeight-innerHeight);
     let scrollFrame=0;
     const measure=()=>{height=Math.max(1,document.documentElement.scrollHeight-innerHeight);setMobile(innerWidth<760);};
@@ -37,14 +39,20 @@ export function Neural({ entering = false, controlsLocked = false, onReady }: { 
     const resize=new ResizeObserver(()=>{measure();scroll();});resize.observe(document.body);
     window.addEventListener('scroll',scroll,{passive:true});window.addEventListener('resize',measure);window.addEventListener('pointermove',pointer,{passive:true});window.addEventListener('pointerover',engage);window.addEventListener('focusin',engage);window.addEventListener('focusout',reset);window.addEventListener('blur',reset);document.documentElement.addEventListener('pointerleave',reset);document.addEventListener('visibilitychange',visibility);
     scroll();
-    return()=>{clearTimeout(sceneTimer);cancelAnimationFrame(scrollFrame);observer.disconnect();resize.disconnect();window.removeEventListener('scroll',scroll);window.removeEventListener('resize',measure);window.removeEventListener('pointermove',pointer);window.removeEventListener('pointerover',engage);window.removeEventListener('focusin',engage);window.removeEventListener('focusout',reset);window.removeEventListener('blur',reset);document.documentElement.removeEventListener('pointerleave',reset);document.removeEventListener('visibilitychange',visibility);};
+    return()=>{cancelAnimationFrame(scrollFrame);observer.disconnect();resize.disconnect();window.removeEventListener('scroll',scroll);window.removeEventListener('resize',measure);window.removeEventListener('pointermove',pointer);window.removeEventListener('pointerover',engage);window.removeEventListener('focusin',engage);window.removeEventListener('focusout',reset);window.removeEventListener('blur',reset);document.documentElement.removeEventListener('pointerleave',reset);document.removeEventListener('visibilitychange',visibility);};
   },[]);
+  useEffect(() => {
+    if (!automatic || reduced || paused || hidden) return;
+    // Desktop enhancement follows the first paint; phones use explicit opt-in.
+    const timer=window.setTimeout(()=>setVisible(true),450);
+    return()=>clearTimeout(timer);
+  },[automatic,reduced,paused,hidden]);
   const active=!paused&&!reduced&&!hidden;
   return <>
     <div className="page-sculpture" data-active={active} data-section={section} data-engaged={engaged} data-entering={entering} data-booting={controlsLocked} aria-hidden="true">
       <div className="sculpture-halo" />
       {visible&&!reduced?<SceneBoundary><Suspense fallback={<Fallback />}><Scene active={active} mobile={mobile} entering={entering} expanded={expanded} signals={signals} onReady={onReady} /></Suspense></SceneBoundary>:<Fallback />}
     </div>
-    <div className="scene-controls" aria-label="3D sculpture controls" inert={controlsLocked || undefined}><button className="core-control" onClick={()=>setExpanded(value=>!value)} aria-pressed={expanded} disabled={reduced}>{expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
+    <div className="scene-controls" aria-label="3D sculpture controls" inert={controlsLocked || undefined}><button className="core-control" onClick={()=>{if(!visible)setVisible(true);else setExpanded(value=>!value);}} aria-pressed={visible ? expanded : undefined} disabled={reduced}>{!visible?'Enable 3D':expanded?'Collapse sphere':'Expand sphere'} <span aria-hidden="true">{visible&&expanded?'−':'+'}</span></button><MotionToggle placement="footer" /></div>
   </>;
 }

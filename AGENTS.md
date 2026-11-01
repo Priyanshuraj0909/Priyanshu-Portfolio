@@ -32,3 +32,7 @@ The owner's NXDOMAIN screenshot actually shows `priyasnhuraj.tech` (n/s transpos
 ## Immediate opening update — 2026-11-01
 
 The owner reported slow entry at the full-screen intro and authorized fixing and publishing it. The Vite homepage now renders accessible content immediately, with no intro dialog, font/scene readiness gate, inert shell or scroll lock. Preserve deferred optional WebGL and the static fallback; do not reintroduce a blocking splash. The custom domain remains the primary sharing URL. Sites returned `project_not_found` for the recorded project and an empty owned-sites list in this session; do not create a replacement or claim the independent mirror was updated without restored access. See QA_REPORT.md and DEPLOYMENT.md for checks and publication status.
+
+## Phone opening update — 2026-11-01
+
+Phones (<760px), coarse-pointer devices (including landscape phones), Data Saver and reported 2G/3G connections now start with the CSS sphere and load WebGL only after “Enable 3D”. Unconstrained desktops retain delayed automatic enhancement. Reduced motion, saved pause and background visibility prevent automatic startup; existing pause support remains. Preserve the explicit mobile choice and test actual renderer requests, not just the absence of a Canvas.

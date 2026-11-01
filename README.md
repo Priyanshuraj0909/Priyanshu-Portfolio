@@ -5,7 +5,7 @@
 | Custom domain | [www.priyanshuraj.tech](https://www.priyanshuraj.tech/) |
 | Vercel | [priyanshu-portfolio-pi-ruby.vercel.app](https://priyanshu-portfolio-pi-ruby.vercel.app/) |
 
-A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. The About page opens immediately, with Projects and Journey below. The optional 3D sphere loads after the readable page paints, with a static fallback while it loads or if WebGL is unavailable. The same interactive sphere reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
+A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. The About page opens immediately, with Projects and Journey below. Phones open with a lightweight sphere; interactive 3D loads only after tapping “Enable 3D”. Desktop 3D loads after the readable page paints, with a static fallback while it loads or if WebGL is unavailable. The same interactive sphere reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
 
 Five source-backed projects, three journey records and all 24 original certificate PDFs remain available. See INFERENCE_DESIGN.md for the ECHO reference, original design choices and performance limits. The earlier Next.js implementation remains under the legacy scripts.
 
@@ -55,7 +55,7 @@ GitHub Actions runs a clean install, lint, tests, content checks, production bui
 
 ## Opening performance
 
-The homepage is accessible on its first React render, including a fresh tab or session. There is no full-screen intro, font-readiness wait, scroll lock or entry button. The optional WebGL bundle loads after 450 ms on desktop or 900 ms on mobile; reduced motion uses the static sphere. Text uses local fonts with `font-display: swap`.
+The homepage is accessible on its first React render, including a fresh tab or session. There is no full-screen intro, font-readiness wait, scroll lock or entry button. The optional WebGL bundle loads after 450 ms on desktop. Phones, touch devices, Data Saver and reported slow connections start with the lightweight sphere and offer “Enable 3D”; opening or scrolling does not download the renderer. Reduced motion uses the static sphere. Text uses local fonts with `font-display: swap`.
 
 Design references: [GSAP Showcase](https://gsap.com/showcase/) for coordinated motion and [Siteinspire](https://www.siteinspire.com/) for restrained typography and spacing. Awwwards WebGL/preloader galleries were requested but could not be fetched during this session. No reference assets or personal content were copied.
 

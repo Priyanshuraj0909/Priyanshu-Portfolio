@@ -495,3 +495,29 @@ mount. No unexpected uncaught errors or document overflow. These are single-run
 observations from this connection, not a guarantee for other networks. The
 separate Sites mirror could not be updated because its recorded project was
 not accessible in this session. No replacement Site was created.
+
+## Phone startup — 1 November 2026
+
+The previous immediate-entry fix still automatically loaded the 915 kB optional
+renderer (~243 kB gzip) after 900 ms on a phone. Phone startup now keeps the CSS
+sphere and offers “Enable 3D”. No renderer is requested until that action on
+narrow screens, coarse-pointer devices (including landscape phones), Data Saver
+or reported slow-2G/2G/3G connections. Desktop auto-loading remains delayed;
+paused, reduced-motion and hidden pages avoid automatic startup. Mobile
+backdrop blurs and fallback ring shadows were removed to reduce compositing.
+
+Production build/TypeScript, lint, 16 tests (including the loading-policy device
+and network matrix) and deployment-artifact checks passed. Local Node remains
+26.10.0; deployment/CI target Node 24. Existing optional-renderer size and
+module-type warnings remain.
+
+Chrome production-preview checks passed at 320/390px and 844px touch landscape:
+zero renderer requests on opening and scrolling, immediate non-inert content,
+working work-section navigation, no horizontal overflow or uncaught errors.
+Explicit phone activation requested the scene once, then Canvas, expand and
+pause controls worked. Desktop auto-loading, Data Saver, slow network hints
+(using prototype getters like the browser API) and reduced-motion behavior
+passed. At 4x CPU slowdown, 150 ms latency and 200,000 bytes/sec download,
+phone content became usable in 1,848 ms without requesting WebGL. This is
+Chrome emulation, not a physical-phone or Safari benchmark. The 320px screenshot
+was inspected.

@@ -234,3 +234,12 @@ Live custom-domain Chrome checks passed immediate entry at 320/390/1440px,
 keyboard navigation, project routing and Back, refresh, reduced motion and
 slow/failed optional asset loading. See QA_REPORT.md for measured timings and
 limits. No claim is made about permanent connectivity on every network.
+
+## Phone startup — 1 November 2026
+
+Phones and constrained connections now start with the lightweight CSS sphere.
+The optional renderer is fetched only after “Enable 3D”; desktop auto-loading
+remains. Mobile backdrop blur was removed. This changes application assets and
+requires publication through the existing GitHub/Vercel connection. The recorded
+Sites mirror remains inaccessible in this session; no replacement was created.
+See QA_REPORT.md for device/network checks and emulation limits.
