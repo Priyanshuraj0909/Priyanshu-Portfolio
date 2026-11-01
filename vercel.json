@@ -3,6 +3,19 @@
   "installCommand": "npm ci",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "priyanshu-portfolio-pi-ruby.vercel.app"
+        }
+      ],
+      "destination": "https://www.priyanshuraj.tech/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/systems/cinematch",

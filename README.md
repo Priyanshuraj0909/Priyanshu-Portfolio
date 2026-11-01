@@ -77,7 +77,8 @@ The owner authorized all remaining implementation phases autonomously. Local pha
 The portfolio custom domain was verified on 31 October 2026.
 Its existing HTTPS redirect leads to `https://www.priyanshuraj.tech`, now the
 default origin for canonical URLs, sitemap and social metadata. The generated
-Vercel hostname has intermittent connection timeouts; share the custom domain
+Vercel hostname redirects to the custom domain when reachable; its intermittent
+network connection timeouts can prevent that redirect. Share the custom domain
 with visitors. `PORTFOLIO_SITE_URL` overrides the origin; an explicitly
 empty value retains noindex for private previews. The independent deployment
 uses its own origin. See QA_REPORT.md and DEPLOYMENT.md for checks and limits.

@@ -288,3 +288,17 @@ unrepaired. No DNS or network settings were edited and no Vercel account token
 was available; an unconnected Vercel integration was found through discovery.
 The diagnostic script now reports primaryHost alongside the requested mirror
 so later reports show whether the main visitor URL works independently.
+
+## Canonical-host redirect and requested redeploy — 1 November 2026
+
+At the owner's explicit request, prepared a fresh production deployment through
+the existing GitHub integration. vercel.json now redirects only requests whose
+host is priyanshu-portfolio-pi-ruby.vercel.app to the corresponding path on
+https://www.priyanshuraj.tech. The primary domain and deployment previews do not
+match this condition. Local deployment checks enforce that scope.
+
+Before this change, normal DNS had already switched from failing .67 addresses
+to working .195 addresses and ordinary HTTPS returned 200. No system/provider
+DNS settings were changed. The redirect consolidates reachable visits onto the
+primary domain; it cannot operate before TCP/TLS succeeds and does not establish
+a permanent routing repair. See QA_REPORT.md for checks and the live result.

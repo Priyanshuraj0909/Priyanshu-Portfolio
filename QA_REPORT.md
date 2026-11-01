@@ -625,3 +625,25 @@ Vercel settings contained no access token; no account-level mutation was
 attempted. Original-hostname investigation remains dependent on Vercel/network
 access. [Vercel's connectivity guide](https://vercel.com/kb/guide/troubleshooting-connectivity-issues)
 describes comparing DNS/network paths and collecting the corresponding evidence.
+
+## Vercel redeployment and canonical-host redirect — 1 November 2026
+
+The owner explicitly requested another Vercel deployment after the recurring
+blank loading tab. The next diagnostic observed ordinary generated-host access
+returning 200 in 0.392s, with system and public DNS now both selecting working
+.195 addresses. This recovery occurred before any configuration change; it is
+not attributed to redeployment or an application fix.
+
+Added a permanent host-specific redirect in vercel.json from the generated
+hostname to https://www.priyanshuraj.tech/:path*. Primary-domain and preview
+requests do not match the condition. Deployment checks assert the exact source,
+host condition, canonical destination and permanence to catch redirect loops
+or accidentally redirecting previews. Existing static dossier rewrites remain.
+Production build/TypeScript, lint, all 16 tests, artifact checks and performance
+budgets passed locally. Existing size/module-type warnings remain.
+
+[Vercel redirect configuration](https://vercel.com/docs/project-configuration/vercel-json#redirects)
+supports this host condition and permanent 308 response. Live deployment must
+verify root, query strings, dossier paths, anchors and the primary-domain loop
+check. The rule can act only after HTTPS reaches Vercel; it cannot repair a
+failed TCP connection. Account-level domain/routing access remains unconnected.
