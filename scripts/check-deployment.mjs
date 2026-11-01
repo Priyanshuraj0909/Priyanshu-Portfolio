@@ -9,12 +9,17 @@ const config = JSON.parse(await readFile(new URL("../vercel.json", import.meta.u
 assert.equal(config.framework, "vite");
 assert.equal(config.outputDirectory, "dist");
 const legacyHost = "priyanshu-portfolio-pi-ruby.vercel.app";
-const primaryRedirect = config.redirects?.find(route => route.has?.some(condition => condition.type === "host" && condition.value === legacyHost));
+const primaryRedirect = config.redirects?.find(route => route.source === "/:path*" && route.has?.some(condition => condition.type === "host" && condition.value === legacyHost));
 assert.ok(primaryRedirect, "Missing host-specific redirect from the generated Vercel hostname");
 assert.equal(primaryRedirect.source, "/:path*");
 assert.equal(primaryRedirect.destination, `${site.url}/:path*`);
 assert.equal(primaryRedirect.permanent, true);
 assert.deepEqual(primaryRedirect.has, [{ type: "host", value: legacyHost }], "Redirect must not match the primary domain or previews");
+const rootRedirect = config.redirects?.find(route => route.source === "/");
+assert.ok(rootRedirect, "Root hostname redirect must be explicit");
+assert.equal(rootRedirect.destination, `${site.url}/`);
+assert.equal(rootRedirect.permanent, true);
+assert.deepEqual(rootRedirect.has, primaryRedirect.has);
 const siteUrl = process.env.PORTFOLIO_SITE_URL ?? site.url;
 const origin = siteUrl ? new URL(siteUrl).origin : null;
 

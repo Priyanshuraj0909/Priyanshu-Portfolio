@@ -5,6 +5,17 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "priyanshu-portfolio-pi-ruby.vercel.app"
+        }
+      ],
+      "destination": "https://www.priyanshuraj.tech/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

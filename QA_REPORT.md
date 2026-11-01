@@ -647,3 +647,10 @@ supports this host condition and permanent 308 response. Live deployment must
 verify root, query strings, dossier paths, anchors and the primary-domain loop
 check. The rule can act only after HTTPS reaches Vercel; it cannot repair a
 failed TCP connection. Account-level domain/routing access remains unconnected.
+
+First deployment `c3605cee5436d54e2092ceba61607f0d20d72b65` reported success
+and Node 24 CI passed. Live probing found project-path redirects active (308,
+query preserved), while `/` still returned 200, including a fresh query URL.
+Added an explicit host-conditioned `/` rule before the wildcard and extended
+the deployment gate to require both. The redirect work remains under live
+verification until the root check passes.
