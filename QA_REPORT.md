@@ -592,3 +592,36 @@ at 0.00163. Initial JS/CSS/two font transfer sizes totaled 266,367 bytes versus
 318,021 bytes before (~16% less, including response overhead). These are single
 observations, not repeat-run benchmarks or guarantees for every device/network.
 Physical iPhones/Android phones and Firefox remain unverified in this session.
+
+## Connection timeout and GitHub visitor links — 1 November 2026
+
+Reproduced the owner's ERR_CONNECTION_TIMED_OUT screenshot for the generated
+Vercel hostname. Two diagnostic runs resolved system addresses 64.29.17.67 and
+216.198.79.67 and timed out in ~5s with TCP/TLS timings both zero. Per-request
+comparisons preserving SNI/TLS to public-DNS addresses 64.29.17.195 and
+216.198.79.195 returned 200. These comparisons establish a working deployment
+behind an affected network path; they do not repair ordinary routing or prove
+which provider/ISP is responsible. Browser navigation also timed out after 10s.
+
+The custom domain returned HTTP 200 normally (0.096–0.360s in individual curl
+checks). Fresh desktop/mobile Chrome at 1440/390px reached mounted, non-inert
+content in 606/253 ms with no uncaught errors. These are observations on this
+connection, not uptime guarantees. No DNS, hosts, proxy, firewall or browser
+settings were changed. This supersedes earlier point-in-time Vercel success
+observations as evidence of current availability.
+
+The authenticated GitHub repository API showed the About website link still
+used the failing Vercel hostname. Updated it to https://www.priyanshuraj.tech/
+and verified the returned value. Removed the Vercel row from the README so its
+visitor link uses the custom domain. Connectivity diagnostics now also probe
+the configured primary origin and report primaryHost, even when the queried
+mirror fails. Lint, whitespace checks and the live diagnostic execution passed;
+its exit code 1 correctly reflects the observed mirror failure. Frontend assets
+were unchanged, so no additional frontend rebuild was needed for these edits.
+
+Vercel plugin discovery found an available but unconnected integration. It had
+already been suggested recently, so no duplicate suggestion was issued. Local
+Vercel settings contained no access token; no account-level mutation was
+attempted. Original-hostname investigation remains dependent on Vercel/network
+access. [Vercel's connectivity guide](https://vercel.com/kb/guide/troubleshooting-connectivity-issues)
+describes comparing DNS/network paths and collecting the corresponding evidence.

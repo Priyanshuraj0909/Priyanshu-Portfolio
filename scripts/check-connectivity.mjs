@@ -3,6 +3,7 @@ import { Resolver } from 'node:dns/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { isIP } from 'node:net';
+import { site } from '../src/content/site.ts';
 
 const execute = promisify(execFile);
 const hostname = process.argv[2] ?? 'priyanshu-portfolio-pi-ruby.vercel.app';
@@ -10,6 +11,7 @@ if (!/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/i.test(hostname))
   throw new Error('Pass a hostname without a scheme, path or port.');
 }
 const backup = 'https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/';
+const primaryUrl = `${site.url}/`;
 const resolver = new Resolver({ timeout: 3000, tries: 1 });
 // Quote http_code: curl emits 000 on connection failure, which is invalid JSON as a number.
 const metrics = '{"http":"%{http_code}","remote":"%{remote_ip}","finalUrl":"%{url_effective}","redirects":%{num_redirects},"dnsSeconds":%{time_namelookup},"tcpSeconds":%{time_connect},"tlsSeconds":%{time_appconnect},"totalSeconds":%{time_total}}';
@@ -44,14 +46,14 @@ const [system, google] = await Promise.allSettled([
 ]);
 const records = result => result.status === 'fulfilled' ? { addresses: result.value } : { error: result.reason.message };
 const addresses = [...new Set([...(system.status === 'fulfilled' ? system.value : []), ...(google.status === 'fulfilled' ? google.value : [])])].filter(ip => isIP(ip) === 4).slice(0, 6);
-const [normal, independentHost, ...edges] = await Promise.all([
-  probe(`https://${hostname}/`), probe(backup),
+const [normal, primaryHost, independentHost, ...edges] = await Promise.all([
+  probe(`https://${hostname}/`), probe(primaryUrl), probe(backup),
   ...addresses.map(async address => ({ address, ...await probe(`https://${hostname}/`, address) })),
 ]);
 const report = {
   checkedAt: new Date().toISOString(), hostname,
   dns: { defaultResolver: records(system), googlePublicDns: records(google) },
-  normal, independentHost: { url: backup, ...independentHost }, edges,
+  normal, primaryHost: { url: primaryUrl, ...primaryHost }, independentHost: { url: backup, ...independentHost }, edges,
   conclusion: normal.ok
     ? 'Reachable from this machine now. This does not prove recovery on another device/network or a permanent fix.'
     : edges.some(edge => edge.ok)

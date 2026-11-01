@@ -1,9 +1,6 @@
 # Priyanshu Raj — developer portfolio
 
-| Hosting | Live portfolio |
-| --- | --- |
-| Custom domain | [www.priyanshuraj.tech](https://www.priyanshuraj.tech/) |
-| Vercel | [priyanshu-portfolio-pi-ruby.vercel.app](https://priyanshu-portfolio-pi-ruby.vercel.app/) |
+**Live portfolio: [www.priyanshuraj.tech](https://www.priyanshuraj.tech/)**
 
 A teal and peach editorial portfolio with warm metallic typography, peach accents and a large procedural learning sphere inspired by Priyanshu’s AI/ML and full-stack work. Built with React, TypeScript, Vite and React Three Fiber. The About page opens immediately, with Projects and Journey below. Phones open with a lightweight sphere; interactive 3D loads only after tapping “Enable 3D”. Desktop 3D loads after the readable page paints, with a static fallback while it loads or if WebGL is unavailable. The same interactive sphere reacts to pointer movement, scrolling and controls throughout the homepage. Features expand/collapse and pause controls, an interactive project explorer, viewport-triggered lazy loading, reduced-motion support and static visual fallbacks. An oversized closing contact section pairs stacked social links with a subtle dotted globe.
 
@@ -79,7 +76,8 @@ The owner authorized all remaining implementation phases autonomously. Local pha
 
 The portfolio custom domain was verified on 31 October 2026.
 Its existing HTTPS redirect leads to `https://www.priyanshuraj.tech`, now the
-default origin for canonical URLs, sitemap and social metadata. The Vercel
-mirror remains available. `PORTFOLIO_SITE_URL` overrides the origin; an explicitly
+default origin for canonical URLs, sitemap and social metadata. The generated
+Vercel hostname has intermittent connection timeouts; share the custom domain
+with visitors. `PORTFOLIO_SITE_URL` overrides the origin; an explicitly
 empty value retains noindex for private previews. The independent deployment
 uses its own origin. See QA_REPORT.md and DEPLOYMENT.md for checks and limits.

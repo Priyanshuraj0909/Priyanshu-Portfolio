@@ -271,3 +271,20 @@ certificate/terminal interactions. The final throttled-phone observation reached
 usable content in 1.77s; this is one emulated run, not a device/network guarantee.
 See QA_REPORT.md for the comparison and verification limits. Sites still returned
 `project_not_found`, so that mirror was not updated.
+
+## Connection-timeout recurrence — 1 November 2026
+
+The generated Vercel hostname again failed before TCP/TLS through system-DNS
+.67 addresses, while per-request .195 comparisons and the existing custom
+domain returned HTTP 200. This is a connection-path failure before app loading;
+a smaller frontend or an HTTP redirect cannot repair a failed TCP connection.
+See QA_REPORT.md for exact addresses, checks and limits.
+
+Corrected the GitHub About website field from the failing Vercel hostname to
+https://www.priyanshuraj.tech/ through the authenticated repository API. README
+now presents only that custom-domain visitor link. Desktop/mobile Chrome
+confirmed normal entry on the custom domain. The old generated hostname remains
+unrepaired. No DNS or network settings were edited and no Vercel account token
+was available; an unconnected Vercel integration was found through discovery.
+The diagnostic script now reports primaryHost alongside the requested mirror
+so later reports show whether the main visitor URL works independently.
