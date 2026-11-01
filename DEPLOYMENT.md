@@ -260,3 +260,14 @@ build in CI to guard startup script/font size and optional WebGL separation.
 Local Chrome/WebKit desktop/mobile checks passed; Firefox could not launch on
 this host. Physical devices and all network paths cannot be guaranteed. The
 recorded Sites mirror remains inaccessible; no replacement Site was created.
+
+Application commit `8dd55d086f2c3463190933ee7b54f3010f230614` deployed
+successfully at
+https://vercel.com/king-09/priyanshu-portfolio/CnVhtyny4Rizzode9hCzwFFicyNV.
+The Node 24 CI run passed all checks, including performance budgets. Custom-domain
+and Vercel URLs returned 200 with matching optimized assets. Live Chrome and
+WebKit passed phone/desktop opening, fonts, animations, navigation and deferred
+certificate/terminal interactions. The final throttled-phone observation reached
+usable content in 1.77s; this is one emulated run, not a device/network guarantee.
+See QA_REPORT.md for the comparison and verification limits. Sites still returned
+`project_not_found`, so that mirror was not updated.

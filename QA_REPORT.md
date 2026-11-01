@@ -567,3 +567,28 @@ uncaught errors. Reduced motion passed in both engines. WebKit tests are not
 physical iPhone/Safari verification. Firefox 157 could not launch in this host:
 “Could not find profile folder”, including a retry with explicit /tmp storage;
 no Firefox page result is claimed.
+
+Application commit `8dd55d086f2c3463190933ee7b54f3010f230614` was pushed to
+GitHub and successfully deployed by Vercel. Node 24
+[Verify portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio/actions/runs/41287993899)
+passed, including the new performance budget. Both public hostnames returned
+200 and served matching `index-BQMP24dz.js` / `index-D1YnI941.css` assets.
+Sites again returned `project_not_found` for the recorded mirror; no replacement
+or access change was made.
+
+Live Chrome and WebKit checks passed at 390/1440px: immediate content, fonts,
+mobile opt-in/desktop automatic scene policy, gallery transitions, manual-scroll
+active navigation, capability reveal, dossier direct reload/Back, certificate
+search/reset across all 24 records, terminal help, reduced motion, no document
+overflow, no failed asset responses or uncaught page errors. One terminal test
+used an overly strict label-text selector; the textbox's accessible name was
+correct and the corrected role selector passed. No application fix was needed
+for that test issue. The fresh mobile opening screenshot was inspected.
+
+A live Chrome observation at 4x CPU slowdown, 150 ms latency and 200,000 bytes/sec
+measured usable content at 1,766 ms, versus the same earlier simulation's
+1,958 ms. Observed long tasks changed from 74/190 ms to one 76 ms task; CLS stayed
+at 0.00163. Initial JS/CSS/two font transfer sizes totaled 266,367 bytes versus
+318,021 bytes before (~16% less, including response overhead). These are single
+observations, not repeat-run benchmarks or guarantees for every device/network.
+Physical iPhones/Android phones and Firefox remain unverified in this session.
