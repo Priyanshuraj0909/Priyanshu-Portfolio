@@ -1,6 +1,4 @@
-import { lazy, useCallback, useState } from "react";
-import { Boot, shouldIntroduce } from "./boot";
-import { LayoutGroup } from "motion/react";
+import { lazy } from "react";
 import { BrandMark } from "@/components/brand/brand-mark";
 import { Deferred } from "./deferred";
 import { ProjectGallery } from "./project-gallery";
@@ -20,18 +18,9 @@ import { Capabilities } from "./capabilities";
 const Certificates = lazy(() => import("./certificates").then(m => ({default:m.Certificates})));
 
 export function Home() {
-  const [phase, setPhase] = useState<"loading" | "revealing" | "ready">(() => shouldIntroduce() ? "loading" : "ready");
-  const [sceneReady, setSceneReady] = useState(false);
-  const onSceneReady = useCallback(() => setSceneReady(true), []);
-  const reveal = useCallback(() => setPhase(current => current === "loading" ? "revealing" : current), []);
-  const complete = useCallback(() => {
-    setPhase("ready");
-    requestAnimationFrame(() => document.getElementById("main")?.focus({ preventScroll: true }));
-  }, []);
-  const booting = phase !== "ready";
-  return <LayoutGroup id="portfolio-identity"><Neural entering={phase === "loading"} controlsLocked={booting} onReady={onSceneReady} />
-    {booting && <Boot ready={sceneReady} revealing={phase === "revealing"} onReveal={reveal} onComplete={complete} />}
-    <div className={`portfolio-shell${phase === "loading" ? " is-entering" : ""}`} data-phase={phase} inert={booting || undefined}><Header showMark /><main id="main" tabIndex={-1}>
+  // Content is usable on the first render; optional WebGL enhances it later.
+  return <><Neural />
+    <div className="portfolio-shell"><Header showMark /><main id="main" tabIndex={-1}>
     <section id="about" className="studio-hero about-first" aria-labelledby="intro-title">
       <span id="core" className="home-anchor" aria-hidden="true" />
       <div className="hero-kicker"><span>01 / ABOUT</span><span>INTELLIGENCE, WITH INTENTION.</span></div>
@@ -57,5 +46,5 @@ export function Home() {
     <section id="live" className="studio-section archive-section" aria-labelledby="certificates-title"><div className="editorial-heading"><p className="eyebrow">04 / CONTINUOUS LEARNING</p><h2 id="certificates-title">Notes of <em>progress.</em></h2><p>24 certificates. One ongoing curiosity.</p></div><Deferred label="certificate archive"><Certificates /></Deferred></section>
     <section id="terminal" className="studio-section playground" aria-labelledby="terminal-title"><p className="eyebrow terminal-section-label">05 / TERMINAL</p><div><p className="eyebrow">A LITTLE SOMETHING TO EXPLORE</p><h2 id="terminal-title">Prefer the<br /><em>command line?</em></h2><p>Get to know my work, one command at a time.<br />Start with <code>help</code>.</p></div><Deferred label="interactive terminal"><PortfolioTerminal context={{ profile, projects, journey, certificates, commands: terminalCommands }} /></Deferred></section>
     <Contact />
-    </main><Footer /></div></LayoutGroup>;
+    </main><Footer /></div></>;
 }

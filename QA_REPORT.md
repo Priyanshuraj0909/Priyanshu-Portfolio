@@ -447,3 +447,36 @@ bounded Vercel update.
   delivery, intro/reveal, repeat bypass, layout and no uncaught errors.
 - No registrar or Vercel domain settings were edited. The typo explains this
   screenshot; an owner-side recheck using the correct link remains outstanding.
+
+## Immediate opening — 1 November 2026
+
+The owner reported a slow first visit while the full-screen intro displayed
+“Preparing the experience”. Source inspection confirmed a 1.8-second minimum,
+font and scene readiness gating (3.6-second deadline), then a 1.2-second exit
+with the entire portfolio inert until completion. This supersedes the previous
+31 October intro behavior.
+
+Before the fix, live Chrome fresh contexts measured usable content at 4,061 ms
+on desktop (1440px) and 3,267 ms on mobile (390px); the shell was inert at mount.
+Separate HTTPS requests returned 200: custom-domain total 0.743s and Vercel total
+0.374s. These are individual measurements, not broad network benchmarks.
+
+Removed the intro component, phase state, readiness gating, forced focus and
+intro-specific CSS. The same sphere loads after the existing 450/900 ms delay;
+a CSS fallback remains visible during loading. Fonts retain `font-display: swap`.
+The portfolio no longer depends on font downloads or a successful WebGL frame
+for entry. README now describes this behavior.
+
+Production build/TypeScript, all 13 tests, content checks and deployment-artifact
+checks passed on local Node 26.10.0. CI/Vercel continue to target Node 24. Existing
+large optional WebGL chunk and Node module-type warnings remain.
+
+Production-preview Chrome checks passed at 320, 390 and 1440px: shell visible
+and non-inert immediately, no entry overlay or scroll lock, keyboard access,
+project navigation and browser Back, reload, About anchor, no horizontal overflow
+and no unexpected uncaught errors. Normal local contexts measured 103–248 ms
+from navigation to mounted accessible content; these local results are not
+comparable network performance benchmarks. Four-second delays to both font
+and WebGL requests still allowed immediate content (108 ms). Aborted WebGL
+requests preserved the static fallback and navigation. Reduced motion rendered
+no Canvas. The mobile screenshot was inspected.

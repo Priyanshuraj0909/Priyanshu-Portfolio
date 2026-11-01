@@ -1,6 +1,6 @@
 # Production deployments
 
-- Recommended sharing URL: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
+- Primary sharing URL: [https://www.priyanshuraj.tech/](https://www.priyanshuraj.tech/)
 - Vercel mirror (intermittent connectivity): [https://priyanshu-portfolio-pi-ruby.vercel.app/](https://priyanshu-portfolio-pi-ruby.vercel.app/)
 - About: [https://priyanshu-portfolio-pi-ruby.vercel.app/#about](https://priyanshu-portfolio-pi-ruby.vercel.app/#about)
 - Public backup: [https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/](https://priyanshu-raj-ai-portfolio.priyanshuraj032004.chatgpt.site/)
@@ -12,7 +12,7 @@
 The owner supplied the live URL on 2026-10-27. HTTPS requests confirm the deployment is public. Commit f3b43a8 deployed successfully through the existing GitHub/Vercel connection; homepage and five dossier canonical/social metadata, indexing, robots.txt and the six-page XML sitemap passed live checks on 2026-10-27. The local checkout was fast-forwarded to the four published redesign commits before updating deployment references.
 
 Historical checks below describe availability at the time, not a lasting repair.
-See the 31 October recurrence entry for the current recommendation.
+See the latest custom-domain and immediate-opening entries for current status.
 
 On 2026-10-29 the Vercel-managed hostname repeatedly timed out on its current
 DNS-selected edge addresses even though the application and alternate Vercel
@@ -211,3 +211,16 @@ that separate domain; no domain was purchased or claimed.
 
 References: https://developers.google.com/speed/public-dns/docs/troubleshooting
 and https://vercel.com/docs/domains/troubleshooting.
+
+## Immediate opening — 1 November 2026
+
+Removed the full-screen first-visit intro after reproducing its delay in live
+Chrome. The homepage now becomes usable on the first React render while the
+optional sphere loads separately. The custom domain is the primary sharing URL;
+no domain or DNS configuration changes are needed for this fix.
+
+Independent mirror synchronization is unavailable in this session: Sites
+`get_site` returned `project_not_found` for the recorded project ID, and
+`list_sites` returned no owned sites. No replacement Site or access changes
+were made. Preserve the recorded identity for a later authorized session with
+access. GitHub/Vercel publication is tracked below.

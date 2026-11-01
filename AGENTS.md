@@ -28,3 +28,7 @@ Recurring Vercel connection timeouts were reproduced before TCP/TLS. The owner c
 ## Custom domain update — 2026-10-31
 
 The owner's NXDOMAIN screenshot actually shows `priyasnhuraj.tech` (n/s transposed); the initial reading missed the typo. Public DNS reproduces NXDOMAIN for that spelling. The correct `priyanshuraj.tech` resolves and redirects to `https://www.priyanshuraj.tech`, which serves the current portfolio with valid TLS and passed normal desktop/mobile Chrome checks. The source SEO default in src/content/site.ts and .env.example now uses that www origin, superseding the earlier Vercel canonical default. The independent Site retains its own origin. No registrar/hosting DNS settings were edited. Use the correct link; do not claim ownership of or redirect the misspelled domain. See DEPLOYMENT.md and QA_REPORT.md.
+
+## Immediate opening update — 2026-11-01
+
+The owner reported slow entry at the full-screen intro and authorized fixing and publishing it. The Vite homepage now renders accessible content immediately, with no intro dialog, font/scene readiness gate, inert shell or scroll lock. Preserve deferred optional WebGL and the static fallback; do not reintroduce a blocking splash. The custom domain remains the primary sharing URL. Sites returned `project_not_found` for the recorded project and an empty owned-sites list in this session; do not create a replacement or claim the independent mirror was updated without restored access. See QA_REPORT.md and DEPLOYMENT.md for checks and publication status.
