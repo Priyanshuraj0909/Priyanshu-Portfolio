@@ -302,3 +302,14 @@ to working .195 addresses and ordinary HTTPS returned 200. No system/provider
 DNS settings were changed. The redirect consolidates reachable visits onto the
 primary domain; it cannot operate before TCP/TLS succeeds and does not establish
 a permanent routing repair. See QA_REPORT.md for checks and the live result.
+
+Final corrected routing commit
+`76174fc68daa6cfa8017754a2f25f7650e2d08fb` successfully deployed at
+https://vercel.com/king-09/priyanshu-portfolio/9gMHFZbiBrFcpiQsWBbVQkxqNtGK.
+Node 24 CI passed. Both an explicit `/` rule and a wildcard path rule are needed:
+the first live wildcard-only deployment redirected projects but left root at
+200; the corrected deployment passed root, project/query and robots 308 checks.
+Primary-domain destinations returned 200 without loops. Fresh desktop/mobile
+Chrome verified anchors, queries, project reload and accessible content through
+ordinary DNS. Preserve these two host-specific rules. The redirect is verified;
+the earlier upstream TCP timeouts are not claimed to be permanently repaired.

@@ -654,3 +654,21 @@ query preserved), while `/` still returned 200, including a fresh query URL.
 Added an explicit host-conditioned `/` rule before the wildcard and extended
 the deployment gate to require both. The redirect work remains under live
 verification until the root check passes.
+
+Final application/configuration commit
+`76174fc68daa6cfa8017754a2f25f7650e2d08fb` reported Vercel “Deployment has
+completed” at
+https://vercel.com/king-09/priyanshu-portfolio/9gMHFZbiBrFcpiQsWBbVQkxqNtGK.
+Node 24 [Verify portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio/actions/runs/41289297112)
+passed all checks.
+
+Ordinary live HTTP checks confirmed 308 redirects for `/`,
+`/systems/cinematch?from=old-link` and `/robots.txt`, with exact custom-domain
+Location values and preserved path/query. The corresponding custom-domain URLs
+returned 200 directly, confirming no redirect loop. Fresh Chrome at 1440/390px
+confirmed original-host navigation ends at the custom domain, `#about` is
+retained, content is immediately non-inert, project queries survive, dossier
+reload works and no uncaught errors occur. No per-request DNS override was used
+for these final live checks. This verifies the deployed redirect, not a repair
+of the previously failing .67 network paths. Visitors should share the custom
+domain directly so initial access does not depend on the old hostname.
