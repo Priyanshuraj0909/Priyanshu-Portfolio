@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { MotionConfig, useReducedMotion, motion } from "motion/react";
+import { LazyMotion, domAnimation, MotionConfig, useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
 import { Pause, Play } from "lucide-react";
 
 interface PreferencesValue { paused: boolean; reduced: boolean; toggle: () => void }
@@ -12,7 +13,7 @@ export function MotionPreferences({ children }: { children: ReactNode }) {
   const [paused, setPaused] = useState(() => { try { return localStorage.getItem("portfolio:motion-paused") === "true"; } catch { return false; } });
   useEffect(() => { document.documentElement.dataset.motion = paused || reduced ? "paused" : "active"; return () => { delete document.documentElement.dataset.motion; }; }, [paused, reduced]);
   function toggle() { setPaused(value => { try { localStorage.setItem("portfolio:motion-paused", String(!value)); } catch {} return !value; }); }
-  return <Preferences.Provider value={{ paused, reduced, toggle }}><MotionConfig reducedMotion={paused ? "always" : "user"}>{children}</MotionConfig></Preferences.Provider>;
+  return <Preferences.Provider value={{ paused, reduced, toggle }}><LazyMotion features={domAnimation} strict><MotionConfig reducedMotion={paused ? "always" : "user"}>{children}</MotionConfig></LazyMotion></Preferences.Provider>;
 }
 export function MotionToggle({ placement = "header" }: { placement?: "header" | "footer" }) {
   const preferences = useContext(Preferences);
@@ -23,5 +24,5 @@ export function MotionToggle({ placement = "header" }: { placement?: "header" | 
 }
 export function Reveal({ children }: { children: ReactNode }) {
   const { paused, reduced } = useMotionPreferences();
-  return <motion.div initial={paused || reduced ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .08 }} transition={{ duration: paused || reduced ? 0 : .5 }}>{children}</motion.div>;
+  return <m.div initial={paused || reduced ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .08 }} transition={{ duration: paused || reduced ? 0 : .5 }}>{children}</m.div>;
 }

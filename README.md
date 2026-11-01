@@ -47,6 +47,7 @@ npm test
 npm run check:content
 npm run build
 npm run check:deployment
+npm run check:performance
 ```
 
 All 16 content/parser/filter/loading-policy tests, lint, typecheck, production build and deployment checks passed. Earlier production browser checks and the latest live smoke checks are recorded separately. See QA_REPORT.md for executed coverage and limits. `npm run dev:legacy`, `build:legacy` and `typecheck:legacy` retain the previous Next.js app. Runtime never calls GitHub or model APIs.
@@ -55,7 +56,7 @@ GitHub Actions runs a clean install, lint, tests, content checks, production bui
 
 ## Opening performance
 
-The homepage is accessible on its first React render, including a fresh tab or session. There is no full-screen intro, font-readiness wait, scroll lock or entry button. The optional WebGL bundle loads after 450 ms on desktop. Phones, touch devices, Data Saver and reported slow connections start with the lightweight sphere and offer “Enable 3D”; opening or scrolling does not download the renderer. Reduced motion uses the static sphere. Text uses local fonts with `font-display: swap`.
+The homepage is accessible on its first React render, including a fresh tab or session. There is no full-screen intro, font-readiness wait, scroll lock or entry button. The optional WebGL bundle loads after 450 ms on desktop. Phones, touch devices, Data Saver and reported slow connections start with the lightweight sphere and offer “Enable 3D”; opening or scrolling does not download the renderer. Reduced motion uses the static sphere. Text uses local WOFF2 fonts with `font-display: swap`. The original TTF fonts and licenses are preserved for the legacy app. The Vite UI uses Motion’s smaller animation feature bundle; navigation caches section positions rather than measuring layout on each scroll frame. `npm run check:performance` checks initial script size, compressed font assets and deferred WebGL, and runs in GitHub Actions.
 
 Design references: [GSAP Showcase](https://gsap.com/showcase/) for coordinated motion and [Siteinspire](https://www.siteinspire.com/) for restrained typography and spacing. Awwwards WebGL/preloader galleries were requested but could not be fetched during this session. No reference assets or personal content were copied.
 

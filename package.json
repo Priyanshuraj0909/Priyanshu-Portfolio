@@ -15,6 +15,7 @@
     "test:content": "node --test tests/personal-records.test.mjs",
     "check:content": "node scripts/check-personal-content.mjs",
     "check:deployment": "node scripts/check-deployment.mjs",
+    "check:performance": "node scripts/check-performance.mjs",
     "preview": "vite preview",
     "dev:legacy": "next dev",
     "build:legacy": "next build --webpack",

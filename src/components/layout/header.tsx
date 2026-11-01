@@ -12,18 +12,31 @@ export function Header({ showMark = true }: { showMark?: boolean }) {
  const [active, setActive] = useState('about');
  useEffect(() => {
   let frame = 0;
+  let positions: {id: string; top: number}[] = [];
   const update = () => {
-   const threshold = window.innerHeight * .35;
-   const sections = links.map(link => document.getElementById(link.id)).filter((element): element is HTMLElement => element !== null);
-   const current = sections.filter(element => element.getBoundingClientRect().top <= threshold)
-    .sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0];
-   setActive(current?.id ?? 'about');
+   const threshold = scrollY + innerHeight * .35;
+   let current = 'about';
+   for (const section of positions) if (section.top <= threshold) current = section.id;
+   setActive(current);
   };
-  const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
-  update();
+  const measure = () => {
+   positions = links.flatMap(link => {
+    const element = document.getElementById(link.id);
+    return element ? [{id: link.id, top: element.getBoundingClientRect().top + scrollY}] : [];
+   });
+   update();
+  };
+  const schedule = () => {
+   if (frame) return;
+   frame = requestAnimationFrame(() => { frame = 0; update(); });
+  };
+  const resize = new ResizeObserver(measure);
+  resize.observe(document.body);
+  measure();
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule);
-  return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); };
+  window.addEventListener('resize', measure);
+  document.fonts.addEventListener('loadingdone', measure);
+  return () => { cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', measure); document.fonts.removeEventListener('loadingdone', measure); };
  }, []);
- return <header className="studio-header"><a className="studio-brand" href="#core" aria-label="Priyanshu Raj, home"><span className="header-mark-slot">{showMark && <BrandMark shared />}</span><span className="brand-wordmark">PRIYANSHU<span>RAJ / DEVELOPER</span></span></a><nav className="numbered-nav" aria-label="Main navigation">{links.map((link, index)=><a key={link.id} href={`#${link.id}`} onClick={() => setActive(link.id)} aria-current={active===link.id?'location':undefined}><span className="nav-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{link.label}</span></a>)}</nav><div className="studio-header-actions"><a className="contact-pill" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a></div></header>;
+ return <header className="studio-header"><a className="studio-brand" href="#core" aria-label="Priyanshu Raj, home"><span className="header-mark-slot">{showMark && <BrandMark />}</span><span className="brand-wordmark">PRIYANSHU<span>RAJ / DEVELOPER</span></span></a><nav className="numbered-nav" aria-label="Main navigation">{links.map((link, index)=><a key={link.id} href={`#${link.id}`} onClick={() => setActive(link.id)} aria-current={active===link.id?'location':undefined}><span className="nav-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{link.label}</span></a>)}</nav><div className="studio-header-actions"><a className="contact-pill" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a></div></header>;
 }

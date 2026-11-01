@@ -250,3 +250,13 @@ hostnames serve the matching mobile-optimized assets. Live custom-domain
 Chrome checks confirmed zero automatic phone renderer requests, explicit 3D
 activation, slower CPU/network opening, landscape, Data Saver and reduced
 motion. See QA_REPORT.md for measured observations and device-testing limits.
+
+## Cross-browser startup assets — 1 November 2026
+
+Vite now serves compressed full-glyph WOFF2 fonts and a smaller Motion feature
+bundle. Original font sources/licenses and legacy code remain. Navigation avoids
+layout measurements during scrolling. `npm run check:performance` runs after
+build in CI to guard startup script/font size and optional WebGL separation.
+Local Chrome/WebKit desktop/mobile checks passed; Firefox could not launch on
+this host. Physical devices and all network paths cannot be guaranteed. The
+recorded Sites mirror remains inaccessible; no replacement Site was created.

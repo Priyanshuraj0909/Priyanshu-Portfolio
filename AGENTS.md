@@ -36,3 +36,7 @@ The owner reported slow entry at the full-screen intro and authorized fixing and
 ## Phone opening update — 2026-11-01
 
 Phones (<760px), coarse-pointer devices (including landscape phones), Data Saver and reported 2G/3G connections now start with the CSS sphere and load WebGL only after “Enable 3D”. Unconstrained desktops retain delayed automatic enhancement. Reduced motion, saved pause and background visibility prevent automatic startup; existing pause support remains. Preserve the explicit mobile choice and test actual renderer requests, not just the absence of a Canvas.
+
+## Browser performance update — 2026-11-01
+
+Vite now serves full-glyph WOFF2 versions of the existing variable fonts; original TTFs/licenses and the legacy Next.js implementation remain. UI animations use LazyMotion/domAnimation and m components; do not import full motion components inside the strict LazyMotion provider. The obsolete shared intro layout transition is removed. Navigation caches section positions on resize/layout changes and avoids layout measurements while scrolling. Run `npm run check:performance` after build (also required in CI) to enforce entry JS/font budgets and optional WebGL separation. Browser engines/emulation do not establish physical-device performance on every platform.

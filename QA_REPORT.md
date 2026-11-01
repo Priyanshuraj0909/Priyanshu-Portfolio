@@ -534,3 +534,36 @@ worked without uncaught errors. Live throttled usable-content observation was
 1,771 ms; unthrottled first phone context was 1,138 ms. Measurements are single
 runs and emulation cannot establish physical-device/Safari performance.
 The independent Sites mirror remains unavailable to this session.
+
+## Cross-browser performance — 1 November 2026
+
+Further reduced startup costs while preserving the mobile opt-in 3D policy:
+
+- Converted the three existing fonts to full-glyph variable WOFF2 with temporary
+  FontTools 4.68.0. Verified cmap, glyph order and variable axis ranges match the
+  originals. Originals and their licenses remain unchanged. Total font assets
+  fell from 367,420 to 139,516 bytes (62% smaller, rounded); the two fonts used
+  on opening fell from 323,884 to 120,660 bytes. `font-display: swap` remains.
+- Switched Vite animations to strict LazyMotion/domAnimation and m components.
+  Removed the unused brand layout transition left over from the former intro.
+  Initial JS fell from 435,910 to 389,601 bytes (~11%); Vite gzip report fell
+  from 138.06 to 124.96 kB (~9.5%). Optional WebGL remains a separate lazy chunk.
+- Navigation caches section positions on layout/viewport changes. Scroll frames
+  use cached values rather than repeated getBoundingClientRect/sorting work.
+- Added `npm run check:performance` and a CI step: entry <=400 kB /130 kB gzip,
+  total WOFF2 <=150 kB, no runtime TTF references, resolvable compressed fonts,
+  and no optional scene preload in the entry HTML.
+
+Production build/TypeScript, lint, all 16 tests, deployment-artifact checks and
+performance budgets passed locally on Node 26.10.0. Existing optional-renderer
+chunk size and Node module-type warnings remain. Build/runtime dependencies
+were unchanged. Temporary font tooling and browser binaries reside under /tmp.
+
+Local production Chrome and WebKit 27.2 checks passed at 390 and 1440px:
+accessible content on first render, successful WOFF2 loads, retained scene
+policy, next/previous project animation, active navigation after manual scroll,
+capability reveal, direct dossier reload and browser Back, no overflow or
+uncaught errors. Reduced motion passed in both engines. WebKit tests are not
+physical iPhone/Safari verification. Firefox 157 could not launch in this host:
+“Could not find profile folder”, including a retry with explicit /tmp storage;
+no Firefox page result is claimed.

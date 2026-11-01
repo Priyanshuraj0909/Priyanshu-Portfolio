@@ -1,7 +1,7 @@
 @import "../app/globals.css";
-@font-face { font-family: "Space Grotesk"; src: url("../app/fonts/SpaceGrotesk.ttf") format("truetype"); font-weight: 300 700; font-display: swap; }
-@font-face { font-family: "JetBrains Mono"; src: url("../app/fonts/JetBrainsMono.ttf") format("truetype"); font-weight: 100 800; font-display: swap; }
-@font-face { font-family: "Oxanium"; src: url("../app/fonts/Oxanium.ttf") format("truetype"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("../app/fonts/SpaceGrotesk.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("../app/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+@font-face { font-family: "Oxanium"; src: url("../app/fonts/Oxanium.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 :root { --void: #05070b; --panel: #0b1019; --text: #f3f6fc; --muted: #8994a8; --dim: #8994a8; --signal: #9b7cff; --glow: #58e1ff; --hair: #ffffff18; --hair-strong: #ffffff38; --font-space-grotesk: "Space Grotesk"; --font-jetbrains-mono: "JetBrains Mono"; --font-oxanium: "Oxanium"; }
 .site-atmosphere { background: radial-gradient(at 85% 15%, #65419b2a, transparent 45%), radial-gradient(at 5% 70%, #18576a18, transparent 45%); }
 .site-atmosphere::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(transparent, #000, transparent); }
