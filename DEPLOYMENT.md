@@ -224,3 +224,13 @@ Independent mirror synchronization is unavailable in this session: Sites
 `list_sites` returned no owned sites. No replacement Site or access changes
 were made. Preserve the recorded identity for a later authorized session with
 access. GitHub/Vercel publication is tracked below.
+
+Application commit `3bd83e507bb2e2556b8425ab6507092e0fad13e9` was pushed to
+`origin/main`; Vercel reported successful deployment at
+https://vercel.com/king-09/priyanshu-portfolio/9WhS14kXsfNFvHWgyVVJ93VUxGDk.
+Both `https://www.priyanshuraj.tech/` and the Vercel hostname returned 200
+with matching production assets. The Node 24 GitHub Actions verification passed.
+Live custom-domain Chrome checks passed immediate entry at 320/390/1440px,
+keyboard navigation, project routing and Back, refresh, reduced motion and
+slow/failed optional asset loading. See QA_REPORT.md for measured timings and
+limits. No claim is made about permanent connectivity on every network.

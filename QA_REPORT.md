@@ -480,3 +480,18 @@ comparable network performance benchmarks. Four-second delays to both font
 and WebGL requests still allowed immediate content (108 ms). Aborted WebGL
 requests preserved the static fallback and navigation. Reduced motion rendered
 no Canvas. The mobile screenshot was inspected.
+
+Published application commit `3bd83e507bb2e2556b8425ab6507092e0fad13e9` to
+GitHub `main`. Vercel reported “Deployment has completed”; Node 24 GitHub Actions
+[Verify portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio/actions/runs/41287090230)
+passed. Both custom-domain and Vercel URLs returned 200 and served matching
+`index-CmSRFQFK.js` / `index-yEG2L4Nn.css` assets.
+
+The same Chrome suite passed on the live custom domain at 320/390/1440px,
+including navigation, Back/reload, reduced motion, four-second font/scene delays
+and failed WebGL. Fresh normal contexts reached mounted usable content at
+1,186 ms desktop and 237 ms mobile, with the shell visible and non-inert at
+mount. No unexpected uncaught errors or document overflow. These are single-run
+observations from this connection, not a guarantee for other networks. The
+separate Sites mirror could not be updated because its recorded project was
+not accessible in this session. No replacement Site was created.
