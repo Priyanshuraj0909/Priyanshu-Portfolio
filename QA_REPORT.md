@@ -521,3 +521,16 @@ passed. At 4x CPU slowdown, 150 ms latency and 200,000 bytes/sec download,
 phone content became usable in 1,848 ms without requesting WebGL. This is
 Chrome emulation, not a physical-phone or Safari benchmark. The 320px screenshot
 was inspected.
+
+Published `49e35bb169272ad68f2cfd379ef3b935ad6ba009` to GitHub. Vercel
+reported successful deployment and Node 24
+[Verify portfolio](https://github.com/Priyanshuraj0909/Priyanshu-Portfolio/actions/runs/41287535031)
+passed. Both public hosts serve matching `index-bU7KRQXc.js` and
+`index-CXjQclb-.css` assets. The same live custom-domain Chrome matrix passed:
+phone portrait, 320px, touch landscape, throttled phone, desktop auto-loading,
+Data Saver, reported 3G and reduced motion. Phone opening/scrolling issued zero
+renderer requests before explicit activation; enabling, expanding and pausing
+worked without uncaught errors. Live throttled usable-content observation was
+1,771 ms; unthrottled first phone context was 1,138 ms. Measurements are single
+runs and emulation cannot establish physical-device/Safari performance.
+The independent Sites mirror remains unavailable to this session.

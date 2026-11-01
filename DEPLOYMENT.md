@@ -243,3 +243,10 @@ remains. Mobile backdrop blur was removed. This changes application assets and
 requires publication through the existing GitHub/Vercel connection. The recorded
 Sites mirror remains inaccessible in this session; no replacement was created.
 See QA_REPORT.md for device/network checks and emulation limits.
+
+Application commit `49e35bb169272ad68f2cfd379ef3b935ad6ba009` deployed
+successfully through Vercel; GitHub Actions passed on Node 24. Both public
+hostnames serve the matching mobile-optimized assets. Live custom-domain
+Chrome checks confirmed zero automatic phone renderer requests, explicit 3D
+activation, slower CPU/network opening, landscape, Data Saver and reduced
+motion. See QA_REPORT.md for measured observations and device-testing limits.
